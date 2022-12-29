@@ -1,0 +1,98 @@
+/* ==UserStyle==
+@name           Canvas Dark
+@namespace      github.com/Psychon-Dev-Studios/stylesheets
+@version        1.0.1
+@description    A stylesheet to provide a dark UI for Canvas
+@author         Psychon Development Studios
+@preprocessor   stylus
+@var            color activeSelection "Active Background" #181818
+@var            color inactiveUnderline "Inactive Text Underline" #fff
+@var            color dashCardHoverInverted "Card Hover Color (Inverted)" rgb(33, 255, 0)
+@var            text  cardImageHeight "Card Image Height" 240px
+@var            text  cardImageWidth  "Card Image Width"  145px
+==/UserStyle== */
+@-moz-document domain("everettsd.instructure.com") {
+    :root {
+        /* Custom backgrounds */
+        --cardImageURL: url("http://localhost:1555/ruik.png")
+    }
+
+    html {
+        filter: invert(0.9);
+    }
+    .ic-avatar img {
+        filter: invert(1);
+    }
+    .ic-DashboardCard__header_image,
+    .ic-DashboardCard__header_hero {
+        filter: invert(1)!important;
+    }
+    .ic-app-header__main-navigation,
+    .ic-app-header__menu-list-link--nav-toggle {
+        background: #fff!important;
+    }
+
+    .ic-app-header__menu-list-item--active .ic-app-header__menu-list-link {
+        background-color: activeSelection!important;
+        color: #181818!important;
+    }
+    .ic-icon-svg--navtoggle {
+        filter: invert(1);
+    }
+    #global_nav_courses_link,
+    #global_nav_calendar_link,
+    #global_nav_conversations_link,
+    #global_nav_history_link,
+    #global_nav_dashboard_link,
+    .globalNavExternalTool .ic-app-header__menu-list-link {
+        filter: invert(1);
+        color: inactiveUnderline;
+    }
+
+    .ic-DashboardCard__header > .ic-DashboardCard__header_hero {
+        background: var(--cardImageURL)!important;
+        background-size: cardImageHeight cardImageWidth!important;
+        background-origin: content-box!important;
+        background-position-x: center!important;
+    }
+
+    * img {
+        filter: invert(1)
+    }
+    .ic-flash__icon {
+        filter: invert(1);
+    }
+    .flash-message-container {
+        border: rgb(0, 251, 255) 1px solid;
+    }
+
+    .ic-DashboardCard__header-button-bg {
+        display: none;
+    }
+    .icon-more {
+        color: transparent!important;
+        transition: all;
+        transition-duration: 0.5s!important;
+    }
+    .ic-DashboardCard:hover {
+        box-shadow: 0px 0px 20px dashCardHoverInverted!important;
+        transition: all;
+        transition-duration: 0.5s!important;
+    }
+    .ic-DashboardCard {
+        transition: all;
+        transition-duration: 0.5s!important;
+    }
+
+    .icon-more:hover {
+        color: rgb(0, 0, 0)!important;
+        transition: all;
+        transition-duration: 0.5s!important;
+    }
+    #message-item-avatar-wrapper-UJnMHh9vM6TXGxgxJXeyM {
+        filter: invert(1);
+    }
+    .ui-widget-overlay {
+        filter: invert(1);
+    }
+}
