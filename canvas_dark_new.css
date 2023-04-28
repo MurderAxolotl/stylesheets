@@ -1,0 +1,48 @@
+/* ==UserStyle==
+@name           Dark Canvas
+@namespace      instructure.com
+@version        1.0.1
+@description    A smooth dark mode for Canvas
+@author         murderaxo
+@license        GNU GPLv3
+==/UserStyle== */
+@-moz-document domain("everettsd.instructure.com") {
+
+    iframe {
+        background: #000!important;
+        filter: invert(1)
+    }
+
+    html,
+    .elMgC_cHTY,
+    .profile-link,
+    img {
+        filter: invert(1)
+    }
+    .ic-app-header__main-navigation,
+    .menu-item-icon-container img {
+        filter: invert(0);
+    }
+    .ic-app-header__menu-list-item--active .ic-app-header__menu-list-link {
+        background: rgb(64, 64, 64)!important;
+        color: white!important
+    }
+
+    .ic-app-header__menu-list-link svg,
+    .ic-app-header__menu-list-item--active * {
+        color: rgb(255, 255, 255)!important
+    }
+    .enRcg_dsRi,
+    .wIZqC_cDWE {
+        filter: invert(1) brightness(0.5)
+    }
+
+    .ic-app-header {
+        filter: invert(1);
+        background: black
+    }
+
+    .ic-DashboardCard__header_image {
+        filter: invert(1)!important
+    }
+}
