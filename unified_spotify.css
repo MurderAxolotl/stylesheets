@@ -1,0 +1,457 @@
+/* ==UserStyle==
+@name           Unified Spotify
+@namespace      github.com/openstyles/stylus
+@license        GNU GPLv3
+@version        1.6.4
+@description    Brings a new, unified UI to Spotify
+@author         Axo
+@preprocessor   stylus
+@var checkbox hide_uname "Hide Username" 0
+@var checkbox hide_recs "Hide Recommendations" 0
+@var checkbox hide_un_sb_c "Expand playlist area in sidebar" 0
+@var checkbox hide_sb "Hide Scrollbar" 0
+@var select hide_sb "Scrollbar Mode" {"use_theme:Themed": "styled", "spotify:Default": "spotify", "hidden:Hidden": "hidden"}
+@var checkbox use_custom_theme_color "Enable custom colors" 1
+@var checkbox use_gay "Enable GAY! Mode (Turn off custom colors)" 0
+@var color custom_theme_color "CT: Accent Color" #9b6ef4
+@var color ct_active_song "CT: Active Track" #1c1e26
+==/UserStyle== */
+@-moz-document domain("open.spotify.com") {
+
+    @keyframes gay {
+        0% {
+            filter: hue-rotate(0deg)
+        }
+        100% {
+            filter: hue-rotate(359deg)
+        }
+    }
+
+    /*   Spotify Web Player   */
+    /* Hide premium promotions */
+    .html,
+    .spotify__container--is-web {
+        overflow-x: hidden!important
+    }
+    .Upqw01TOXETOmR5Td7Dj,
+    .eCtSle,
+    .Foyk_HJx16yh22JYmQ56 .ATUzFKub89lzvkmvhpyE {
+        display: none
+    }
+
+    .InvalidDropTarget .ATUzFKub89lzvkmvhpyE,
+    .b2KVTiBUcXV1kT0OjL2p .ATUzFKub89lzvkmvhpyE {
+        transition: all 1s;
+    }
+    .InvalidDropTarget .ATUzFKub89lzvkmvhpyE:hover,
+    .b2KVTiBUcXV1kT0OjL2p:hover .ATUzFKub89lzvkmvhpyE:hover {
+        transition: all 1s;
+    }
+
+    if hide_sb==hidden {
+        .os-scrollbar-vertical {
+            display: none
+        }
+    }
+    else {
+        .os-scrollbar-vertical {
+            width: 10px!important;
+            border-radius: 5px 5px!important
+        }
+        if hide_sb==styled {
+            .os-scrollbar-handle {
+                // width:10px!important;
+                border-radius: 5px 5px!important;
+                if use_custom_theme_color {
+                    background: custom_theme_color!important;
+                    filter: opacity(0.5)!important
+                }
+            }
+        }
+    }
+
+    /* Footer */
+    .joBbFt {
+        display: none
+    }
+
+    /* Hides sponsors */
+    .sponsor-text,
+    .sponsor-logo__image {
+        display: none!important
+    }
+
+
+    /* PLAYLIST UI AND PLAYER UI */
+    .rezqw3Q4OEPB1m4rmwfw > .contentSpacing,
+    .qJOhHoRcFhHJpEQ2CwFT,
+    section,
+    .main-view-container__scroll-node-child,
+    .HsbczDqu9qjcYr7EIdHR,
+    .BL__GuO2JsHMR6RgNfwY > .contentSpacing,
+    .gHImFiUWOg93pvTefeAD.xYgjMpAjE5XT05aRIezb,
+    .gHImFiUWOg93pvTefeAD,
+    .xYgjMpAjE5XT05aRIezb,
+    .contentSpacing.jzhwZKbfx4vrC_MYd_7c.QyANtc_r7ff_tqrf5Bvc.Shelf,
+    .E4q8ogfdWtye7YgotBlN.contentSpacing,
+    {
+        background: hsl(227, 15%, 6%)!important
+    }
+
+    .T1xI1RTSFU7Wu94UuvE6 {
+        filter: opacity(1)!important;
+        background: hsl(227, 15%, 15%)!important
+    }
+
+    /* PLAYLIST SELECTION UI */
+    .main-view-container__scroll-node .os-content,
+    .L9xhJOJnV2OL5Chm3Jew,
+    .oNjdJbGQ9ypf7KR0nYJW,
+    .ibrRlYShsgThsh8VNS8Q {
+        background: hsl(227, 15%, 6%)!important
+    }
+    .LunqxlFIupJw_Dkx6mNx,
+    .oaNVBli46GtVjaQKB15g {
+        background: hsl(227, 15%, 10%)!important
+    }
+
+    /* SIDEBAR */
+    .tUwyjggD2n5KvEtP5z1B {
+        background: hsl(227, 15%, 5%)!important
+    }
+
+    .McwcCfBLSuXa5UDU1IMw {
+        display: none
+    }
+
+    /* CONTEXT MENUS */
+    #context-menu,
+    button.wC9sIed7pfp47wZbmU6m,
+    .SboKmDrCTZng7t4EgNoM {
+        background: hsl(227, 15%, 15%)!important
+    }
+
+    button.wC9sIed7pfp47wZbmU6m:hover {
+        background: hsl(227, 15%, 17%)!important
+    }
+
+    /* PLAYER UI */
+    .OCY4jHBlCVZEyGvtSv0J {
+        background: hsl(227, 15%, 5%)!important
+    }
+
+    /* HEADERS ON PLAYLISTS */
+    .E4q8ogfdWtye7YgotBlN {
+        background: hsl(227, 15%, 6%)!important;
+    }
+    .CoLO4pdSl8LGWyVZA00t {
+        background: linear-gradient(180deg, hsl(217, 18%, 6%) 0%, hsla(288, 14%, 7%, 0) 100%)!important
+    }
+    .xYgjMpAjE5XT05aRIezb {
+        background: hsl(217, 18%, 6%)!important
+    } // CONNECT TO DEVICE SCREEN
+    .bk509U3ZhZc9YBJAmoPB,
+    .rsaJ_PD5Wsx9a9H2IyV_,
+    #context-menu,
+    .ErSD7TARZzk270zuVjoi,
+    .HVCCFeUiHVwZVv74p34a .os-viewport-native-scrollbars-invisible,
+    .hwP4Oum2PB765sb8jigI {
+        background: hsl(227, 15%, 6%)!important;
+    }
+
+    if hide_uname {
+        .fEBgUb .MfVrtIzQJ7iZXfRWg6eM,
+        .RfdRTSGwulyQdDepLUTT {
+            filter: opacity(0)!important;
+            cursor: not-allowed;
+            pointer-events: none
+        }
+        .fhrvNw,
+        .CdHBSRh3RhPwBNIBQtkD,
+        .MF2rLXp4d_JPNs2t0bbj,
+        .kHu_FTRgoBLSLeAJtyKY,
+        .w3w0DS8atwcgOQJAKAV2,
+        .ta4ePOlmGXjBYPTd90lh {
+            filter: opacity(0)!important;
+        }
+        .G7zO58ORUHxcUw0sXktM {
+            filter: opacity(0)
+        }
+    }
+
+    if use_custom_theme_color {
+        .kWONUS,
+        .dpREpp,
+        .QavgDs_52SpJ2rw0LNYz,
+        .fipMme,
+        .Ar1CZ7qjPHuIJY0cI56W .btn,
+        .iSbqnFdjb1SuyJ3uWydl .btn,
+        .h4HgbO_Uu1JYg5UGANeQ .btn,
+        .eSg4ntPU2KQLfpLGXAww .btn,
+        .lro6AjUrZFH6zxjmOGg0 .encore-bright-accent-set, .encore-bright-accent-set, .SPC4uzYXJmknkCGKpxHw path{
+            background-color: custom_theme_color!important;
+        }
+        .Ar1CZ7qjPHuIJY0cI56W .btn {
+            scale: 60%;
+            filter: grayscale(1)
+        }
+        .iSbqnFdjb1SuyJ3uWydl .btn,
+        .h4HgbO_Uu1JYg5UGANeQ .btn {
+            scale: 60%!important
+        }
+
+        .K7fGF95OD9aI3zdYnFXg path,
+        .ilmalU,
+        .Xmv2oAnTB85QE4sqbK00 path,
+        .Xmv2oAnTB85QE4sqbK00,
+        .RK45o6dbvO1mb0wQtSwq,
+        .GlueDropTarget--episodes .KAZD28usA1vPz5GVpm63,
+        .rRF_r7EyCHjZv058JACi path, .SPC4uzYXJmknkCGKpxHw path, .control-button-heart path, .control-button-heart, .volume-bar__icon-button .gQUQL, .NdVm10_yLWkkgq87jOMk path, .CCeu9OfWSwIAJqA49n84 path,
+        .iSbqnFdjb1SuyJ3uWydl .UIBT7E6ZYMcSDl1KL62g, .NTJM_mh36C5kJ5oO8eac path, .I_aApN9pSlbGcpLtFQWw path, .Vz6yjzttS0YlLcwrkoUR .gQUQL, .KVKoQ3u4JpKTvSSFtd6J path, .fn72ari9aEmKo4JcwteT .gQUQL, .mnipjT4SLDMgwiDCEnRC path {
+            fill: custom_theme_color!important;
+            color: custom_theme_color!important
+        }
+        .QavgDs_52SpJ2rw0LNYz {
+            display: none
+        }
+        .N3juGUCH1EhEzmffNHAp {
+            background: custom_theme_color!important;
+            filter: brightness(0.7) contrast(1.5)
+        }
+        .tP0mccyU1WAa7I9PevC1 .uPxdw,
+        .tP0mccyU1WAa7I9PevC1,
+        .OF_3F0SQCsBtL1jSTlTA,
+        .rRF_r7EyCHjZv058JACi .uPxdw {
+            color: custom_theme_color!important;
+            transition: all 0.5s
+        }
+        .rRF_r7EyCHjZv058JACi .uPxdw:hover {
+            filter: brightness(1.2);
+            scale: 1.1;
+            transition: all 0.5s
+        }
+        .epWhU7hHGktzlO_dop6z {
+            background: custom_theme_color
+        } // LYRICS
+        .arY01KDGhWNgzlAHlhpd,
+        .C3pBU1DsOUJJOAv89ZFT {
+            color: custom_theme_color!important;
+            filter: opacity(1)!important
+        }
+        ._LKG3z7SnerR0eigPCoK {
+            color: custom_theme_color;
+            filter: opacity(0.4)
+        }
+        .MEjuIn9iTBQbnCqHpkoQ {
+            color: custom_theme_color!important
+        }
+        .C3pBU1DsOUJJOAv89ZFT {
+            font-size: 3rem!important
+        } // LIKE BUTTON
+        .vnCew8qzJq3cVGlYFXRI {
+            background: custom_theme_color!important;
+            transition: all 0.7s ease
+        }
+        .vnCew8qzJq3cVGlYFXRI:hover {
+            background: custom_theme_color!important;
+            filter: brightness(1.2);
+            scale: 1.1;
+            transition: all 0.5s
+        } // ACTIVE TRACK
+        .iSbqnFdjb1SuyJ3uWydl .t_yrXoUO3qGsJS4Y6iXX.standalone-ellipsis-one-line {
+            color: custom_theme_color!important
+        }
+        .fwTMCeAaUoWDj9WcQbgy path {
+            fill: custom_theme_color
+        }
+        .iSbqnFdjb1SuyJ3uWydl {
+            background: ct_active_song
+        } // CONNECT TO DEVICE SCREEN
+        .Rpvqb,
+        .IbmaxRtjqCjqTBpFwCgw {
+            color: custom_theme_color!important
+        }
+        .uWvwXlS0Da1bWsRX6KOw path,
+        .uWvwXlS0Da1bWsRX6KOw,
+        .INitzTSjokOMEJOc6P2H path,
+        .IbmaxRtjqCjqTBpFwCgw,
+        .YY5a3DPS6akIYNqJdwn3 {
+            fill: custom_theme_color!important
+        }
+        .IbmaxRtjqCjqTBpFwCgw {
+            display: none!important
+        }
+    }
+
+    if use_gay {
+        .kWONUS,
+        .dpREpp,
+        .QavgDs_52SpJ2rw0LNYz,
+        .fipMme,
+        .Ar1CZ7qjPHuIJY0cI56W .btn,
+        .iSbqnFdjb1SuyJ3uWydl .btn,
+        .h4HgbO_Uu1JYg5UGANeQ .btn,
+        .eSg4ntPU2KQLfpLGXAww .btn,
+        .lro6AjUrZFH6zxjmOGg0 .encore-bright-accent-set,
+        .encore-bright-accent-set, .SPC4uzYXJmknkCGKpxHw path{
+            background-color: custom_theme_color!important;
+            animation: gay 5s infinite!important;
+        }
+        .Ar1CZ7qjPHuIJY0cI56W .btn {
+            scale: 60%;
+            filter: grayscale(1)
+        }
+        .iSbqnFdjb1SuyJ3uWydl .btn,
+        .h4HgbO_Uu1JYg5UGANeQ .btn {
+            scale: 60%!important
+        }
+
+        .K7fGF95OD9aI3zdYnFXg path,
+        .ilmalU,
+        .Xmv2oAnTB85QE4sqbK00 path,
+        .Xmv2oAnTB85QE4sqbK00,
+        .RK45o6dbvO1mb0wQtSwq,
+        .GlueDropTarget--episodes .KAZD28usA1vPz5GVpm63,
+        .rRF_r7EyCHjZv058JACi path, .SPC4uzYXJmknkCGKpxHw path, .control-button-heart path, .control-button-heart, .volume-bar__icon-button .gQUQL, .NdVm10_yLWkkgq87jOMk path, .CCeu9OfWSwIAJqA49n84 path,
+        .iSbqnFdjb1SuyJ3uWydl .UIBT7E6ZYMcSDl1KL62g, .NTJM_mh36C5kJ5oO8eac path, .I_aApN9pSlbGcpLtFQWw path, .Vz6yjzttS0YlLcwrkoUR .gQUQL, .KVKoQ3u4JpKTvSSFtd6J path, .fn72ari9aEmKo4JcwteT .gQUQL, .mnipjT4SLDMgwiDCEnRC path {
+            fill: custom_theme_color!important;
+            color: custom_theme_color!important;
+            animation: gay 5s infinite!important;
+        }
+        .QavgDs_52SpJ2rw0LNYz {
+            display: none
+        }
+        .N3juGUCH1EhEzmffNHAp {
+            background: custom_theme_color!important;
+            filter: brightness(0.7) contrast(1.5);
+            animation: gay 5s infinite!important;
+        }
+        .tP0mccyU1WAa7I9PevC1 .uPxdw,
+        .tP0mccyU1WAa7I9PevC1,
+        .OF_3F0SQCsBtL1jSTlTA,
+        .rRF_r7EyCHjZv058JACi .uPxdw {
+            color: custom_theme_color!important;
+            transition: all 0.5s;
+            animation: gay 5s infinite!important;
+        }
+        .rRF_r7EyCHjZv058JACi .uPxdw:hover {
+            filter: brightness(1.2);
+            scale: 1.1;
+            transition: all 0.5s
+        }
+        .epWhU7hHGktzlO_dop6z {
+            background: custom_theme_color;
+            animation: gay 5s infinite!important;
+        } // LYRICS
+        .arY01KDGhWNgzlAHlhpd,
+        .C3pBU1DsOUJJOAv89ZFT {
+            color: custom_theme_color!important;
+            filter: opacity(1) contrast(5)!important;
+/*             animation: gay 5s infinite!important; */
+        }
+        ._LKG3z7SnerR0eigPCoK {
+            color: custom_theme_color;
+            filter: opacity(0.4);
+            animation: gay 5s infinite!important;
+        }
+        .MEjuIn9iTBQbnCqHpkoQ {
+            color: custom_theme_color!important;
+            animation: gay 5s infinite!important;
+        }
+        .C3pBU1DsOUJJOAv89ZFT {
+            font-size: 3rem!important
+        } // LIKE BUTTON
+        .vnCew8qzJq3cVGlYFXRI {
+            background: custom_theme_color!important;
+            transition: all 0.7s ease;
+            animation: gay 5s infinite!important;
+        }
+        .vnCew8qzJq3cVGlYFXRI:hover {
+            background: custom_theme_color!important;
+            filter: brightness(1.2);
+            scale: 1.1;
+            transition: all 0.5s;
+            animation: gay 5s infinite!important;
+        } // ACTIVE TRACK
+        .iSbqnFdjb1SuyJ3uWydl .t_yrXoUO3qGsJS4Y6iXX.standalone-ellipsis-one-line {
+            color: custom_theme_color!important;
+            aanimation: gay 5s infinite!important;
+        }
+        .fwTMCeAaUoWDj9WcQbgy path {
+            fill: custom_theme_color;
+            animation: gay 5s infinite!important;
+        }
+        .iSbqnFdjb1SuyJ3uWydl {
+            background: ct_active_song;
+            animation: gay 5s infinite!important;
+        } // CONNECT TO DEVICE SCREEN
+        .Rpvqb,
+        .IbmaxRtjqCjqTBpFwCgw {
+            color: custom_theme_color!important;
+            animation: gay 5s infinite!important;
+        }
+        .uWvwXlS0Da1bWsRX6KOw path,
+        .uWvwXlS0Da1bWsRX6KOw,
+        .INitzTSjokOMEJOc6P2H path,
+        .IbmaxRtjqCjqTBpFwCgw,
+        .YY5a3DPS6akIYNqJdwn3 {
+            fill: custom_theme_color!important;
+            animation: gay 5s infinite!important;
+        }
+        .IbmaxRtjqCjqTBpFwCgw {
+            display: none!important
+        }
+    }
+
+    if hide_un_sb_c {
+
+        .IPVjkkhh06nan7aZK7Bx {
+            display: none
+        }
+        .GlueDropTarget--tracks .r9YzlaAPnM2LGK97GSfa {
+            display: none
+        }
+        .GlueDropTarget--episodes .r9YzlaAPnM2LGK97GSfa {
+            display: none
+        }
+    }
+
+    if hide_recs {
+        .kwe0I8sSNMv3gYBjkRYP,
+        .STDuzt77yRCueC4Ohenl .jqNXli {
+            display: none
+        }
+    }
+}
+
+@-moz-document domain("about-recommendations.spotify.com") {
+    .tJeH2W2to1A7d9tWBRoi,
+    #__next,
+    .fLcSoX,
+    body,
+    .tJeH2W2to1A7d9tWBRoi {
+        background: hsl(227, 15%, 6%)!important
+    }
+
+    if hide_sb==hidden {
+        .os-scrollbar-vertical {
+            display: none
+        }
+    }
+    else {
+        .os-scrollbar-vertical {
+            width: 10px!important;
+            border-radius: 5px 5px!important
+        }
+        if hide_sb==styled {
+            .os-scrollbar-handle {
+                // width:10px!important;
+                border-radius: 5px 5px!important;
+                if use_custom_theme_color {
+                    background: custom_theme_color!important;
+                    filter: opacity(0.5)!important
+                }
+            }
+        }
+    }
+}
