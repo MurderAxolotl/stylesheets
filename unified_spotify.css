@@ -2,7 +2,7 @@
 @name           Unified Spotify
 @namespace      github.com/openstyles/stylus
 @license        GNU GPLv3
-@version        1.6.4
+@version        1.6.6
 @description    Brings a new, unified UI to Spotify
 @author         Axo
 @preprocessor   stylus
@@ -158,6 +158,10 @@
     .hwP4Oum2PB765sb8jigI {
         background: hsl(227, 15%, 6%)!important;
     }
+    
+    .Footer__StyledFooter-sc-xwm5vq-0 {
+        display:none
+    }
 
     if hide_uname {
         .fEBgUb .MfVrtIzQJ7iZXfRWg6eM,
@@ -207,7 +211,7 @@
         .RK45o6dbvO1mb0wQtSwq,
         .GlueDropTarget--episodes .KAZD28usA1vPz5GVpm63,
         .rRF_r7EyCHjZv058JACi path, .SPC4uzYXJmknkCGKpxHw path, .control-button-heart path, .control-button-heart, .volume-bar__icon-button .gQUQL, .NdVm10_yLWkkgq87jOMk path, .CCeu9OfWSwIAJqA49n84 path,
-        .iSbqnFdjb1SuyJ3uWydl .UIBT7E6ZYMcSDl1KL62g, .NTJM_mh36C5kJ5oO8eac path, .I_aApN9pSlbGcpLtFQWw path, .Vz6yjzttS0YlLcwrkoUR .gQUQL, .KVKoQ3u4JpKTvSSFtd6J path, .fn72ari9aEmKo4JcwteT .gQUQL, .mnipjT4SLDMgwiDCEnRC path {
+        .iSbqnFdjb1SuyJ3uWydl .UIBT7E6ZYMcSDl1KL62g, .NTJM_mh36C5kJ5oO8eac path, .I_aApN9pSlbGcpLtFQWw path, .Vz6yjzttS0YlLcwrkoUR .gQUQL, .KVKoQ3u4JpKTvSSFtd6J path, .fn72ari9aEmKo4JcwteT .gQUQL, .mnipjT4SLDMgwiDCEnRC path, .uWvwXlS0Da1bWsRX6KOw, .etChWo, .fn72ari9aEmKo4JcwteT path, .volume-bar__icon-button .ldgdZj {
             fill: custom_theme_color!important;
             color: custom_theme_color!important
         }
@@ -313,7 +317,7 @@
         .RK45o6dbvO1mb0wQtSwq,
         .GlueDropTarget--episodes .KAZD28usA1vPz5GVpm63,
         .rRF_r7EyCHjZv058JACi path, .SPC4uzYXJmknkCGKpxHw path, .control-button-heart path, .control-button-heart, .volume-bar__icon-button .gQUQL, .NdVm10_yLWkkgq87jOMk path, .CCeu9OfWSwIAJqA49n84 path,
-        .iSbqnFdjb1SuyJ3uWydl .UIBT7E6ZYMcSDl1KL62g, .NTJM_mh36C5kJ5oO8eac path, .I_aApN9pSlbGcpLtFQWw path, .Vz6yjzttS0YlLcwrkoUR .gQUQL, .KVKoQ3u4JpKTvSSFtd6J path, .fn72ari9aEmKo4JcwteT .gQUQL, .mnipjT4SLDMgwiDCEnRC path {
+        .iSbqnFdjb1SuyJ3uWydl .UIBT7E6ZYMcSDl1KL62g, .NTJM_mh36C5kJ5oO8eac path, .I_aApN9pSlbGcpLtFQWw path, .Vz6yjzttS0YlLcwrkoUR .gQUQL, .KVKoQ3u4JpKTvSSFtd6J path, .fn72ari9aEmKo4JcwteT .gQUQL, .mnipjT4SLDMgwiDCEnRC path, .uWvwXlS0Da1bWsRX6KOw, .etChWo, .fn72ari9aEmKo4JcwteT path, .volume-bar__icon-button .ldgdZj {
             fill: custom_theme_color!important;
             color: custom_theme_color!important;
             animation: gay 5s infinite!important;
