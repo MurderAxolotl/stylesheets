@@ -2,7 +2,7 @@
 @name           Unified Spotify
 @namespace      github.com/openstyles/stylus
 @license        GNU GPLv3
-@version        1.6.6
+@version        1.7.1
 @description    Brings a new, unified UI to Spotify
 @author         Axo
 @preprocessor   stylus
@@ -79,6 +79,10 @@
     .sponsor-text,
     .sponsor-logo__image {
         display: none!important
+    }
+    
+    .eFyQzR {
+        display:none
     }
 
 
@@ -164,6 +168,15 @@
     }
 
     if hide_uname {
+        .pudHk.MfVrtIzQJ7iZXfRWg6eM {
+            display:none
+        }
+        .Za_uNH8nTZ0qCuIqbPLZ span {
+            display:none
+        }
+        .NO_VO3MRVl9z3z56d8Lg {
+            display:none
+        }
         .fEBgUb .MfVrtIzQJ7iZXfRWg6eM,
         .RfdRTSGwulyQdDepLUTT {
             filter: opacity(0)!important;
@@ -211,7 +224,7 @@
         .RK45o6dbvO1mb0wQtSwq,
         .GlueDropTarget--episodes .KAZD28usA1vPz5GVpm63,
         .rRF_r7EyCHjZv058JACi path, .SPC4uzYXJmknkCGKpxHw path, .control-button-heart path, .control-button-heart, .volume-bar__icon-button .gQUQL, .NdVm10_yLWkkgq87jOMk path, .CCeu9OfWSwIAJqA49n84 path,
-        .iSbqnFdjb1SuyJ3uWydl .UIBT7E6ZYMcSDl1KL62g, .NTJM_mh36C5kJ5oO8eac path, .I_aApN9pSlbGcpLtFQWw path, .Vz6yjzttS0YlLcwrkoUR .gQUQL, .KVKoQ3u4JpKTvSSFtd6J path, .fn72ari9aEmKo4JcwteT .gQUQL, .mnipjT4SLDMgwiDCEnRC path, .uWvwXlS0Da1bWsRX6KOw, .etChWo, .fn72ari9aEmKo4JcwteT path, .volume-bar__icon-button .ldgdZj {
+        .iSbqnFdjb1SuyJ3uWydl .UIBT7E6ZYMcSDl1KL62g, .NTJM_mh36C5kJ5oO8eac path, .I_aApN9pSlbGcpLtFQWw path, .Vz6yjzttS0YlLcwrkoUR .gQUQL, .KVKoQ3u4JpKTvSSFtd6J path, .fn72ari9aEmKo4JcwteT .gQUQL, .mnipjT4SLDMgwiDCEnRC path, .uWvwXlS0Da1bWsRX6KOw, .etChWo, .fn72ari9aEmKo4JcwteT path, .volume-bar__icon-button .ldgdZj, .o_wMyH9_LbAmIwlVqsF0 path, .G7aCptcOZswI1fN6dGkO path, .cVy6fGx6QtJbCnID7XdB path, .Vz6yjzttS0YlLcwrkoUR .ldgdZj {
             fill: custom_theme_color!important;
             color: custom_theme_color!important
         }
@@ -271,19 +284,23 @@
         .iSbqnFdjb1SuyJ3uWydl {
             background: ct_active_song
         } // CONNECT TO DEVICE SCREEN
-        .Rpvqb,
-        .IbmaxRtjqCjqTBpFwCgw {
+        .Rpvqb {
             color: custom_theme_color!important
         }
         .uWvwXlS0Da1bWsRX6KOw path,
         .uWvwXlS0Da1bWsRX6KOw,
         .INitzTSjokOMEJOc6P2H path,
-        .IbmaxRtjqCjqTBpFwCgw,
-        .YY5a3DPS6akIYNqJdwn3 {
+        .IbmaxRtjqCjqTBpFwCgw svg, .WFRr38dFOxh75JyzSTj5 svg, .IbmaxRtjqCjqTBpFwCgw svg {
             fill: custom_theme_color!important
         }
-        .IbmaxRtjqCjqTBpFwCgw {
+/*         .IbmaxRtjqCjqTBpFwCgw {
             display: none!important
+        } */
+        
+        div .WFRr38dFOxh75JyzSTj5, div .IbmaxRtjqCjqTBpFwCgw, .WFRr38dFOxh75JyzSTj5 .encore-bright-accent-set .IbmaxRtjqCjqTBpFwCgw {
+            background:none!important;
+            fill:none!important;
+            color:none!important;
         }
     }
 
@@ -317,7 +334,7 @@
         .RK45o6dbvO1mb0wQtSwq,
         .GlueDropTarget--episodes .KAZD28usA1vPz5GVpm63,
         .rRF_r7EyCHjZv058JACi path, .SPC4uzYXJmknkCGKpxHw path, .control-button-heart path, .control-button-heart, .volume-bar__icon-button .gQUQL, .NdVm10_yLWkkgq87jOMk path, .CCeu9OfWSwIAJqA49n84 path,
-        .iSbqnFdjb1SuyJ3uWydl .UIBT7E6ZYMcSDl1KL62g, .NTJM_mh36C5kJ5oO8eac path, .I_aApN9pSlbGcpLtFQWw path, .Vz6yjzttS0YlLcwrkoUR .gQUQL, .KVKoQ3u4JpKTvSSFtd6J path, .fn72ari9aEmKo4JcwteT .gQUQL, .mnipjT4SLDMgwiDCEnRC path, .uWvwXlS0Da1bWsRX6KOw, .etChWo, .fn72ari9aEmKo4JcwteT path, .volume-bar__icon-button .ldgdZj {
+        .iSbqnFdjb1SuyJ3uWydl .UIBT7E6ZYMcSDl1KL62g, .NTJM_mh36C5kJ5oO8eac path, .I_aApN9pSlbGcpLtFQWw path, .Vz6yjzttS0YlLcwrkoUR .gQUQL, .KVKoQ3u4JpKTvSSFtd6J path, .fn72ari9aEmKo4JcwteT .gQUQL, .mnipjT4SLDMgwiDCEnRC path, .uWvwXlS0Da1bWsRX6KOw, .etChWo, .fn72ari9aEmKo4JcwteT path, .volume-bar__icon-button .ldgdZj, .o_wMyH9_LbAmIwlVqsF0 path, .aRyoyQFJkzhoSOnf2ERM .G7aCptcOZswI1fN6dGkO path, .cVy6fGx6QtJbCnID7XdB path, .Vz6yjzttS0YlLcwrkoUR .ldgdZj {
             fill: custom_theme_color!important;
             color: custom_theme_color!important;
             animation: gay 5s infinite!important;
@@ -397,13 +414,17 @@
         .uWvwXlS0Da1bWsRX6KOw path,
         .uWvwXlS0Da1bWsRX6KOw,
         .INitzTSjokOMEJOc6P2H path,
-        .IbmaxRtjqCjqTBpFwCgw,
-        .YY5a3DPS6akIYNqJdwn3 {
+        .IbmaxRtjqCjqTBpFwCgw {
             fill: custom_theme_color!important;
             animation: gay 5s infinite!important;
         }
         .IbmaxRtjqCjqTBpFwCgw {
             display: none!important
+        }
+        div .WFRr38dFOxh75JyzSTj5, div .IbmaxRtjqCjqTBpFwCgw, .WFRr38dFOxh75JyzSTj5 .encore-bright-accent-set .IbmaxRtjqCjqTBpFwCgw {
+            background:none!important;
+            fill:none!important;
+            color:none!important;
         }
     }
 
@@ -416,6 +437,9 @@
             display: none
         }
         .GlueDropTarget--episodes .r9YzlaAPnM2LGK97GSfa {
+            display: none
+        }
+        ._0FuodatXU4_fToYAuYtY, .wBsWS202aGdsul2kEGUf {
             display: none
         }
     }
