@@ -2,7 +2,7 @@
 @name           Unified Spotify
 @namespace      github.com/openstyles/stylus
 @license        GNU GPLv3
-@version        1.7.1
+@version        1.7.2
 @description    Brings a new, unified UI to Spotify
 @author         Axo
 @preprocessor   stylus
@@ -23,7 +23,7 @@
             filter: hue-rotate(0deg)
         }
         100% {
-            filter: hue-rotate(359deg)
+            filter: hue-rotate(360deg)
         }
     }
 
@@ -316,7 +316,7 @@
         .lro6AjUrZFH6zxjmOGg0 .encore-bright-accent-set,
         .encore-bright-accent-set, .SPC4uzYXJmknkCGKpxHw path{
             background-color: custom_theme_color!important;
-            animation: gay 5s infinite!important;
+            animation: gay 5s infinite linear!important;
         }
         .Ar1CZ7qjPHuIJY0cI56W .btn {
             scale: 60%;
@@ -337,7 +337,7 @@
         .iSbqnFdjb1SuyJ3uWydl .UIBT7E6ZYMcSDl1KL62g, .NTJM_mh36C5kJ5oO8eac path, .I_aApN9pSlbGcpLtFQWw path, .Vz6yjzttS0YlLcwrkoUR .gQUQL, .KVKoQ3u4JpKTvSSFtd6J path, .fn72ari9aEmKo4JcwteT .gQUQL, .mnipjT4SLDMgwiDCEnRC path, .uWvwXlS0Da1bWsRX6KOw, .etChWo, .fn72ari9aEmKo4JcwteT path, .volume-bar__icon-button .ldgdZj, .o_wMyH9_LbAmIwlVqsF0 path, .aRyoyQFJkzhoSOnf2ERM .G7aCptcOZswI1fN6dGkO path, .cVy6fGx6QtJbCnID7XdB path, .Vz6yjzttS0YlLcwrkoUR .ldgdZj {
             fill: custom_theme_color!important;
             color: custom_theme_color!important;
-            animation: gay 5s infinite!important;
+            animation: gay 5s infinite linear!important;
         }
         .QavgDs_52SpJ2rw0LNYz {
             display: none
@@ -345,7 +345,8 @@
         .N3juGUCH1EhEzmffNHAp {
             background: custom_theme_color!important;
             filter: brightness(0.7) contrast(1.5);
-            animation: gay 5s infinite!important;
+            animation: gay 5s infinite linear!important;
+            aniation-style
         }
         .tP0mccyU1WAa7I9PevC1 .uPxdw,
         .tP0mccyU1WAa7I9PevC1,
@@ -353,7 +354,7 @@
         .rRF_r7EyCHjZv058JACi .uPxdw {
             color: custom_theme_color!important;
             transition: all 0.5s;
-            animation: gay 5s infinite!important;
+            animation: gay 5s infinite linear!important;
         }
         .rRF_r7EyCHjZv058JACi .uPxdw:hover {
             filter: brightness(1.2);
@@ -362,22 +363,22 @@
         }
         .epWhU7hHGktzlO_dop6z {
             background: custom_theme_color;
-            animation: gay 5s infinite!important;
+            animation: gay 5s infinite linear!important;
         } // LYRICS
         .arY01KDGhWNgzlAHlhpd,
         .C3pBU1DsOUJJOAv89ZFT {
             color: custom_theme_color!important;
             filter: opacity(1) contrast(5)!important;
-/*             animation: gay 5s infinite!important; */
+/*             animation: gay 5s infinite linear!important; */
         }
         ._LKG3z7SnerR0eigPCoK {
             color: custom_theme_color;
             filter: opacity(0.4);
-            animation: gay 5s infinite!important;
+            animation: gay 5s infinite linear!important;
         }
         .MEjuIn9iTBQbnCqHpkoQ {
             color: custom_theme_color!important;
-            animation: gay 5s infinite!important;
+            animation: gay 5s infinite linear!important;
         }
         .C3pBU1DsOUJJOAv89ZFT {
             font-size: 3rem!important
@@ -385,38 +386,38 @@
         .vnCew8qzJq3cVGlYFXRI {
             background: custom_theme_color!important;
             transition: all 0.7s ease;
-            animation: gay 5s infinite!important;
+            animation: gay 5s infinite linear!important;
         }
         .vnCew8qzJq3cVGlYFXRI:hover {
             background: custom_theme_color!important;
             filter: brightness(1.2);
             scale: 1.1;
             transition: all 0.5s;
-            animation: gay 5s infinite!important;
+            animation: gay 5s infinite linear!important;
         } // ACTIVE TRACK
         .iSbqnFdjb1SuyJ3uWydl .t_yrXoUO3qGsJS4Y6iXX.standalone-ellipsis-one-line {
             color: custom_theme_color!important;
-            aanimation: gay 5s infinite!important;
+            aanimation: gay 5s infinite linear!important;
         }
         .fwTMCeAaUoWDj9WcQbgy path {
             fill: custom_theme_color;
-            animation: gay 5s infinite!important;
+            animation: gay 5s infinite linear!important;
         }
         .iSbqnFdjb1SuyJ3uWydl {
             background: ct_active_song;
-            animation: gay 5s infinite!important;
+            animation: gay 5s infinite linear!important;
         } // CONNECT TO DEVICE SCREEN
         .Rpvqb,
         .IbmaxRtjqCjqTBpFwCgw {
             color: custom_theme_color!important;
-            animation: gay 5s infinite!important;
+            animation: gay 5s infinite linear!important;
         }
         .uWvwXlS0Da1bWsRX6KOw path,
         .uWvwXlS0Da1bWsRX6KOw,
         .INitzTSjokOMEJOc6P2H path,
         .IbmaxRtjqCjqTBpFwCgw {
             fill: custom_theme_color!important;
-            animation: gay 5s infinite!important;
+            animation: gay 5s infinite linear!important;
         }
         .IbmaxRtjqCjqTBpFwCgw {
             display: none!important
