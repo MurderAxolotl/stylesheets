@@ -9,7 +9,7 @@ title: Software Center
 
 ### Unified Discord
 [Stylus](https://userstyles.world/style/8290/unified-discord)
-<!-- [GitHub]() -->
+[GitHub](https://psychon-dev-studios.github.io/stylesheets/unified_discord.css)
 
 ### Dark Canvas
 [Stylus](https://userstyles.world/style/9572/canvas-dark)
