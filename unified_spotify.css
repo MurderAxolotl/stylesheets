@@ -2,19 +2,18 @@
 @name           Unified Spotify
 @namespace      github.com/openstyles/stylus
 @license        GNU GPLv3
-@version        1.7.3
+@version        1.9.1
 @description    Brings a new, unified UI to Spotify
 @author         Axo
 @preprocessor   stylus
-@var checkbox hide_uname "Hide Username" 0
-@var checkbox hide_recs "Hide Recommendations" 0
-@var checkbox hide_un_sb_c "Expand playlist area in sidebar" 0
-@var checkbox hide_sb "Hide Scrollbar" 0
-@var select hide_sb "Scrollbar Mode" {"use_theme:Themed": "styled", "spotify:Default": "spotify", "hidden:Hidden": "hidden"}
-@var checkbox use_custom_theme_color "Enable custom colors" 1
-@var checkbox use_gay "Enable GAY! Mode (Turn off custom colors)" 0
-@var color custom_theme_color "CT: Accent Color" #9b6ef4
-@var color ct_active_song "CT: Active Track" #1c1e26
+@var checkbox hide_uname "HIDE USERNAME" 0
+@var checkbox hide_recs "HIDE RECOMMENDATIONS" 0
+@var checkbox hide_un_sb_c "SIMPLIFIED SIDEBAR" 0
+@var select hide_sb "SCROLLBAR MODE" {"use_theme:THEMED": "styled", "spotify:DEFAULT": "spotify", "hidden:HIDDEN": "hidden"}
+@var checkbox use_custom_theme_color "USE CUSTOM COLORS" 1
+@var checkbox use_gay "RAINBOW MODE" 0
+@var color custom_theme_color "CT: ACCENT COLOUR" #9b6ef4
+@var color ct_active_song "CT: ACTIVE TRACK COLOUR" #1c1e26
 ==/UserStyle== */
 @-moz-document domain("open.spotify.com") {
 
@@ -25,6 +24,11 @@
         100% {
             filter: hue-rotate(360deg)
         }
+    }
+    
+    /* Variable logic to fix visual bugs */
+    if use_gay {
+        use_custom_theme_color = 1
     }
 
     /*   Spotify Web Player   */
@@ -65,6 +69,10 @@
                 if use_custom_theme_color {
                     background: custom_theme_color!important;
                     filter: opacity(0.5)!important
+                } else if use_gay {
+                    background: custom_theme_color!important;
+                    filter: opacity(0.5)!important;
+                    animation: gay 5s infinite linear!important;
                 }
             }
         }
@@ -168,15 +176,10 @@
     }
 
     if hide_uname {
-        .pudHk.MfVrtIzQJ7iZXfRWg6eM {
+        .pudHk.MfVrtIzQJ7iZXfRWg6eM, .xQfpa, .Za_uNH8nTZ0qCuIqbPLZ span, .NO_VO3MRVl9z3z56d8Lg {
             display:none
         }
-        .Za_uNH8nTZ0qCuIqbPLZ span {
-            display:none
-        }
-        .NO_VO3MRVl9z3z56d8Lg {
-            display:none
-        }
+        
         .fEBgUb .MfVrtIzQJ7iZXfRWg6eM,
         .RfdRTSGwulyQdDepLUTT {
             filter: opacity(0)!important;
@@ -207,14 +210,17 @@
         .eSg4ntPU2KQLfpLGXAww .btn,
         .lro6AjUrZFH6zxjmOGg0 .encore-bright-accent-set, .encore-bright-accent-set, .SPC4uzYXJmknkCGKpxHw path{
             background-color: custom_theme_color!important;
+            if use_gay {animation: gay 5s infinite linear!important;}
         }
         .Ar1CZ7qjPHuIJY0cI56W .btn {
             scale: 60%;
             filter: grayscale(1)
+            if use_gay {animation: gay 5s infinite linear!important;}
         }
         .iSbqnFdjb1SuyJ3uWydl .btn,
         .h4HgbO_Uu1JYg5UGANeQ .btn {
             scale: 60%!important
+            if use_gay {animation: gay 5s infinite linear!important;}
         }
 
         .K7fGF95OD9aI3zdYnFXg path,
@@ -224,74 +230,95 @@
         .RK45o6dbvO1mb0wQtSwq,
         .GlueDropTarget--episodes .KAZD28usA1vPz5GVpm63,
         .rRF_r7EyCHjZv058JACi path, .SPC4uzYXJmknkCGKpxHw path, .control-button-heart path, .control-button-heart, .volume-bar__icon-button .gQUQL, .NdVm10_yLWkkgq87jOMk path, .CCeu9OfWSwIAJqA49n84 path,
-        .iSbqnFdjb1SuyJ3uWydl .UIBT7E6ZYMcSDl1KL62g, .NTJM_mh36C5kJ5oO8eac path, .I_aApN9pSlbGcpLtFQWw path, .Vz6yjzttS0YlLcwrkoUR .gQUQL, .KVKoQ3u4JpKTvSSFtd6J path, .fn72ari9aEmKo4JcwteT .gQUQL, .mnipjT4SLDMgwiDCEnRC path, .uWvwXlS0Da1bWsRX6KOw, .etChWo, .fn72ari9aEmKo4JcwteT path, .volume-bar__icon-button .ldgdZj, .o_wMyH9_LbAmIwlVqsF0 path, .G7aCptcOZswI1fN6dGkO path, .cVy6fGx6QtJbCnID7XdB path, .Vz6yjzttS0YlLcwrkoUR .ldgdZj, .VpYFchIiPg3tPhBGyynT, .n5XwsUqagSoVk8oMiw1x, .hQUEHs{
+        .iSbqnFdjb1SuyJ3uWydl .UIBT7E6ZYMcSDl1KL62g, .NTJM_mh36C5kJ5oO8eac path, .I_aApN9pSlbGcpLtFQWw path, .Vz6yjzttS0YlLcwrkoUR .gQUQL, .KVKoQ3u4JpKTvSSFtd6J path, .fn72ari9aEmKo4JcwteT .gQUQL, .mnipjT4SLDMgwiDCEnRC path, .uWvwXlS0Da1bWsRX6KOw, .etChWo, .fn72ari9aEmKo4JcwteT path, .volume-bar__icon-button .ldgdZj, .o_wMyH9_LbAmIwlVqsF0 path, .aRyoyQFJkzhoSOnf2ERM .G7aCptcOZswI1fN6dGkO path, .cVy6fGx6QtJbCnID7XdB path, .Vz6yjzttS0YlLcwrkoUR .ldgdZj, .VpYFchIiPg3tPhBGyynT, .n5XwsUqagSoVk8oMiw1x, .hQUEHs, .bbVjXa {
             fill: custom_theme_color!important;
-            color: custom_theme_color!important
+            color: custom_theme_color!important;
+            if use_gay {animation: gay 5s infinite linear!important;}
         }
         .QavgDs_52SpJ2rw0LNYz {
             display: none
         }
         .N3juGUCH1EhEzmffNHAp {
             background: custom_theme_color!important;
-            filter: brightness(0.7) contrast(1.5)
+            filter: brightness(0.7) contrast(1.5);
+            if use_gay {animation: gay 5s infinite linear!important;}
         }
         .tP0mccyU1WAa7I9PevC1 .uPxdw,
         .tP0mccyU1WAa7I9PevC1,
         .OF_3F0SQCsBtL1jSTlTA,
         .rRF_r7EyCHjZv058JACi .uPxdw {
             color: custom_theme_color!important;
-            transition: all 0.5s
+            transition: all 0.5s;
+            if use_gay {animation: gay 5s infinite linear!important;}
         }
         .rRF_r7EyCHjZv058JACi .uPxdw:hover {
             filter: brightness(1.2);
             scale: 1.1;
-            transition: all 0.5s
+            transition: all 0.5s;
+            if use_gay {animation: gay 5s infinite linear!important;}
         }
         .epWhU7hHGktzlO_dop6z {
-            background: custom_theme_color
+            background: custom_theme_color;
+            if use_gay {animation: gay 5s infinite linear!important;}
         } // LYRICS
         .arY01KDGhWNgzlAHlhpd,
         .C3pBU1DsOUJJOAv89ZFT {
             color: custom_theme_color!important;
-            filter: opacity(1)!important
+            filter: opacity(1)!important;
+            if use_gay {animation: gay 5s infinite linear!important;}
         }
         ._LKG3z7SnerR0eigPCoK {
             color: custom_theme_color;
-            filter: opacity(0.4)
+            filter: opacity(0.4);
+            if use_gay {animation: gay 5s infinite linear!important;}
         }
         .MEjuIn9iTBQbnCqHpkoQ {
-            color: custom_theme_color!important
+            color: custom_theme_color!important;
+            if use_gay {animation: gay 5s infinite linear!important;}
         }
         .C3pBU1DsOUJJOAv89ZFT {
-            font-size: 3rem!important
+            font-size: 3rem!important;
+            if use_gay {animation: gay 5s infinite linear!important;}
+            
         } // LIKE BUTTON
         .vnCew8qzJq3cVGlYFXRI {
             background: custom_theme_color!important;
-            transition: all 0.7s ease
+            transition: all 0.7s ease;
+            if use_gay {animation: gay 5s infinite linear!important;}
         }
         .vnCew8qzJq3cVGlYFXRI:hover {
             background: custom_theme_color!important;
             filter: brightness(1.2);
             scale: 1.1;
-            transition: all 0.5s
-        } // ACTIVE TRACK
+            transition: all 0.5s;
+            if use_gay {animation: gay 5s infinite linear!important;}
+        } 
+
+        // ACTIVE TRACK
         .iSbqnFdjb1SuyJ3uWydl .t_yrXoUO3qGsJS4Y6iXX.standalone-ellipsis-one-line {
-            color: custom_theme_color!important
+            color: custom_theme_color!important;
+            if use_gay {animation: gay 5s infinite linear!important;}
         }
         .fwTMCeAaUoWDj9WcQbgy path {
-            fill: custom_theme_color
+            fill: custom_theme_color;
+            if use_gay {animation: gay 5s infinite linear!important;}
         }
         .iSbqnFdjb1SuyJ3uWydl {
-            background: ct_active_song
-        } // CONNECT TO DEVICE SCREEN
+            background: ct_active_song;
+            if use_gay {animation: gay 5s infinite linear!important;}
+        } 
+
+        // CONNECT TO DEVICE SCREEN
         .Rpvqb {
-            color: custom_theme_color!important
+            color: custom_theme_color!important;
+            if use_gay {animation: gay 5s infinite linear!important;}
         }
         .uWvwXlS0Da1bWsRX6KOw path,
         .uWvwXlS0Da1bWsRX6KOw,
         .INitzTSjokOMEJOc6P2H path,
         .IbmaxRtjqCjqTBpFwCgw svg, .WFRr38dFOxh75JyzSTj5 svg, .IbmaxRtjqCjqTBpFwCgw svg {
-            fill: custom_theme_color!important
+            fill: custom_theme_color!important;
+            if use_gay {animation: gay 5s infinite linear!important;}
         }
 /*         .IbmaxRtjqCjqTBpFwCgw {
             display: none!important
@@ -301,131 +328,7 @@
             background:none!important;
             fill:none!important;
             color:none!important;
-        }
-    }
-
-    if use_gay {
-        .kWONUS,
-        .dpREpp,
-        .QavgDs_52SpJ2rw0LNYz,
-        .fipMme,
-        .Ar1CZ7qjPHuIJY0cI56W .btn,
-        .iSbqnFdjb1SuyJ3uWydl .btn,
-        .h4HgbO_Uu1JYg5UGANeQ .btn,
-        .eSg4ntPU2KQLfpLGXAww .btn,
-        .lro6AjUrZFH6zxjmOGg0 .encore-bright-accent-set,
-        .encore-bright-accent-set, .SPC4uzYXJmknkCGKpxHw path{
-            background-color: custom_theme_color!important;
-            animation: gay 5s infinite linear!important;
-        }
-        .Ar1CZ7qjPHuIJY0cI56W .btn {
-            scale: 60%;
-            filter: grayscale(1)
-        }
-        .iSbqnFdjb1SuyJ3uWydl .btn,
-        .h4HgbO_Uu1JYg5UGANeQ .btn {
-            scale: 60%!important
-        }
-
-        .K7fGF95OD9aI3zdYnFXg path,
-        .ilmalU,
-        .Xmv2oAnTB85QE4sqbK00 path,
-        .Xmv2oAnTB85QE4sqbK00,
-        .RK45o6dbvO1mb0wQtSwq,
-        .GlueDropTarget--episodes .KAZD28usA1vPz5GVpm63,
-        .rRF_r7EyCHjZv058JACi path, .SPC4uzYXJmknkCGKpxHw path, .control-button-heart path, .control-button-heart, .volume-bar__icon-button .gQUQL, .NdVm10_yLWkkgq87jOMk path, .CCeu9OfWSwIAJqA49n84 path,
-        .iSbqnFdjb1SuyJ3uWydl .UIBT7E6ZYMcSDl1KL62g, .NTJM_mh36C5kJ5oO8eac path, .I_aApN9pSlbGcpLtFQWw path, .Vz6yjzttS0YlLcwrkoUR .gQUQL, .KVKoQ3u4JpKTvSSFtd6J path, .fn72ari9aEmKo4JcwteT .gQUQL, .mnipjT4SLDMgwiDCEnRC path, .uWvwXlS0Da1bWsRX6KOw, .etChWo, .fn72ari9aEmKo4JcwteT path, .volume-bar__icon-button .ldgdZj, .o_wMyH9_LbAmIwlVqsF0 path, .aRyoyQFJkzhoSOnf2ERM .G7aCptcOZswI1fN6dGkO path, .cVy6fGx6QtJbCnID7XdB path, .Vz6yjzttS0YlLcwrkoUR .ldgdZj, .VpYFchIiPg3tPhBGyynT, .n5XwsUqagSoVk8oMiw1x, .hQUEHs {
-            fill: custom_theme_color!important;
-            color: custom_theme_color!important;
-            animation: gay 5s infinite linear!important;
-        }
-        .QavgDs_52SpJ2rw0LNYz {
-            display: none
-        }
-        .N3juGUCH1EhEzmffNHAp {
-            background: custom_theme_color!important;
-            filter: brightness(0.7) contrast(1.5);
-            animation: gay 5s infinite linear!important;
-            aniation-style
-        }
-        .tP0mccyU1WAa7I9PevC1 .uPxdw,
-        .tP0mccyU1WAa7I9PevC1,
-        .OF_3F0SQCsBtL1jSTlTA,
-        .rRF_r7EyCHjZv058JACi .uPxdw {
-            color: custom_theme_color!important;
-            transition: all 0.5s;
-            animation: gay 5s infinite linear!important;
-        }
-        .rRF_r7EyCHjZv058JACi .uPxdw:hover {
-            filter: brightness(1.2);
-            scale: 1.1;
-            transition: all 0.5s
-        }
-        .epWhU7hHGktzlO_dop6z {
-            background: custom_theme_color;
-            animation: gay 5s infinite linear!important;
-        } // LYRICS
-        .arY01KDGhWNgzlAHlhpd,
-        .C3pBU1DsOUJJOAv89ZFT {
-            color: custom_theme_color!important;
-            filter: opacity(1) contrast(5)!important;
-/*             animation: gay 5s infinite linear!important; */
-        }
-        ._LKG3z7SnerR0eigPCoK {
-            color: custom_theme_color;
-            filter: opacity(0.4);
-            animation: gay 5s infinite linear!important;
-        }
-        .MEjuIn9iTBQbnCqHpkoQ {
-            color: custom_theme_color!important;
-            animation: gay 5s infinite linear!important;
-        }
-        .C3pBU1DsOUJJOAv89ZFT {
-            font-size: 3rem!important
-        } // LIKE BUTTON
-        .vnCew8qzJq3cVGlYFXRI {
-            background: custom_theme_color!important;
-            transition: all 0.7s ease;
-            animation: gay 5s infinite linear!important;
-        }
-        .vnCew8qzJq3cVGlYFXRI:hover {
-            background: custom_theme_color!important;
-            filter: brightness(1.2);
-            scale: 1.1;
-            transition: all 0.5s;
-            animation: gay 5s infinite linear!important;
-        } // ACTIVE TRACK
-        .iSbqnFdjb1SuyJ3uWydl .t_yrXoUO3qGsJS4Y6iXX.standalone-ellipsis-one-line {
-            color: custom_theme_color!important;
-            aanimation: gay 5s infinite linear!important;
-        }
-        .fwTMCeAaUoWDj9WcQbgy path {
-            fill: custom_theme_color;
-            animation: gay 5s infinite linear!important;
-        }
-        .iSbqnFdjb1SuyJ3uWydl {
-            background: ct_active_song;
-            animation: gay 5s infinite linear!important;
-        } // CONNECT TO DEVICE SCREEN
-        .Rpvqb,
-        .IbmaxRtjqCjqTBpFwCgw {
-            color: custom_theme_color!important;
-            animation: gay 5s infinite linear!important;
-        }
-        .uWvwXlS0Da1bWsRX6KOw path,
-        .uWvwXlS0Da1bWsRX6KOw,
-        .INitzTSjokOMEJOc6P2H path,
-        .IbmaxRtjqCjqTBpFwCgw {
-            fill: custom_theme_color!important;
-            animation: gay 5s infinite linear!important;
-        }
-        .IbmaxRtjqCjqTBpFwCgw {
-            display: none!important
-        }
-        div .WFRr38dFOxh75JyzSTj5, div .IbmaxRtjqCjqTBpFwCgw, .WFRr38dFOxh75JyzSTj5 .encore-bright-accent-set .IbmaxRtjqCjqTBpFwCgw {
-            background:none!important;
-            fill:none!important;
-            color:none!important;
+            if use_gay {animation: gay 5s infinite linear!important;}
         }
     }
 
