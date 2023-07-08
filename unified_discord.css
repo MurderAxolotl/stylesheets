@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Unified Discord
 @namespace      github.com/openstyles/stylus
-@version        3.5.1
+@version        4.0.0
 @description    Uses one of the nitro themes as a base to create the ultimate dark mode experience
 @author         MurderAxo
 @preprocessor	stylus
@@ -9,6 +9,7 @@
 
 @var checkbox bdm "Better Dark Mode" 1
 @var checkbox hideBetaChip "Hide Beta Chips" 1
+@var checkbox hideNitroFeatures "Hide Nitro Promos" 0
 @var checkbox desaturateFolders "Desaturate Closed Folders" 1
 @var checkbox disableMarkdown "Don't Render Markdown" 0
 
@@ -17,15 +18,6 @@
 @var color unreadChannel "Unread Channel" rgb(255,127,255)
 @var color activeChannel "Active Channel" rgb(174, 174, 255)
 @var color mentionedMessageBackground "Mentioned Color" rgba(133, 60, 154, 0.38)
-
-@var select null1 "" {"null":"null",}
-
-@var checkbox enableSeaSalt "Enable Custom Background" 0
-@var number background_size "Background size" 1650px
-@var number people_x "People X-Pos" -50px
-@var number people_y "People Y-Pos" 0px
-@var number nowPlaying_x "NowPlaying X-Pos" -1240px
-@var number nowPlaying_y "NowPlaying Y-Pos" 0px;
 ==/UserStyle== */
 @-moz-document domain("discord.com") {
     :root {
@@ -41,7 +33,7 @@
         scrollbar-width: none!important
     }
     .modeUnread-3Cxepe .channelName-3KPsGw,
-    .modeUnread-3Cxepe .icon-2W8DHg {
+    .modeUnread-3Cxepe .icon-2W8DHg, .modeUnread-3Cxepe .name-28HaxV {
         color: unreadChannel!important;
         font-weight: bold!important
     }
@@ -104,51 +96,6 @@
         background-color: mentionedMessageBackground;
     }
 
-    if enableSeaSalt {
-        .scroller-hE2gWq {
-            color: transparent!important; // background: url("https://cdn.discordapp.com/attachments/1064520811588878346/1066837597848096938/seasalt.jpg") rgb(89, 38, 38);
-            background-size: 790px;
-            background-position: -75px
-        }
-        .interactive-2zD88a {
-            background: rgba(39, 40, 46, 0.7)
-        }
-        .peopleColumn-1wMU14 {
-            background: var(--bg_image_url);
-            background-size: var(--background_size);
-            background-position: var(--people_x), var(--people_y);
-            border: 0px solid black!important;
-        }
-        .container-1oAagU,
-        .nowPlayingColumn-1eCBCN {
-            background: var(--bg_image_url);
-            background-size: var(--background_size);
-            background-position: var(--nowPlaying_x), var(--nowPlaying_y);
-            border: 0px solid black!important;
-        }
-
-        .peopleListItem-u6dGxF {
-            background: rgba(0, 0, 0, 0.68);
-            padding-left: 10px;
-            padding-right: 10px;
-        }
-        .marginTop8-24uXGp {
-            background: rgba(0, 0, 0, .68);
-            color: white!important;
-            padding: 3px;
-        }
-        .peopleListItem-u6dGxF:hover {
-            background: rgba(56, 56, 56, .68);
-            padding-left: 10px;
-            padding-right: 10px;
-        }
-        .marginTop8-24uXGp:hover {
-            background: rgba(32, 32, 32, .68);
-            color: white!important;
-            padding: 3px;
-        }
-    }
-
     if hideImages {
         .originalLink-Azwuo9 {
             display: none!important
@@ -201,7 +148,7 @@
         .button-1EGGcP,
         .root-u9h3Ui,
         .button-3bklZh,
-        .iconButtonSize-1-pz2t {
+        .iconButtonSize-1-pz2t, .connectionHeader-Ixbb1s, .connectionOptionsWrapper-3aVWcp, .connection-YOVI9j, .connectContainer-1hylYM {
             background: hsl(224, 17%, 19%)!important;
         }
 
@@ -256,7 +203,7 @@
         .noChannel-1GDIAZ,
         .searchBar-3TnChZ,
         .outline-3kFzf8,
-        .contentWrapper-3vHNP2, .listItems-6eZzQ1, .categorySection-3j71bm, .smallDecorationPreviewsContainer-2R9zvq, .presetDecorationImg-2qqgr2, .decorationPreview-273BXH, .decorationGridItem-3J_11G, .feature-2IUcBI, .card-2xlCYc, .padded-2NSY6O .gemIndicatorContainer-PqApbX, .detailsBlock-24pLFz, .promotionCard-mo7ClH, .card-2guEcY, .previewMessage-2g_aBv {
+        .contentWrapper-3vHNP2, .listItems-6eZzQ1, .categorySection-3j71bm, .smallDecorationPreviewsContainer-2R9zvq, .presetDecorationImg-2qqgr2, .decorationPreview-273BXH, .decorationGridItem-3J_11G, .feature-2IUcBI, .card-2xlCYc, .padded-2NSY6O .gemIndicatorContainer-PqApbX, .detailsBlock-24pLFz, .promotionCard-mo7ClH, .card-2guEcY, .previewMessage-2g_aBv, .gatedContent-31-gID {
             background: linear-gradient(0deg, rgba(29, 33, 42, 1) 100%, rgba(20, 16, 21, 1) 0%)!important;
             scrollbar-width: none!important
         }
@@ -300,7 +247,7 @@
         .chatContent-3KubbW {
             background: rgba(29, 33, 42, 1)
         }
-        .themed-Hp1KC_ {
+        .themed-Hp1KC_, .themed-qqoYp3.item-2GWPIy, .top-Ktfr_T .brand-2EKq3J.selected-1sf9UK.item-2GWPIy {
             background: none!important
         }
         .scroller-1ox3I2 .content-yjf30S > div {}
@@ -315,9 +262,13 @@
         .typingDots-1Y8dki {
             padding-left: 26px!important
         }
-        .expandedFolderBackground-1kSAf6 .theme-dark.custom-theme-background .expandedFolderBackground-1kSAf6 {
-            background: #2a2a33!important
+        .expandedFolderBackground-1kSAf6 .theme-dark.custom-theme-background .expandedFolderBackground-1kSAf6, .expandedFolderBackground-1kSAf6 {
+            background: #2a2a33!important;
         }
+        
+/*         .wrapper-3kah-n {
+            scale:85%;
+        } */
 
         .modeSelected-3DmyhH .content-1gYQeQ {
             background: #2b313e
@@ -421,6 +372,15 @@
     
     if hideBetaChips {
         .tabBarItemContainer-2HdIlr .baseShapeRound-3epLEv {display:none}
+    }
+    
+    if hideNitroFeatures {
+        .background-yH6t2p, .premiumFeatureBorder-1i95si, .upsellOverlay-3sCO8V, .upsellOverlayContainer-3NMgTS {
+            display:none
+        }
+        .premiumTab-39eQzY, .item-2GWPIy .themed-qqoYp3 {
+            display:none
+        }
     }
     
     if desaturateFolders {
