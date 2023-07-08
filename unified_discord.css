@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Unified Discord
 @namespace      github.com/openstyles/stylus
-@version        4.0.0
+@version        4.0.3
 @description    Uses one of the nitro themes as a base to create the ultimate dark mode experience
 @author         MurderAxo
 @preprocessor	stylus
@@ -11,7 +11,7 @@
 @var checkbox hideBetaChip "Hide Beta Chips" 1
 @var checkbox hideNitroFeatures "Hide Nitro Promos" 0
 @var checkbox desaturateFolders "Desaturate Closed Folders" 1
-@var checkbox disableMarkdown "Don't Render Markdown" 0
+@var select markdownRenderMode "MD Header Render Mode" {"Default":"default","Normal Font":"min","Normal Font + Highlight":"highlight",}
 
 @var select null "" {"null":"null",}
 
@@ -389,7 +389,7 @@
         }
     }
     
-    if disableMarkdown {
+    if markdownRenderMode == min {
         .markup-eYLPri h1, .markup-eYLPri h2, .markup-eYLPri h3 {
             font-size: 100%!important;
             line-height: 1rem!important;
@@ -399,30 +399,17 @@
             color: var(--text-normal);
             margin-left: -72;
             padding-left: 72;
-            border-top-color: currentcolor;
-            border-top-style: none;
-            border-right-color: currentcolor;
-            border-right-style: none;
-            border-bottom-color: currentcolor;
-            border-bottom-style: none;
-            border-left-color: currentcolor;
-            border-left-style: none;
-            border-image-outset: 0;
-            border-image-repeat: stretch;
-            border-image-slice: 100%;
-            border-image-source: none;
-            border-image-width: 1;
-            font-weight: inherit;
-            font-style: inherit;
-            font-family: inherit;
-            vertical-align: baseline;
-            outline-color: currentcolor;
-            outline-style: none;
-            outline-width: 0px;
-            text-indent: 0px;
-            position: relative;
-            overflow-x: hidden;
-            overflow-y: hidden;
         }
     }
+        
+        if markdownRenderMode == highlight {
+            .markup-eYLPri h1, .markup-eYLPri h2, .markup-eYLPri h3 {
+            font-size: 100%!important;
+            line-height: 1rem!important;
+            white-space: break-spaces;
+            overflow-wrap: break-word;
+            user-select: text;
+            color: #ff2;
+        }
+        }
 }
