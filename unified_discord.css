@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Unified Discord
 @namespace      github.com/openstyles/stylus
-@version        4.0.5
+@version        4.1.4
 @description    Uses one of the nitro themes as a base to create the ultimate dark mode experience
 @author         MurderAxo
 @preprocessor	stylus
@@ -20,7 +20,6 @@
 @var color mentionedMessageBackground "Mentioned Color" rgba(133, 60, 154, 0.38)
 ==/UserStyle== */
 @-moz-document domain("discord.com") {
-
     .managedReactiveScroller-1LjJZ5 {
         scrollbar-width: none!important
     }
@@ -59,14 +58,6 @@
     .contentRegionShownSidebar-fHXkEg,
     .scrollerBase-1Pkza4 {
         scrollbar-width: none;
-    }
-
-    .hasBanner-2IrYih .header-3OsQeK {
-        z-index: 999!important
-    }
-
-    .scroller-1ox3I2 .content-yjf30S > div {
-        background: transparent!important
     }
 
     .anchor-1MIwyf path,
@@ -163,11 +154,12 @@
         .connectionHeader-Ixbb1s,
         .connectionOptionsWrapper-3aVWcp,
         .connection-YOVI9j,
-        .connectContainer-1hylYM {
+        .connectContainer-1hylYM, .faq-29l_f8, .guildContainer-o60hpj, .wrapper-3htY7x, .container-2WMFjc, .container-jV-A82, .max-width-30Gozx, .marginBottom8-emkd0_, .iconContainer-3cz2oI, .linkingBannerParent-3Q7JUy, .section-pKb2tY .box-3QCU9H, .channelRow-4X_3fi, .messageContainer-3VTXBC, .container-q2_DnH, .vc-plugins-card, .inputWrapper-2K8ds1 .input-3O04eu, .container-2rzKKA, .chatHeaderBarButton-3q1QVr, #vc-spotify-song-title, .vc-spotify-ellipoverflow {
+            /* Foreground element box */
             background: hsl(224, 17%, 19%)!important;
         }
 
-        .container-2RRFHK {
+        .container-2RRFHK, .container-JhuCwn, .matchingPostsRow-2IiEQ1 {
             background-image: linear-gradient(0deg, rgba(29, 33, 42, 1) 100%, rgba(20, 16, 21, 1) 0%)!important;
             background-size: 1920px 1080px
         }
@@ -199,7 +191,6 @@
         .header-1c1AhF,
         .container-1Lk8p7 > div > div,
         .container-x8Y1ix,
-        .inputWrapper-2K8ds1 .input-3O04eu,
         .premiumContainer-3GGa8Q,
         .auto-2TJ1RH,
         .rootWithShadow-2hdL2J,
@@ -214,7 +205,6 @@
         .modalContent-2VwiUI,
         .footerSeparator-3U8YsT,
         .upload-vLbqu-,
-        .vc-plugins-card,
         .noChannel-1GDIAZ,
         .searchBar-3TnChZ,
         .outline-3kFzf8,
@@ -232,7 +222,8 @@
         .promotionCard-mo7ClH,
         .card-2guEcY,
         .previewMessage-2g_aBv,
-        .gatedContent-31-gID {
+        .gatedContent-31-gID, .eyebrow-1Shfyi, .contentPanel-2uDEUG, .pageBody-23bo4p, .channelHeader-DFRX8q, .container-iA3Qrz, .thin-RnSY0a > div, .scroller-145h9c, .messages-23can0, .forumPost-3i1mpe, .labelContainer-35-WEd, .scroller-nxCRu_, .colorStandard-1Xxp1s, .eyebrow-2wJAoF.marginBottom8-emkd0_, .chatHeaderBar-2fUORh, .iconWrapper-3plkqh {
+            /* Background colour */
             background: linear-gradient(0deg, rgba(29, 33, 42, 1) 100%, rgba(20, 16, 21, 1) 0%)!important;
             scrollbar-width: none!important
         }
@@ -426,6 +417,17 @@
         .fieldButtonList-28BYbB:hover .grow-2T4nbg:hover {
             filter: brightness(1.75)!important
         }
+        
+        .scroller-1ox3I2 .content-yjf30S > div {
+           background:none!important;
+        }
+        
+        .bannerImg-2PzH6z, .container-1-ERn5 {
+            z-index:5!important
+        }
+         .container-2giAcK, .containerWithMargin-1CVXAM {
+             z-index:6!important
+         }
     }
 
     if hideBetaChips {
