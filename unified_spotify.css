@@ -2,20 +2,26 @@
 @name           Unified Spotify
 @namespace      github.com/openstyles/stylus
 @license        GNU GPLv3
-@version        1.9.1
+@version        1.10.7
 @description    Brings a new, unified UI to Spotify
 @author         Axo
 @preprocessor   stylus
 @var checkbox hide_uname "HIDE USERNAME" 0
 @var checkbox hide_recs "HIDE RECOMMENDATIONS" 0
+@var checkbox hide_spCon_bottom "Minimal SpConnect UI" 0
 @var checkbox hide_un_sb_c "SIMPLIFIED SIDEBAR" 0
 @var select hide_sb "SCROLLBAR MODE" {"use_theme:THEMED": "styled", "spotify:DEFAULT": "spotify", "hidden:HIDDEN": "hidden"}
 @var checkbox use_custom_theme_color "USE CUSTOM COLORS" 1
 @var checkbox use_gay "RAINBOW MODE" 0
+@var text gay_timing "RM: Duration" 5s
 @var color custom_theme_color "CT: ACCENT COLOUR" #9b6ef4
 @var color ct_active_song "CT: ACTIVE TRACK COLOUR" #1c1e26
 ==/UserStyle== */
 @-moz-document domain("open.spotify.com") {
+    
+    :root {
+        --gayTiming: gay_timing;
+    }
 
     @keyframes gay {
         0% {
@@ -72,7 +78,7 @@
                 } else if use_gay {
                     background: custom_theme_color!important;
                     filter: opacity(0.5)!important;
-                    animation: gay 5s infinite linear!important;
+                    animation: gay var(--gayTiming) infinite linear!important;
                 }
             }
         }
@@ -105,7 +111,7 @@
     .gHImFiUWOg93pvTefeAD,
     .xYgjMpAjE5XT05aRIezb,
     .contentSpacing.jzhwZKbfx4vrC_MYd_7c.QyANtc_r7ff_tqrf5Bvc.Shelf,
-    .E4q8ogfdWtye7YgotBlN.contentSpacing,
+    .E4q8ogfdWtye7YgotBlN.contentSpacing, .QuHe04rU4bj0Z5U9E2Tk, .UvXqRORKQr_N3jlgGTcS, .ifVI2CEdOZGgMWIUN2Cw, .jtqtOeRP46XAlHWx4C0D
     {
         background: hsl(227, 15%, 6%)!important
     }
@@ -123,23 +129,27 @@
         background: hsl(227, 15%, 6%)!important
     }
     .LunqxlFIupJw_Dkx6mNx,
-    .oaNVBli46GtVjaQKB15g {
+    .oaNVBli46GtVjaQKB15g, .qbOrWcMUhSri1nPkZLQA  {
         background: hsl(227, 15%, 10%)!important
     }
 
     /* SIDEBAR */
-    .tUwyjggD2n5KvEtP5z1B {
+    .tUwyjggD2n5KvEtP5z1B, .Ozitxbqs1vcOukDz3GDw{
         background: hsl(227, 15%, 5%)!important
     }
 
     .McwcCfBLSuXa5UDU1IMw {
         display: none
     }
+    
+    .jb9xD5ECTqKFK02qe3HZ, .g3f_cI5usQX7ZOQyDtA9, .Z35BWOA10YGn5uc9YgAp {
+        background: transparent!important
+    }
 
     /* CONTEXT MENUS */
     #context-menu,
     button.wC9sIed7pfp47wZbmU6m,
-    .SboKmDrCTZng7t4EgNoM {
+    .SboKmDrCTZng7t4EgNoM, .encore-dark-theme, .NbcaczStd8vD2rHWwaKv  {
         background: hsl(227, 15%, 15%)!important
     }
 
@@ -167,7 +177,7 @@
     #context-menu,
     .ErSD7TARZzk270zuVjoi,
     .HVCCFeUiHVwZVv74p34a .os-viewport-native-scrollbars-invisible,
-    .hwP4Oum2PB765sb8jigI {
+    .hwP4Oum2PB76var(--gayTiming)b8jigI {
         background: hsl(227, 15%, 6%)!important;
     }
     
@@ -210,30 +220,29 @@
         .eSg4ntPU2KQLfpLGXAww .btn,
         .lro6AjUrZFH6zxjmOGg0 .encore-bright-accent-set, .encore-bright-accent-set, .SPC4uzYXJmknkCGKpxHw path{
             background-color: custom_theme_color!important;
-            if use_gay {animation: gay 5s infinite linear!important;}
+            if use_gay {animation: gay var(--gayTiming) infinite linear!important;}
         }
         .Ar1CZ7qjPHuIJY0cI56W .btn {
             scale: 60%;
             filter: grayscale(1)
-            if use_gay {animation: gay 5s infinite linear!important;}
+            if use_gay {animation: gay var(--gayTiming) infinite linear!important;}
         }
         .iSbqnFdjb1SuyJ3uWydl .btn,
         .h4HgbO_Uu1JYg5UGANeQ .btn {
             scale: 60%!important
-            if use_gay {animation: gay 5s infinite linear!important;}
+            if use_gay {animation: gay var(--gayTiming) infinite linear!important;}
         }
 
         .K7fGF95OD9aI3zdYnFXg path,
         .ilmalU,
         .Xmv2oAnTB85QE4sqbK00 path,
-        .Xmv2oAnTB85QE4sqbK00,
         .RK45o6dbvO1mb0wQtSwq,
         .GlueDropTarget--episodes .KAZD28usA1vPz5GVpm63,
-        .rRF_r7EyCHjZv058JACi path, .SPC4uzYXJmknkCGKpxHw path, .control-button-heart path, .control-button-heart, .volume-bar__icon-button .gQUQL, .NdVm10_yLWkkgq87jOMk path, .CCeu9OfWSwIAJqA49n84 path,
-        .iSbqnFdjb1SuyJ3uWydl .UIBT7E6ZYMcSDl1KL62g, .NTJM_mh36C5kJ5oO8eac path, .I_aApN9pSlbGcpLtFQWw path, .Vz6yjzttS0YlLcwrkoUR .gQUQL, .KVKoQ3u4JpKTvSSFtd6J path, .fn72ari9aEmKo4JcwteT .gQUQL, .mnipjT4SLDMgwiDCEnRC path, .uWvwXlS0Da1bWsRX6KOw, .etChWo, .fn72ari9aEmKo4JcwteT path, .volume-bar__icon-button .ldgdZj, .o_wMyH9_LbAmIwlVqsF0 path, .aRyoyQFJkzhoSOnf2ERM .G7aCptcOZswI1fN6dGkO path, .cVy6fGx6QtJbCnID7XdB path, .Vz6yjzttS0YlLcwrkoUR .ldgdZj, .VpYFchIiPg3tPhBGyynT, .n5XwsUqagSoVk8oMiw1x, .hQUEHs, .bbVjXa {
+        .rRF_r7EyCHjZv058JACi path, .SPC4uzYXJmknkCGKpxHw path, .control-button-heart path, .volume-bar__icon-button .gQUQL, .NdVm10_yLWkkgq87jOMk path, .CCeu9OfWSwIAJqA49n84 path,
+        .iSbqnFdjb1SuyJ3uWydl .UIBT7E6ZYMcSDl1KL62g, .NTJM_mh36C5kJ5oO8eac path, .I_aApN9pSlbGcpLtFQWw path, .Vz6yjzttS0YlLcwrkoUR .gQUQL, .KVKoQ3u4JpKTvSSFtd6J path, .fn72ari9aEmKo4JcwteT .gQUQL, .mnipjT4SLDMgwiDCEnRC path, .uWvwXlS0Da1bWsRX6KOw, .etChWo, .fn72ari9aEmKo4JcwteT path, .volume-bar__icon-button .ldgdZj, .o_wMyH9_LbAmIwlVqsF0 path, .cVy6fGx6QtJbCnID7XdB path, .Vz6yjzttS0YlLcwrkoUR .ldgdZj, .VpYFchIiPg3tPhBGyynT, .n5XwsUqagSoVk8oMiw1x, .hQUEHs, .bbVjXa, .mwpJrmCgLlVkJVtWjlI1 > .KAZD28usA1vPz5GVpm63 path, .volume-bar__icon-button path, .Vz6yjzttS0YlLcwrkoUR path, .FZhaXNtbN3Crwrgd0TA7 path, .jfwwWS.tGKwoPuvNBNK3TzCS5OH path, .tyZF5iwaJ6J5raHWkxwu  {
             fill: custom_theme_color!important;
             color: custom_theme_color!important;
-            if use_gay {animation: gay 5s infinite linear!important;}
+            if use_gay {animation: gay var(--gayTiming) infinite linear!important;}
         }
         .QavgDs_52SpJ2rw0LNYz {
             display: none
@@ -241,84 +250,84 @@
         .N3juGUCH1EhEzmffNHAp {
             background: custom_theme_color!important;
             filter: brightness(0.7) contrast(1.5);
-            if use_gay {animation: gay 5s infinite linear!important;}
+            if use_gay {animation: gay var(--gayTiming) infinite linear!important;}
         }
         .tP0mccyU1WAa7I9PevC1 .uPxdw,
         .tP0mccyU1WAa7I9PevC1,
         .OF_3F0SQCsBtL1jSTlTA,
         .rRF_r7EyCHjZv058JACi .uPxdw {
             color: custom_theme_color!important;
-            transition: all 0.5s;
-            if use_gay {animation: gay 5s infinite linear!important;}
+            transition: all 0.5s
+            if use_gay {animation: gay var(--gayTiming) infinite linear!important;}
         }
         .rRF_r7EyCHjZv058JACi .uPxdw:hover {
             filter: brightness(1.2);
             scale: 1.1;
-            transition: all 0.5s;
-            if use_gay {animation: gay 5s infinite linear!important;}
+            transition: all 0.5s
+            if use_gay {animation: gay var(--gayTiming) infinite linear!important;}
         }
         .epWhU7hHGktzlO_dop6z {
             background: custom_theme_color;
-            if use_gay {animation: gay 5s infinite linear!important;}
+            if use_gay {animation: gay var(--gayTiming) infinite linear!important;}
         } // LYRICS
         .arY01KDGhWNgzlAHlhpd,
         .C3pBU1DsOUJJOAv89ZFT {
             color: custom_theme_color!important;
             filter: opacity(1)!important;
-            if use_gay {animation: gay 5s infinite linear!important;}
+            if use_gay {animation: gay var(--gayTiming) infinite linear!important;}
         }
         ._LKG3z7SnerR0eigPCoK {
             color: custom_theme_color;
             filter: opacity(0.4);
-            if use_gay {animation: gay 5s infinite linear!important;}
+            if use_gay {animation: gay var(--gayTiming) infinite linear!important;}
         }
         .MEjuIn9iTBQbnCqHpkoQ {
             color: custom_theme_color!important;
-            if use_gay {animation: gay 5s infinite linear!important;}
+            if use_gay {animation: gay var(--gayTiming) infinite linear!important;}
         }
         .C3pBU1DsOUJJOAv89ZFT {
             font-size: 3rem!important;
-            if use_gay {animation: gay 5s infinite linear!important;}
+            if use_gay {animation: gay var(--gayTiming) infinite linear!important;}
             
         } // LIKE BUTTON
         .vnCew8qzJq3cVGlYFXRI {
             background: custom_theme_color!important;
             transition: all 0.7s ease;
-            if use_gay {animation: gay 5s infinite linear!important;}
+            if use_gay {animation: gay var(--gayTiming) infinite linear!important;}
         }
         .vnCew8qzJq3cVGlYFXRI:hover {
             background: custom_theme_color!important;
             filter: brightness(1.2);
             scale: 1.1;
             transition: all 0.5s;
-            if use_gay {animation: gay 5s infinite linear!important;}
+            if use_gay {animation: gay var(--gayTiming) infinite linear!important;}
         } 
 
         // ACTIVE TRACK
-        .iSbqnFdjb1SuyJ3uWydl .t_yrXoUO3qGsJS4Y6iXX.standalone-ellipsis-one-line {
+        .iSbqnFdjb1SuyJ3uWydl .t_yrXoUO3qGsJS4Y6iXX.standalone-ellipsis-one-line, .y6bXimbi8JAcblOFxTap .iTEtJB {
             color: custom_theme_color!important;
-            if use_gay {animation: gay 5s infinite linear!important;}
+            if use_gay {animation: gay var(--gayTiming) infinite linear!important;}
         }
         .fwTMCeAaUoWDj9WcQbgy path {
             fill: custom_theme_color;
-            if use_gay {animation: gay 5s infinite linear!important;}
+            if use_gay {animation: gay var(--gayTiming) infinite linear!important;}
         }
         .iSbqnFdjb1SuyJ3uWydl {
             background: ct_active_song;
-            if use_gay {animation: gay 5s infinite linear!important;}
+            if use_gay {animation: gay var(--gayTiming) infinite linear!important;}
         } 
 
         // CONNECT TO DEVICE SCREEN
         .Rpvqb {
             color: custom_theme_color!important;
-            if use_gay {animation: gay 5s infinite linear!important;}
+            if use_gay {animation: gay var(--gayTiming) infinite linear!important;}
         }
         .uWvwXlS0Da1bWsRX6KOw path,
         .uWvwXlS0Da1bWsRX6KOw,
         .INitzTSjokOMEJOc6P2H path,
         .IbmaxRtjqCjqTBpFwCgw svg, .WFRr38dFOxh75JyzSTj5 svg, .IbmaxRtjqCjqTBpFwCgw svg {
             fill: custom_theme_color!important;
-            if use_gay {animation: gay 5s infinite linear!important;}
+            if use_gay {animation: gay var(--gayTiming) infinite linear!important;}
         }
 /*         .IbmaxRtjqCjqTBpFwCgw {
             display: none!important
@@ -328,7 +337,7 @@
             background:none!important;
             fill:none!important;
             color:none!important;
-            if use_gay {animation: gay 5s infinite linear!important;}
+            if use_gay {animation: gay var(--gayTiming) infinite linear!important;}
         }
     }
 
@@ -352,6 +361,12 @@
         .kwe0I8sSNMv3gYBjkRYP,
         .STDuzt77yRCueC4Ohenl .jqNXli {
             display: none
+        }
+    }
+    
+    if hide_spCon_bottom {
+        .n2JI6OkSXCc_qBtEKdIi {
+            display:none
         }
     }
 }
