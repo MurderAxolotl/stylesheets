@@ -66,5 +66,10 @@
     .upsellOverlay__688e8 {
       display: none!important
     }
+
+    /* Emoji upsell */
+    .emojiPickerListWrapper_e15ac7 .premiumUpsell_e1bfd9 {
+      display: none!important
+    }
 } /* REMOVE THIS LINE IF YOU INTEND ON USING VENCORD / BETTERDISCORD /*
     
