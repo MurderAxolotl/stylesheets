@@ -1,0 +1,55 @@
+/* ==UserStyle==
+@name           Simply Dark Drive
+@namespace      github.com/Psychon-Dev-Studios/stylesheets
+@version        1.0
+@description    Simple dark mode for Google Drive
+@author         MurderAxolotl
+==/UserStyle== */
+@-moz-document domain("drive.google.com") {
+    /* Google Drive */
+    .uS40rb {
+        filter: invert()
+    }
+    
+    .gb_Od {
+        filter: invert()
+    }
+    
+    .a-b-ta-lc .a-b-va-Zf {
+        background: rgb(255, 255, 255)!important
+    }
+    
+    html {
+        filter: invert(0.89)
+    }
+
+    .gbii {
+        filter: invert(1)
+    }
+    iframe {
+        filter: invert(1)
+    }
+
+    iframe img {
+        filter: invert(1)
+    }
+    .C2zkke,
+    .PEfnhb,
+    .NtyuW {
+        scrollbar-width: none;
+        padding-right: 6px
+    }
+    .VfPpkd-ksKsZd-mWPk3d .VfPpkd-vQzf8d {
+        color: rgb(0, 185, 132)
+    }
+    
+    .a-b-ah-lc,
+    .a-b-va-Zf,
+    .a-b-lc .a-b-va-Zf,
+    .a-b-Sh,
+    .a-b-Vb,
+    .a-b-Na {
+        filter: invert(1)!important;
+        background-color: rgb(0, 0, 0)
+    }
+}
