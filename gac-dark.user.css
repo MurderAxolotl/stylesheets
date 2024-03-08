@@ -1,0 +1,45 @@
+/* ==UserStyle==
+@name           Dark Account Dark Account
+@namespace      github.com/openstyles/stylus
+@version        1.0.0
+@description    Dark mode for the GAC homepage
+@author         MurderAxo
+==/UserStyle== */
+
+@-moz-document domain("myaccount.google.com") {
+    html {
+        filter: invert(1)
+    }
+    
+    .gb_Aa, .JZFjpd , .XS2qof, .Q3BXBb, .Q3ao0c, .tjB2kd, .HJOYV, .HJOYVc5, .tjB2kd, .FhTl0b  {
+        filter:invert(1)!important
+    }
+    
+    html {
+        filter: invert(1)
+    }
+
+    img {
+        filter: invert(1)
+    }
+
+    iframe {
+        filter: invert(1);
+    }
+
+    html[stylus-iframe$="ogs.google.com"] img, .VfPpkd-IE5DDf, .thMxxd {
+        filter: invert(1)!important;
+    }
+    
+    html[stylus-iframe$="myaccount.google.com"] html {
+        filter: invert(1)!important;
+    }
+}
+@-moz-document domain("ogs.google.com") {
+    body {
+        filter:invert(1)
+    }
+        img {
+            filter:invert(1)
+        }
+}
