@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           NoAnnoyance
 @namespace      https://discord.com/app
-@version        2.4
+@version        2.5
 @description    Hides annoying features and Nitro upsells
 @author         MurderAxo
 ==/UserStyle== */
@@ -9,7 +9,7 @@
 
 /**
  * @name NoAnnoyance
- * @version 2.4
+ * @version 2.5
  * @description Hides annoying features and Nitro upsells
  * @author MurderAxo
 **/
@@ -71,5 +71,16 @@
     .emojiPickerListWrapper_e15ac7 .premiumUpsell_e1bfd9 {
       display: none!important
     }
+
+    /* Emoji upsell */
+    .categorySectionNitroLocked_cf3b81 {
+    background: none!important
+    }
+
+    /* Emoji upsell */
+    .nitroTopDividerContainer__4c8fd, .upsellContainer__3c02a {
+        display: none!important
+    }
+    
 } /* REMOVE THIS LINE IF YOU INTEND ON USING VENCORD / BETTERDISCORD /*
     
