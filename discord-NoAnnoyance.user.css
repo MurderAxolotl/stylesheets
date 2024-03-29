@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           NoAnnoyance
 @namespace      https://discord.com/app
-@version        2.7
+@version        2.8
 @description    Hides annoying features and Nitro upsells
 @author         MurderAxo
 ==/UserStyle== */
@@ -9,7 +9,7 @@
 
 /**
  * @name NoAnnoyance
- * @version 2.7
+ * @version 2.8
  * @description Hides annoying features and Nitro upsells
  * @author MurderAxo
 **/
@@ -51,7 +51,7 @@
 }
 
 /* "SHOP" / "NITRO" button in DM list */
-.link__2e8e1[href="/shop"], .link__2e8e1[href="/store"], a[data-list-item-id="private-channels-uid_18___shop"], *[href="/shop"] {
+.link__2e8e1[href="/shop"], .link__2e8e1[href="/store"], a[data-list-item-id="private-channels-uid_18___shop"], *[href="/shop"], , *[href="/store"] {
   display: none!important
 }
 
