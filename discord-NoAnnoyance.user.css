@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           NoAnnoyance
 @namespace      https://discord.com/app
-@version        2.9
+@version        3.0
 @description    Hides annoying features and Nitro upsells
 @author         MurderAxo
 ==/UserStyle== */
@@ -9,69 +9,77 @@
 
 /**
  * @name NoAnnoyance
- * @version 2.9
+ * @version 3.0
  * @description Hides annoying features and Nitro upsells
  * @author MurderAxo
 **/
 /* Vencord / BetterDiscord compatibility */
 
-/* "Create a thread" suggestion bar */
-.threadSuggestionBar_b633f7 {
-  display:none!important
-}
+/* PLEASE READ */
+/* IF YOU INTEND ON USING THIS WITH STYLUS OR ANOTHER USER-STYLE MANAGER, YOU DO NOT NEED TO MODIFY THIS AT ALL */
+/* IF YOU INTEND ON USING THIS WITH VENCORD OR BETTERDISCORD'S BUILT-IN CSS FEATURES, REMOVE THE @-moz-document LINE AND THE LAST "}" */
 
-/* Hides the "send a gift" button */
-*[aria-label="Send a gift"] {
-  display:none!important
-}
-
-/* "Nitro" settings menu */
-.premiumTab__57bdc, *[aria-label="Nitro"], .premiumTab_ad0913 {
-	display: none!important
-}
-
-/* Social links */
-.socialLinks_c1fc99 {
-	display: none!important
-}
-
-/* "Give your profile a fresh look" */
-.shopForAllBackgroundImage__009d9 {
-	display: none!important
-}
-
-/* Try out Nitro! in profiles */
-.tryItOutSection__0f9fb {
-	display: none!important
-}
-
-/* Get Nitro button */
-.ctaButton_abf121 {
-  display: none
-}
-
-/* "SHOP" / "NITRO" button in DM list */
-.link__2e8e1[href="/shop"], .link__2e8e1[href="/store"], a[data-list-item-id="private-channels-uid_18___shop"], *[href="/shop"], , *[href="/store"] {
-  display: none!important
-}
-
-/* "Make unique profiles for each server" */
-/* Weird thing about this one. It hides the overlay and border box. If you don't have Nitro, the various input forms will stay greyed out, though */
-.upsellOverlay__688e8 {
-  display: none!important
-}
-
-/* Emoji upsell */
-.emojiPickerListWrapper_e15ac7 .premiumUpsell_e1bfd9 {
-  display: none!important
-}
-
-/* Emoji upsell */
-.categorySectionNitroLocked_cf3b81 {
-  background: none!important
-}
-
-/* Emoji upsell */
-.nitroTopDividerContainer__4c8fd, .upsellContainer__3c02a {
-    display: none!important
-}
+@-moz-document domain("discord.com") {
+	
+	/* "Create a thread" suggestion bar */
+	.threadSuggestionBar_b633f7 {
+	  display:none!important
+	}
+	
+	/* Hides the "send a gift" button */
+	*[aria-label="Send a gift"] {
+	  display:none!important
+	}
+	
+	/* "Nitro" settings menu */
+	.premiumTab__57bdc, *[aria-label="Nitro"], .premiumTab_ad0913 {
+		display: none!important
+	}
+	
+	/* Social links */
+	.socialLinks_c1fc99 {
+		display: none!important
+	}
+	
+	/* "Give your profile a fresh look" */
+	.shopForAllBackgroundImage__009d9 {
+		display: none!important
+	}
+	
+	/* Try out Nitro! in profiles */
+	.tryItOutSection__0f9fb {
+		display: none!important
+	}
+	
+	/* Get Nitro button */
+	.ctaButton_abf121 {
+	  display: none
+	}
+	
+	/* "SHOP" / "NITRO" button in DM list */
+	.link__2e8e1[href="/shop"], .link__2e8e1[href="/store"], a[data-list-item-id="private-channels-uid_18___shop"], *[href="/shop"], , *[href="/store"] {
+	  display: none!important
+	}
+	
+	/* "Make unique profiles for each server" */
+	/* Weird thing about this one. It hides the overlay and border box. If you don't have Nitro, the various input forms will stay greyed out, though */
+	.upsellOverlay__688e8 {
+	  display: none!important
+	}
+	
+	/* Emoji upsell */
+	.emojiPickerListWrapper_e15ac7 .premiumUpsell_e1bfd9 {
+	  display: none!important
+	}
+	
+	/* Emoji upsell */
+	.categorySectionNitroLocked_cf3b81 {
+	  background: none!important
+	}
+	
+	/* Emoji upsell */
+	.nitroTopDividerContainer__4c8fd, .upsellContainer__3c02a {
+	    display: none!important
+	}
+} 
+/* Using Vencord or BetterDiscord's CSS features? Comment out the line above */
