@@ -57,7 +57,7 @@
 	}
 	
 	/* "SHOP" / "NITRO" button in DM list */
-	.link__2e8e1[href="/shop"], .link__2e8e1[href="/store"], a[data-list-item-id="private-channels-uid_18___shop"], *[href="/shop"], , *[href="/store"] {
+	*[href="/shop"], *[href="/store" {
 	  display: none!important
 	}
 	
