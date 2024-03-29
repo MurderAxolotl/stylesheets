@@ -26,7 +26,7 @@
 }
 
 /* "Nitro" settings menu */
-.premiumTab__57bdc{
+.premiumTab__57bdc, *[aria-label="Nitro"], .premiumTab_ad0913 {
 	display: none!important
 }
 
