@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           NoAnnoyance
 @namespace      https://discord.com/app
-@version        3.0.1
+@version        3.3
 @description    Hides annoying features and Nitro upsells
 @author         MurderAxo
 ==/UserStyle== */
@@ -9,7 +9,7 @@
 
 /**
  * @name NoAnnoyance
- * @version 3.0.1
+ * @version 3.3
  * @description Hides annoying features and Nitro upsells
  * @author MurderAxo
 **/
@@ -20,9 +20,7 @@
 /* IF YOU INTEND ON USING THIS WITH VENCORD OR BETTERDISCORD'S BUILT-IN CSS FEATURES, REMOVE THE @-moz-document LINE AND THE LAST "}" */
 
 @-moz-document domain("discord.com") {
-	
-	/* "Create a thread" suggestion bar */
-	.threadSuggestionBar_b633f7 {
+		.threadSuggestionBar_b633f7 {
 	  display:none!important
 	}
 	
@@ -73,12 +71,12 @@
 	}
 	
 	/* Emoji upsell */
-	.categorySectionNitroLocked_cf3b81 {
+	.categorySectionNitroLocked_cf3b81, .categorySectionNitroLocked__5b287 {
 	  background: none!important
 	}
 	
 	/* Emoji upsell */
-	.nitroTopDividerContainer__4c8fd, .upsellContainer__3c02a {
+	.nitroTopDividerContainer__4c8fd, .upsellContainer__3c02a, .upsellContainer__15a05, .nitroTopDividerContainer_b829ac, .emojiLockIconContainer_ed2f80, .categoryItemLockIcon__64b4b, .categoryItemLockIconContainer__61fa5 {
 	    display: none!important
 	}
 } 
