@@ -20,7 +20,7 @@
 /* IF YOU INTEND ON USING THIS WITH VENCORD OR BETTERDISCORD'S BUILT-IN CSS FEATURES, REMOVE THE @-moz-document LINE AND THE LAST "}" */
 
 @-moz-document domain("discord.com") {
-		.threadSuggestionBar_b633f7 {
+		.threadSuggestionBar_b633f7, .threadSuggestionBar__717a3 {
 	  display:none!important
 	}
 	
