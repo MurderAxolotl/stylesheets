@@ -81,7 +81,7 @@
 	}
 
 	/* VC Experiments Warning */
-	.vc-experiments-warning-card {
+	#vc-experiments-warning-card {
 		display: none!important
 	}
 } 
