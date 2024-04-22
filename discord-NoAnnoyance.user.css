@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           NoAnnoyance
 @namespace      https://discord.com/app
-@version        3.5
+@version        3.6
 @description    Hides annoying features and Nitro upsells
 @author         MurderAxo
 ==/UserStyle== */
@@ -9,7 +9,7 @@
 
 /**
  * @name NoAnnoyance
- * @version 3.5
+ * @version 3.6
  * @description Hides annoying features and Nitro upsells
  * @author MurderAxo
 **/
@@ -20,7 +20,7 @@
 /* IF YOU INTEND ON USING THIS WITH VENCORD OR BETTERDISCORD'S BUILT-IN CSS FEATURES, REMOVE THE @-moz-document LINE AND THE LAST "}" */
 
 @-moz-document domain("discord.com") {
-		.threadSuggestionBar_b633f7, .threadSuggestionBar__717a3 {
+	*[class*="threadSuggestionBar_"] {
 	  display:none!important
 	}
 	
@@ -30,7 +30,7 @@
 	}
 	
 	/* "Nitro" settings menu */
-	.premiumTab__57bdc, *[aria-label="Nitro"], .premiumTab_ad0913 {
+	.premiumTab__57bdc, *[aria-label="Nitro"], .premiumTab_ad0913, *[class*="premiumTab_"] {
 		display: none!important
 	}
 	
