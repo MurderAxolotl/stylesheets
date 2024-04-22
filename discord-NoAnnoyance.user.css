@@ -61,7 +61,7 @@
 	
 	/* "Make unique profiles for each server" */
 	/* Weird thing about this one. It hides the overlay and border box. If you don't have Nitro, the various input forms will stay greyed out, though */
-	.upsellOverlay__688e8 {
+	.upsellOverlay__688e8,  *[class*="upsellOverlay__"] {
 	  display: none!important
 	}
 	
@@ -84,5 +84,11 @@
 	#vc-experiments-warning-card {
 		display: none!important
 	}
+
+	/* Must be Valorent */
+	.container__686c4 {
+	  display:none!important
+	}
+
 } 
 /* Using Vencord or BetterDiscord's CSS features? Comment out the line above */
