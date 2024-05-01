@@ -2,7 +2,7 @@
 @name           Unified Spotify
 @namespace      github.com/openstyles/stylus
 @license        GNU GPLv3
-@version        1.10.7
+@version        1.11
 @description    Brings a new, unified UI to Spotify
 @author         Axo
 @preprocessor   stylus
@@ -65,12 +65,12 @@
     }
     else {
         .os-scrollbar-vertical {
-            width: 10px!important;
+            width: 5px!important;
             border-radius: 5px 5px!important
         }
         if hide_sb==styled {
             .os-scrollbar-handle {
-                // width:10px!important;
+                width:5px!important;
                 border-radius: 5px 5px!important;
                 if use_custom_theme_color {
                     background: custom_theme_color!important;
@@ -98,7 +98,15 @@
     .eFyQzR {
         display:none
     }
-
+    
+    /* Top bar */
+    .S4OmZ_IZexmZ5dasPqW5 {
+        background: transparent!important;
+    }
+    
+    .coBkWVskipFo8KxLKief {
+        background: hsl(227, 15%, 6%)!important
+    }
 
     /* PLAYLIST UI AND PLAYER UI */
     .rezqw3Q4OEPB1m4rmwfw > .contentSpacing,
@@ -111,7 +119,9 @@
     .gHImFiUWOg93pvTefeAD,
     .xYgjMpAjE5XT05aRIezb,
     .contentSpacing.jzhwZKbfx4vrC_MYd_7c.QyANtc_r7ff_tqrf5Bvc.Shelf,
-    .E4q8ogfdWtye7YgotBlN.contentSpacing, .QuHe04rU4bj0Z5U9E2Tk, .UvXqRORKQr_N3jlgGTcS, .ifVI2CEdOZGgMWIUN2Cw, .jtqtOeRP46XAlHWx4C0D
+    .E4q8ogfdWtye7YgotBlN.contentSpacing, .QuHe04rU4bj0Z5U9E2Tk, .UvXqRORKQr_N3jlgGTcS, .ifVI2CEdOZGgMWIUN2Cw, .jtqtOeRP46XAlHWx4C0D,
+    .ylBRlfNqGnzVa4kjUQGP, .ZbDMGdU4aBOnrNLowNRq, .IkRGajTjItEFQkRMeH6v,
+    .udArIAqnfUQPQew2VAns
     {
         background: hsl(227, 15%, 6%)!important
     }
@@ -128,8 +138,10 @@
     .ibrRlYShsgThsh8VNS8Q {
         background: hsl(227, 15%, 6%)!important
     }
+    
     .LunqxlFIupJw_Dkx6mNx,
-    .oaNVBli46GtVjaQKB15g, .qbOrWcMUhSri1nPkZLQA  {
+    .oaNVBli46GtVjaQKB15g, .qbOrWcMUhSri1nPkZLQA, 
+    .l2PpoXJouAgqFCuNT3iB, .QkOkUShDYWFx5Cz40Bcn  {
         background: hsl(227, 15%, 10%)!important
     }
 
@@ -218,7 +230,7 @@
         .iSbqnFdjb1SuyJ3uWydl .btn,
         .h4HgbO_Uu1JYg5UGANeQ .btn,
         .eSg4ntPU2KQLfpLGXAww .btn,
-        .lro6AjUrZFH6zxjmOGg0 .encore-bright-accent-set, .encore-bright-accent-set, .SPC4uzYXJmknkCGKpxHw path{
+        .lro6AjUrZFH6zxjmOGg0 .encore-bright-accent-set, .encore-bright-accent-set, .SPC4uzYXJmknkCGKpxHw path {
             background-color: custom_theme_color!important;
             if use_gay {animation: gay var(--gayTiming) infinite linear!important;}
         }
@@ -239,11 +251,37 @@
         .RK45o6dbvO1mb0wQtSwq,
         .GlueDropTarget--episodes .KAZD28usA1vPz5GVpm63,
         .rRF_r7EyCHjZv058JACi path, .SPC4uzYXJmknkCGKpxHw path, .control-button-heart path, .volume-bar__icon-button .gQUQL, .NdVm10_yLWkkgq87jOMk path, .CCeu9OfWSwIAJqA49n84 path,
-        .iSbqnFdjb1SuyJ3uWydl .UIBT7E6ZYMcSDl1KL62g, .NTJM_mh36C5kJ5oO8eac path, .I_aApN9pSlbGcpLtFQWw path, .Vz6yjzttS0YlLcwrkoUR .gQUQL, .KVKoQ3u4JpKTvSSFtd6J path, .fn72ari9aEmKo4JcwteT .gQUQL, .mnipjT4SLDMgwiDCEnRC path, .uWvwXlS0Da1bWsRX6KOw, .etChWo, .fn72ari9aEmKo4JcwteT path, .volume-bar__icon-button .ldgdZj, .o_wMyH9_LbAmIwlVqsF0 path, .cVy6fGx6QtJbCnID7XdB path, .Vz6yjzttS0YlLcwrkoUR .ldgdZj, .VpYFchIiPg3tPhBGyynT, .n5XwsUqagSoVk8oMiw1x, .hQUEHs, .bbVjXa, .mwpJrmCgLlVkJVtWjlI1 > .KAZD28usA1vPz5GVpm63 path, .volume-bar__icon-button path, .Vz6yjzttS0YlLcwrkoUR path, .FZhaXNtbN3Crwrgd0TA7 path, .jfwwWS.tGKwoPuvNBNK3TzCS5OH path, .tyZF5iwaJ6J5raHWkxwu  {
+        .iSbqnFdjb1SuyJ3uWydl .UIBT7E6ZYMcSDl1KL62g, 
+        .NTJM_mh36C5kJ5oO8eac path, .I_aApN9pSlbGcpLtFQWw path, 
+        .Vz6yjzttS0YlLcwrkoUR .gQUQL, .KVKoQ3u4JpKTvSSFtd6J path, 
+        .fn72ari9aEmKo4JcwteT .gQUQL, .mnipjT4SLDMgwiDCEnRC path, 
+        .uWvwXlS0Da1bWsRX6KOw, .etChWo, .fn72ari9aEmKo4JcwteT path, 
+        .volume-bar__icon-button .ldgdZj, .o_wMyH9_LbAmIwlVqsF0 path, 
+        .cVy6fGx6QtJbCnID7XdB path, .Vz6yjzttS0YlLcwrkoUR .ldgdZj, 
+        .VpYFchIiPg3tPhBGyynT, .n5XwsUqagSoVk8oMiw1x, .hQUEHs, .bbVjXa,
+        .mwpJrmCgLlVkJVtWjlI1 > .KAZD28usA1vPz5GVpm63 path, 
+        .volume-bar__icon-button path, .Vz6yjzttS0YlLcwrkoUR path, 
+        .FZhaXNtbN3Crwrgd0TA7 path, .jfwwWS.tGKwoPuvNBNK3TzCS5OH path, .tyZF5iwaJ6J5raHWkxwu,
+        .DMWoYmJsYdFjGQbeGH9Q .dYnaPI,
+        .control-button .kcUFwU,
+        .hYdsxw .bneLcE,
+        .gqJnng path,
+        .gacXSA path,
+        .control-button-feedback .dYnaPI,
+        .dYnaPI,
+        .Svg-sc-ytk21e-0, .kLkTcI, .cSWBDsMjkH62GXIXo6mQ,
+        .hYdsxw .cAMMLk, .i_FRcsaqNCEJmoyObIP0,
+        .active .encore-text-body-medium-bold, .hNvCMxbfz7HwgzLjt3IZ .encore-text-body-medium-bold,
+        .w0nWe_59HwsG7nQLoibF {
             fill: custom_theme_color!important;
             color: custom_theme_color!important;
             if use_gay {animation: gay var(--gayTiming) infinite linear!important;}
         }
+        
+        .vnCew8qzJq3cVGlYFXRI path {
+            fill: black!important
+        }
+        
         .QavgDs_52SpJ2rw0LNYz {
             display: none
         }
