@@ -2,26 +2,22 @@
 @name           Unified Spotify
 @namespace      github.com/openstyles/stylus
 @license        GNU GPLv3
-@version        1.11.4
+@version        1.11.5
 @description    Brings a new, unified UI to Spotify
 @author         Axo
 @preprocessor   stylus
+
 @var checkbox hide_uname "HIDE USERNAME" 0
 @var checkbox hide_recs "HIDE RECOMMENDATIONS" 0
-@var checkbox hide_spCon_bottom "Minimal SpConnect UI" 0
-@var checkbox hide_un_sb_c "SIMPLIFIED SIDEBAR" 0
+@var checkbox hide_spCon_bottom "MIN SPCON UI" 0
+@var checkbox simple_sidebar "SIMPLIFIED SIDEBAR" 0
 @var select hide_sb "SCROLLBAR MODE" {"use_theme:THEMED": "styled", "spotify:DEFAULT": "spotify", "hidden:HIDDEN": "hidden"}
 @var checkbox use_custom_theme_color "USE CUSTOM COLORS" 1
-@var checkbox use_gay "RAINBOW MODE" 0
-@var text gay_timing "RM: Duration" 5s
 @var color custom_theme_color "CT: ACCENT COLOUR" #9b6ef4
 @var color ct_active_song "CT: ACTIVE TRACK COLOUR" #1c1e26
+
 ==/UserStyle== */
 @-moz-document domain("open.spotify.com") {
-    
-    :root {
-        --gayTiming: gay_timing;
-    }
 
     @keyframes gay {
         0% {
@@ -30,11 +26,6 @@
         100% {
             filter: hue-rotate(360deg)
         }
-    }
-    
-    /* Variable logic to fix visual bugs */
-    if use_gay {
-        use_custom_theme_color = 1
     }
 
     /*   Spotify Web Player   */
@@ -68,21 +59,42 @@
             width: 5px!important;
             border-radius: 5px 5px!important
         }
+        
         if hide_sb==styled {
             .os-scrollbar-handle {
                 width:5px!important;
                 border-radius: 5px 5px!important;
+                
                 if use_custom_theme_color {
                     background: custom_theme_color!important;
                     filter: opacity(0.5)!important
-                } else if use_gay {
-                    background: custom_theme_color!important;
-                    filter: opacity(0.5)!important;
-                    animation: gay var(--gayTiming) infinite linear!important;
-                }
+                    
+                } 
             }
         }
     }
+    
+    /* Lyrics */
+    .e7eFLioNSG5PAi1qVFT4, .gqaWFmQeKNYnYD5gRv3x, ._Wna90no0o0dta47Heiw, .nw6rbs8R08fpPn7RWW2w, .SruqsAzX8rUtY2isUZDF, .BXlQFspJp_jq9SKhUSP3 {
+        background: hsl(227, 15%, 6%)!important
+    }
+    
+    ._Wna90no0o0dta47Heiw::after {
+        background: none!important
+    }
+    
+    ._Wna90no0o0dta47Heiw {
+        top: 25vh
+    }
+    
+    .O7ooKKJG0MArEwDgD6IV, .hS_lrRHiW4BSWL8WcE8Q {
+        display: none
+    }
+    
+    .BXlQFspJp_jq9SKhUSP3 {
+        text-align: center!important
+    }
+
 
     /* Footer */
     .joBbFt {
@@ -256,17 +268,14 @@
         .eSg4ntPU2KQLfpLGXAww .btn,
         .lro6AjUrZFH6zxjmOGg0 .encore-bright-accent-set, .encore-bright-accent-set, .SPC4uzYXJmknkCGKpxHw path {
             background-color: custom_theme_color!important;
-            if use_gay {animation: gay var(--gayTiming) infinite linear!important;}
         }
         .Ar1CZ7qjPHuIJY0cI56W .btn {
             scale: 60%;
             filter: grayscale(1)
-            if use_gay {animation: gay var(--gayTiming) infinite linear!important;}
         }
         .iSbqnFdjb1SuyJ3uWydl .btn,
         .h4HgbO_Uu1JYg5UGANeQ .btn {
             scale: 60%!important
-            if use_gay {animation: gay var(--gayTiming) infinite linear!important;}
         }
 
         .K7fGF95OD9aI3zdYnFXg path,
@@ -299,7 +308,6 @@
         .w0nWe_59HwsG7nQLoibF {
             fill: custom_theme_color!important;
             color: custom_theme_color!important;
-            if use_gay {animation: gay var(--gayTiming) infinite linear!important;}
         }
         
         .vnCew8qzJq3cVGlYFXRI path {
@@ -312,7 +320,6 @@
         .N3juGUCH1EhEzmffNHAp {
             background: custom_theme_color!important;
             filter: brightness(0.7) contrast(1.5);
-            if use_gay {animation: gay var(--gayTiming) infinite linear!important;}
         }
         .tP0mccyU1WAa7I9PevC1 .uPxdw,
         .tP0mccyU1WAa7I9PevC1,
@@ -320,90 +327,59 @@
         .rRF_r7EyCHjZv058JACi .uPxdw {
             color: custom_theme_color!important;
             transition: all 0.5s
-            if use_gay {animation: gay var(--gayTiming) infinite linear!important;}
         }
         .rRF_r7EyCHjZv058JACi .uPxdw:hover {
             filter: brightness(1.2);
             scale: 1.1;
             transition: all 0.5s
-            if use_gay {animation: gay var(--gayTiming) infinite linear!important;}
         }
         .epWhU7hHGktzlO_dop6z {
             background: custom_theme_color;
-            if use_gay {animation: gay var(--gayTiming) infinite linear!important;}
-        } // LYRICS
-        .arY01KDGhWNgzlAHlhpd,
-        .C3pBU1DsOUJJOAv89ZFT {
-            color: custom_theme_color!important;
-            filter: opacity(1)!important;
-            if use_gay {animation: gay var(--gayTiming) infinite linear!important;}
         }
-        ._LKG3z7SnerR0eigPCoK {
-            color: custom_theme_color;
-            filter: opacity(0.4);
-            if use_gay {animation: gay var(--gayTiming) infinite linear!important;}
-        }
-        .MEjuIn9iTBQbnCqHpkoQ {
-            color: custom_theme_color!important;
-            if use_gay {animation: gay var(--gayTiming) infinite linear!important;}
-        }
-        .C3pBU1DsOUJJOAv89ZFT {
-            font-size: 3rem!important;
-            if use_gay {animation: gay var(--gayTiming) infinite linear!important;}
-            
-        } // LIKE BUTTON
+        
+        /* Like Button */
         .vnCew8qzJq3cVGlYFXRI {
             background: custom_theme_color!important;
             transition: all 0.7s ease;
-            if use_gay {animation: gay var(--gayTiming) infinite linear!important;}
         }
+        
         .vnCew8qzJq3cVGlYFXRI:hover {
             background: custom_theme_color!important;
             filter: brightness(1.2);
             scale: 1.1;
             transition: all 0.5s;
-            if use_gay {animation: gay var(--gayTiming) infinite linear!important;}
         } 
 
-        // ACTIVE TRACK
+        /* Active Track */
         .iSbqnFdjb1SuyJ3uWydl .t_yrXoUO3qGsJS4Y6iXX.standalone-ellipsis-one-line, .y6bXimbi8JAcblOFxTap .iTEtJB {
             color: custom_theme_color!important;
-            if use_gay {animation: gay var(--gayTiming) infinite linear!important;}
         }
         .fwTMCeAaUoWDj9WcQbgy path {
             fill: custom_theme_color;
-            if use_gay {animation: gay var(--gayTiming) infinite linear!important;}
         }
         .iSbqnFdjb1SuyJ3uWydl {
             background: ct_active_song;
-            if use_gay {animation: gay var(--gayTiming) infinite linear!important;}
         } 
 
-        // CONNECT TO DEVICE SCREEN
+        /* Connected Device Screen */
         .Rpvqb {
             color: custom_theme_color!important;
-            if use_gay {animation: gay var(--gayTiming) infinite linear!important;}
         }
         .uWvwXlS0Da1bWsRX6KOw path,
         .uWvwXlS0Da1bWsRX6KOw,
         .INitzTSjokOMEJOc6P2H path,
         .IbmaxRtjqCjqTBpFwCgw svg, .WFRr38dFOxh75JyzSTj5 svg, .IbmaxRtjqCjqTBpFwCgw svg {
             fill: custom_theme_color!important;
-            if use_gay {animation: gay var(--gayTiming) infinite linear!important;}
         }
-/*         .IbmaxRtjqCjqTBpFwCgw {
-            display: none!important
-        } */
         
         div .WFRr38dFOxh75JyzSTj5, div .IbmaxRtjqCjqTBpFwCgw, .WFRr38dFOxh75JyzSTj5 .encore-bright-accent-set .IbmaxRtjqCjqTBpFwCgw {
             background:none!important;
             fill:none!important;
             color:none!important;
-            if use_gay {animation: gay var(--gayTiming) infinite linear!important;}
         }
     }
 
-    if hide_un_sb_c {
+    if simple_sidebar {
 
         .IPVjkkhh06nan7aZK7Bx {
             display: none
@@ -454,7 +430,6 @@
         }
         if hide_sb==styled {
             .os-scrollbar-handle {
-                // width:10px!important;
                 border-radius: 5px 5px!important;
                 if use_custom_theme_color {
                     background: custom_theme_color!important;
