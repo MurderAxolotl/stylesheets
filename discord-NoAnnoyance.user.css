@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           NoAnnoyance
 @namespace      https://discord.com/app
-@version        3.6
+@version        3.8
 @description    Hides annoying features and Nitro upsells
 @author         MurderAxo
 ==/UserStyle== */
@@ -9,7 +9,7 @@
 
 /**
  * @name NoAnnoyance
- * @version 3.6
+ * @version 3.8
  * @description Hides annoying features and Nitro upsells
  * @author MurderAxo
 **/
@@ -87,8 +87,18 @@
 
 	/* Must be Valorent */
 	.container__686c4 {
-	  display:none!important
+	  display: none!important
 	}
+    
+    /* Server VoiceChannel hover guide thing */
+    .container_a88e31 {
+        display: none!important
+    }
+    
+    /* Settings screen social links */
+    .socialLinks_dbdd6f {
+        display: none!important
+    }
 
 } 
 /* Using Vencord or BetterDiscord's CSS features? Comment out the line above */
