@@ -4,8 +4,8 @@ We strongly recommend using these with the Userstyle manager [Stylus](https://gi
 
 ## Install Links
 
-Please use these links to install the themes.\
-While you can install directly from Github, you will not recieve automatic updates if you do.\
+Please use these links to install the themes! UserStyles provides automatic updates.\
+You will not recieve automatic updates if you install directly through Github
 
 
 [Discord NoAnnoyance](https://userstyles.world/style/14875/discord-noannoyance)\
