@@ -4,6 +4,10 @@ We strongly recommend using these with the Userstyle manager [Stylus](https://gi
 
 ## Install Links
 
+Please use these links to install the themes.\
+While you can install directly from Github, you will not recieve automatic updates if you do.\
+
+
 [Discord NoAnnoyance](https://userstyles.world/style/14875/discord-noannoyance)\
 [Unified Spotify](https://userstyles.world/style/8785/unified-spotify)\
 [Dark Google Account](https://userstyles.world/style/15156/dark-google-accounts)\
