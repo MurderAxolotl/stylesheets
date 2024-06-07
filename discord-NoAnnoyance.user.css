@@ -100,5 +100,10 @@
         display: none!important
     }
 
+/* Should we mark this channel as unread...? */
+  div[class*="notice__"] {
+    display: none!important
+  }
+
 } 
 /* Using Vencord or BetterDiscord's CSS features? Comment out the line above */
