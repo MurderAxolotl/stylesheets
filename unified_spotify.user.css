@@ -2,14 +2,14 @@
 @name           Unified Spotify
 @namespace      github.com/openstyles/stylus
 @license        GNU GPLv3
-@version        1.11.5
+@version        1.12
 @description    Brings a new, unified UI to Spotify
 @author         Axo
 @preprocessor   stylus
 
 @var checkbox hide_uname "HIDE USERNAME" 0
 @var checkbox hide_recs "HIDE RECOMMENDATIONS" 0
-@var checkbox hide_spCon_bottom "MIN SPCON UI" 0
+@var checkbox hide_spCon_bottom "HIDE 'PLAYING ON'" 0
 @var checkbox simple_sidebar "SIMPLIFIED SIDEBAR" 0
 @var select hide_sb "SCROLLBAR MODE" {"use_theme:THEMED": "styled", "spotify:DEFAULT": "spotify", "hidden:HIDDEN": "hidden"}
 @var checkbox use_custom_theme_color "USE CUSTOM COLORS" 1
@@ -149,10 +149,15 @@
         background: hsl(227, 15%, 6%)!important
     }
     
+    /* CONNECT TO DEVICE PANE */
+    .W3E0IT3_STcazjTeyOJa, .h0XG5HZ9x0lYV7JNwhoA  {
+        background: hsl(227, 15%, 6%)!important
+    }
+    
     .tippy-arrow, .mkQEqlUoJ9kghcMfT49m .os-scrollbar,
     .XiVwj5uoqqSFpS4cYOC6, .facDIsOQo9q7kiWc4jSg, .main-view-container__mh-footer-container,
     .qSTDtICR1fiIGRni1cwy, .YIJxiTuPgMQav316cRqP,
-    .mjprSb2e1tKJpqwvgFSh, .XdJAEkP3WXzUL5URB0ZX, 
+    .mjprSb2e1tKJpqwvgFSh, .XdJAEkP3WXzUL5URB0ZX 
     {
         color: hsl(227, 15%, 15%)!important
     }
@@ -362,13 +367,18 @@
         } 
 
         /* Connected Device Screen */
-        .Rpvqb {
+        .Rpvqb, *[aria-label="Connect to a device"]::after, .hYdsxw::after {
             color: custom_theme_color!important;
         }
+        
+        .KAZD28usA1vPz5GVpm63.EHxL6K_6WWDlTCZP6x5w::after {
+            background: custom_theme_color!important
+        }
+        
         .uWvwXlS0Da1bWsRX6KOw path,
         .uWvwXlS0Da1bWsRX6KOw,
         .INitzTSjokOMEJOc6P2H path,
-        .IbmaxRtjqCjqTBpFwCgw svg, .WFRr38dFOxh75JyzSTj5 svg, .IbmaxRtjqCjqTBpFwCgw svg {
+        .IbmaxRtjqCjqTBpFwCgw svg, .WFRr38dFOxh75JyzSTj5 svg, .IbmaxRtjqCjqTBpFwCgw svg, *[aria-label="Connect to a device"]::after, .hYdsxw::after {
             fill: custom_theme_color!important;
         }
         
@@ -376,6 +386,14 @@
             background:none!important;
             fill:none!important;
             color:none!important;
+        }
+        
+        div[aria-labelledby="listrow-title-0abd29c122030303983590690a927ed6eb2d8003 listrow-subtitle-0abd29c122030303983590690a927ed6eb2d8003"]:hover, aria-labelledby="device-picker-section-heading ":hover, .RowButton-sc-xxkq4e-0 .hIehTT:hover {
+            background:transparent!important
+        }
+        
+        .KYkSwfV1FCtD15TMChbH {
+            display:none
         }
     }
 
@@ -403,8 +421,8 @@
     }
     
     if hide_spCon_bottom {
-        .n2JI6OkSXCc_qBtEKdIi {
-            display:none
+        .T3hkVxXuSbCYOD2GIeQd {
+            display: none
         }
     }
 }
