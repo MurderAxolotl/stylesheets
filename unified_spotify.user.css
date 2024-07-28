@@ -2,7 +2,7 @@
 @name           Unified Spotify
 @namespace      github.com/openstyles/stylus
 @license        GNU GPLv3
-@version        1.12
+@version        1.13
 @description    Brings a new, unified UI to Spotify
 @author         Axo
 @preprocessor   stylus
@@ -11,6 +11,7 @@
 @var checkbox hide_recs "HIDE RECOMMENDATIONS" 0
 @var checkbox hide_spCon_bottom "HIDE 'PLAYING ON'" 0
 @var checkbox simple_sidebar "SIMPLIFIED SIDEBAR" 0
+@var checkbox hide_footer "HIDE FOOTER" 1
 @var select hide_sb "SCROLLBAR MODE" {"use_theme:THEMED": "styled", "spotify:DEFAULT": "spotify", "hidden:HIDDEN": "hidden"}
 @var checkbox use_custom_theme_color "USE CUSTOM COLORS" 1
 @var color custom_theme_color "CT: ACCENT COLOUR" #9b6ef4
@@ -95,12 +96,6 @@
         text-align: center!important
     }
 
-
-    /* Footer */
-    .joBbFt {
-        display: none
-    }
-
     /* Hides sponsors */
     .sponsor-text,
     .sponsor-logo__image {
@@ -144,7 +139,8 @@
     .ylBRlfNqGnzVa4kjUQGP, .ZbDMGdU4aBOnrNLowNRq, .IkRGajTjItEFQkRMeH6v,
     .udArIAqnfUQPQew2VAns, ._W_0W9Uld1vxrRfsgdQR , .paiZmlAHHhmZonuGJRAr, .HjPqU_UW2egr14mRSom9, .fFvRIGtMIgsOLVSq_JNS, .scnRZypJsyXH1tjPg6uM > div,
     .XiVwj5uoqqSFpS4cYOC6, .facDIsOQo9q7kiWc4jSg, .main-view-container__mh-footer-container,
-    ._2ajKWDiy6YvJu5wo8I1g
+    ._2ajKWDiy6YvJu5wo8I1g,
+    .paiZmlAHHhmZonuGJRAr, .lHJd4oSttKLxkxuoZ0Lr, .wM72343CksOCaL3bZvKK
     {
         background: hsl(227, 15%, 6%)!important
     }
@@ -177,18 +173,22 @@
     .main-view-container__scroll-node .os-content,
     .L9xhJOJnV2OL5Chm3Jew,
     .oNjdJbGQ9ypf7KR0nYJW,
-    .ibrRlYShsgThsh8VNS8Q {
+    .ibrRlYShsgThsh8VNS8Q,
+    *[data-overlayscrollbars-viewport="scrollbarHidden overflowXHidden overflowYScroll"]{
         background: hsl(227, 15%, 6%)!important
     }
     
+    /* Foreground elements on the right sidebar */
     .LunqxlFIupJw_Dkx6mNx,
     .oaNVBli46GtVjaQKB15g, .qbOrWcMUhSri1nPkZLQA, 
-    .l2PpoXJouAgqFCuNT3iB, .QkOkUShDYWFx5Cz40Bcn  {
+    .l2PpoXJouAgqFCuNT3iB, .QkOkUShDYWFx5Cz40Bcn,
+    .GTmlByXpJj7V6AwVq0Vk,
+    .Ai_McRq9wJEYK21w8nX_, .IgTMXVbZtqtZwu3GZASd{
         background: hsl(227, 15%, 10%)!important
     }
 
     /* SIDEBAR */
-    .tUwyjggD2n5KvEtP5z1B, .Ozitxbqs1vcOukDz3GDw{
+    .tUwyjggD2n5KvEtP5z1B, .Ozitxbqs1vcOukDz3GDw {
         background: hsl(227, 15%, 5%)!important
     }
 
@@ -209,6 +209,11 @@
 
     button.wC9sIed7pfp47wZbmU6m:hover {
         background: hsl(227, 15%, 17%)!important
+    }
+    
+    /* Hover Cards */
+    div[class*="CardButton-sc"]:hover {
+        background: hsl(227, 15%, 17%)!important;
     }
 
     /* PLAYER UI */
@@ -234,8 +239,16 @@
         background: hsl(227, 15%, 6%)!important;
     }
     
-    .Footer__StyledFooter-sc-xwm5vq-0 {
-        display:none
+    if hide_footer {
+        *[class*="Footer__StyledFooter-sc"] {
+            display:none
+        }
+    } 
+    
+    if not hide_footer {
+        *[class*="Footer__StyledFooter-sc"] {
+            background: hsl(227, 15%, 6%)!important;
+        }
     }
 
     if hide_uname {
