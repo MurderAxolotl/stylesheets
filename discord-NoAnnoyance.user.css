@@ -104,6 +104,11 @@
   div[class*="notice__"] {
     display: none!important
   }
+	
+  /* "Play Again" above friends list */
+	.headerContainer_e5a9ed {
+		display: none!important
+	}
 
 } 
 /* Using Vencord or BetterDiscord's CSS features? Comment out the line above */
