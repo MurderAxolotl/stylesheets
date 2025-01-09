@@ -2,7 +2,7 @@
 @name           Unified Spotify
 @namespace      github.com/openstyles/stylus
 @license        GNU GPLv3
-@version        1.13
+@version        1.14
 @description    Brings a new, unified UI to Spotify
 @author         Axo
 @preprocessor   stylus
@@ -76,11 +76,11 @@
     }
     
     /* Lyrics */
-    .e7eFLioNSG5PAi1qVFT4, .gqaWFmQeKNYnYD5gRv3x, ._Wna90no0o0dta47Heiw, .nw6rbs8R08fpPn7RWW2w, .SruqsAzX8rUtY2isUZDF, .BXlQFspJp_jq9SKhUSP3 {
+    .e7eFLioNSG5PAi1qVFT4, .gqaWFmQeKNYnYD5gRv3x, ._Wna90no0o0dta47Heiw, .nw6rbs8R08fpPn7RWW2w, .SruqsAzX8rUtY2isUZDF, .EhKgYshvOwpSrTv399Mw .BXlQFspJp_jq9SKhUSP3 {
         background: hsl(227, 15%, 6%)!important
     }
     
-    ._Wna90no0o0dta47Heiw::after {
+    ._Wna90no0o0dta47Heiw::after, .cLkUmr {
         background: none!important
     }
     
@@ -116,11 +116,11 @@
     }
     
     /* Icons */
-    .bMBuKn path, .bjlVXn path, .cNvoOe path {
+    .bMBuKn path, .bjlVXn path, .cNvoOe path, .ivomLs path {
         fill: black!important
     }
     
-    .mkQEqlUoJ9kghcMfT49m .os-scrollbar, .mkQEqlUoJ9kghcMfT49m div.os-scrollbar, ._iSFa0Kl_AlpaG8l_VLJ {
+    .mkQEqlUoJ9kghcMfT49m .os-scrollbar, .mkQEqlUoJ9kghcMfT49m div.os-scrollbar, ._iSFa0Kl_AlpaG8l_VLJ, .PkOz5g82CaoKk1J3GX0e {
         display: none!important
     }
 
@@ -140,13 +140,14 @@
     .udArIAqnfUQPQew2VAns, ._W_0W9Uld1vxrRfsgdQR , .paiZmlAHHhmZonuGJRAr, .HjPqU_UW2egr14mRSom9, .fFvRIGtMIgsOLVSq_JNS, .scnRZypJsyXH1tjPg6uM > div,
     .XiVwj5uoqqSFpS4cYOC6, .facDIsOQo9q7kiWc4jSg, .main-view-container__mh-footer-container,
     ._2ajKWDiy6YvJu5wo8I1g,
-    .paiZmlAHHhmZonuGJRAr, .lHJd4oSttKLxkxuoZ0Lr, .wM72343CksOCaL3bZvKK
+    .paiZmlAHHhmZonuGJRAr, .lHJd4oSttKLxkxuoZ0Lr, .wM72343CksOCaL3bZvKK,
+    .EmeHQXR87mUskYK6xEde, .yvZooOj0rpfRS__cAUCo, .R69APjfNV0o9tAbfrWZf, .obd_bH64Snp1npdw29XM
     {
         background: hsl(227, 15%, 6%)!important
     }
     
     /* CONNECT TO DEVICE PANE */
-    .W3E0IT3_STcazjTeyOJa, .h0XG5HZ9x0lYV7JNwhoA  {
+    .W3E0IT3_STcazjTeyOJa, .h0XG5HZ9x0lYV7JNwhoA, .ffFwfKcPDbmAPLXzxzKq, .W3E0IT3_STcazjTeyOJa, .fNXmHtlrj4UVWmhQrJ_5, div[aria-labelledby="device-picker-header"], .icNf66tgG3uxDMbCCIaN, .AAdBM1nhG73supMfnYX7 {
         background: hsl(227, 15%, 6%)!important
     }
     
