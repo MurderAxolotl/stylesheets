@@ -2,7 +2,7 @@
 @name           Unified Spotify
 @namespace      github.com/openstyles/stylus
 @license        GNU GPLv3
-@version        1.16
+@version        1.16.1
 @description    Brings a new, unified UI to Spotify
 @author         Axo
 @preprocessor   stylus
@@ -225,10 +225,6 @@
     .tUwyjggD2n5KvEtP5z1B, .Ozitxbqs1vcOukDz3GDw {
         background: hsl(227, 15%, 5%)!important
     }
-	
-	div[role="gridcell"] .RowButton-sc-xxkq4e-0:hover {
-		background: chip_colour!important
-	}
 
     .McwcCfBLSuXa5UDU1IMw {
         display: none
