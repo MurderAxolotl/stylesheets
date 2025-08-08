@@ -2,7 +2,7 @@
 @name           Unified Spotify
 @namespace      github.com/openstyles/stylus
 @license        GNU GPLv3
-@version        1.16.1
+@version        1.16.3
 @description    Brings a new, unified UI to Spotify
 @author         Axo
 @preprocessor   stylus
@@ -10,7 +10,6 @@
 @var checkbox hide_uname "HIDE USERNAME" 0
 @var checkbox hide_recs "HIDE RECOMMENDATIONS" 0
 @var checkbox hide_spCon_bottom "HIDE 'PLAYING ON'" 0
-@var checkbox simple_sidebar "SIMPLIFIED SIDEBAR" 0
 @var checkbox hide_footer "HIDE FOOTER" 1
 @var checkbox hide_install_nags "HIDE INSTALL NAGS" 0
 @var checkbox minimal_floating_header "MINIMAL FLOATING HEADER" 1
@@ -21,8 +20,8 @@
 @var color custom_theme_color "ACCENT COLOUR" #9b6ef4
 @var color custom_foreground_color "FOREGROUND COLOUR" #1d003c
 @var color ct_active_song "ACTIVE TRACK COLOUR" #1c1e26
-@var color background_colour "UI BACKGROUND" hsl(227, 15%, 6%)
-@var color chip_colour "UI CHIPS" hsl(227, 19%, 11%)
+@var color background_colour "[BETA] UI BACKGROUND" hsl(227, 15%, 6%)
+@var color chip_colour "[BETA] UI CHIPS" hsl(227, 19%, 11%)
 
 ==/UserStyle== */
 @-moz-document domain("open.spotify.com") {
@@ -156,13 +155,13 @@
     ._2ajKWDiy6YvJu5wo8I1g,
     .paiZmlAHHhmZonuGJRAr, .lHJd4oSttKLxkxuoZ0Lr, .wM72343CksOCaL3bZvKK,
     .EmeHQXR87mUskYK6xEde, .yvZooOj0rpfRS__cAUCo, .R69APjfNV0o9tAbfrWZf, .obd_bH64Snp1npdw29XM,
-	.YourLibraryX > div, .rezqw3Q4OEPB1m4rmwfw
+	.YourLibraryX > div, .rezqw3Q4OEPB1m4rmwfw, .gKtc3TdowDTXBaVESi1D, .Rz6JI4bCxJVeSWe6LtEX, .fEvxx8vl3zTNWsuC8lpx, .qG4q41T8PJl0SkVgUeJc
     {
         background: background_colour
     }
 	
 	/* Fix weird UI issues from the above block */
-	.contentSpacing.O0AN8Ty_Cxd4iLwyKATB {
+	.contentSpacing.O0AN8Ty_Cxd4iLwyKATB, .CmR9tHJ5ta6oWJlKBm3k, .CmR9tHJ5ta6oWJlKBm3k, span[data-encore-id="text"] {
 		background: transparent!important
 	}
 	
@@ -177,6 +176,33 @@
 	
 	.facDIsOQo9q7kiWc4jSg {
 		if minimal_floating_header{display:none}
+	}
+	
+	/* Verified artist */
+	.CmR9tHJ5ta6oWJlKBm3k {
+		display: none
+	}
+	
+	/* Ticket sale things */
+	.XgeTnLs82tTjczDR6oKn, .IUWOW7ZOUwEs57jTIQRP {
+		background: chip_colour!important
+	}
+	
+	/* Search Dropdown */
+	#search-dropdown *, .SjhDNg4bQRQmIJAba47Z {
+		background: background_colour!important
+	}
+	
+	.SjhDNg4bQRQmIJAba47Z:hover {
+		background: chip_colour!important
+	}
+	
+	div[data-testid="top-result-card"] div {
+		background: transparent
+	}
+	
+	.UnwG2v9ISmcUhnjKj22Y .jVBuxI  {
+		background: chip_colour!important
 	}
     
     /* CONNECT TO DEVICE PANE */
@@ -516,22 +542,6 @@
         /* Toggles */
         .Js64TOfWtHksI6TQ6knT {
             background: custom_theme_color!important
-        }
-    }
-
-    if simple_sidebar {
-
-        .IPVjkkhh06nan7aZK7Bx {
-            display: none
-        }
-        .GlueDropTarget--tracks .r9YzlaAPnM2LGK97GSfa {
-            display: none
-        }
-        .GlueDropTarget--episodes .r9YzlaAPnM2LGK97GSfa {
-            display: none
-        }
-        ._0FuodatXU4_fToYAuYtY, .wBsWS202aGdsul2kEGUf {
-            display: none
         }
     }
 
