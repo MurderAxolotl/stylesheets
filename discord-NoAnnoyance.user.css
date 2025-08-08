@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           NoAnnoyance
 @namespace      https://discord.com/app
-@version        3.10
+@version        4.0
 @description    Hides annoying features and Nitro upsells
 @author         MurderAxo
 ==/UserStyle== */
@@ -9,7 +9,7 @@
 
 /**
  * @name NoAnnoyance
- * @version 3.9
+ * @version 4.0
  * @description Hides annoying features and Nitro upsells
  * @author MurderAxo
 **/
@@ -19,7 +19,21 @@
 /* IF YOU INTEND ON USING THIS WITH STYLUS OR ANOTHER USER-STYLE MANAGER, YOU DO NOT NEED TO MODIFY THIS AT ALL */
 /* IF YOU INTEND ON USING THIS WITH VENCORD OR BETTERDISCORD'S BUILT-IN CSS FEATURES, REMOVE THE @-moz-document LINE AND THE LAST "}" */
 
-@-moz-document domain("discord.com") {
+@-moz-document domain("discord.com") {    
+    /* Hides soundboard button in mini VC panel */
+    .actionButtons_e131a9 div .button_e131a9 {
+        display: none!important
+    }
+    .actionButtons_e131a9 > div {
+        display: none
+    }
+    
+    /* No gradient in unjoined VC */
+    .gradientBackground__11664 {
+        display:none
+    }
+	
+	/* "Create a thread" suggestion bar */
 	*[class*="threadSuggestionBar_"] {
 	  display:none!important
 	}
@@ -61,7 +75,7 @@
 	
 	/* "Make unique profiles for each server" */
 	/* Weird thing about this one. It hides the overlay and border box. If you don't have Nitro, the various input forms will stay greyed out, though */
-	.upsellOverlay__688e8,  *[class*="upsellOverlay__"] {
+	.upsellOverlay__688e8, *[class*="upsellOverlay__"] {
 	  display: none!important
 	}
 	
@@ -77,38 +91,36 @@
 	
 	/* Emoji upsell */
 	.nitroTopDividerContainer__4c8fd, .upsellContainer__3c02a, .upsellContainer__15a05, .nitroTopDividerContainer_b829ac, .emojiLockIconContainer_ed2f80, .categoryItemLockIcon__64b4b, .categoryItemLockIconContainer__61fa5 {
-	    display: none!important
+		 display: none!important
 	}
-
+	
 	/* VC Experiments Warning */
 	#vc-experiments-warning-card {
 		display: none!important
 	}
-
+	
 	/* Must be Valorent */
 	.container__686c4 {
-	  display: none!important
+		display:none!important
 	}
-    
-    /* Server VoiceChannel hover guide thing */
-    .container_a88e31 {
-        display: none!important
-    }
-    
-    /* Settings screen social links */
-    .socialLinks_dbdd6f {
-        display: none!important
-    }
-
-/* Should we mark this channel as unread...? */
-  div[class*="notice__"] {
-    display: none!important
-  }
-	
-  /* "Play Again" above friends list */
-	.headerContainer_e5a9ed {
+  
+	/* Should we mark this channel as unread...? */
+	div[class*="notice__"] {
 		display: none!important
 	}
+  
+	/* "Play Again" above friends list */
+	.headerContainer_e5a9ed, .container_e5a9ed {
+		display: none!important
+	}
+	
+	.itemContainer__675e5, .container__675e5 {
+	  display: none!important
+	  }
 
+	/* Soundmoji button in emoji picker */
+	button[id*="soundboard-picker-tab"] {
+		display: none!important
+	}
 } 
 /* Using Vencord or BetterDiscord's CSS features? Comment out the line above */
