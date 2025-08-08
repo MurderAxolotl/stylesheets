@@ -2,7 +2,7 @@
 @name           Unified Spotify
 @namespace      github.com/openstyles/stylus
 @license        GNU GPLv3
-@version        1.16.3
+@version        1.16.4
 @description    Brings a new, unified UI to Spotify
 @author         Axo
 @preprocessor   stylus
@@ -12,8 +12,9 @@
 @var checkbox hide_spCon_bottom "HIDE 'PLAYING ON'" 0
 @var checkbox hide_footer "HIDE FOOTER" 1
 @var checkbox hide_install_nags "HIDE INSTALL NAGS" 0
+@var checkbox not_an_idiot "HIDE HELP LINKS" 0
 @var checkbox minimal_floating_header "MINIMAL FLOATING HEADER" 1
-@var checkbox remove_playlist_gradient "NO PLAYLIST GRADIENT" 0
+@var checkbox remove_playlist_gradient "HIDE PLAYLIST GRADIENT" 0
 @var select hide_sb "SCROLLBAR MODE" {"use_theme:THEMED": "styled", "spotify:DEFAULT": "spotify", "hidden:HIDDEN": "hidden"}
 @var checkbox use_custom_theme_color "USE CUSTOM COLORS" 1
 @var checkbox use_custom_foreground_color "USE CUSTOM FG" 1
@@ -328,6 +329,13 @@
 		display: none
 	}
 	
+	if not_an_idiot {
+		a[href="https://support.spotify.com/"],
+		.E912cqRfb05FrRPFKDZ_ {
+			display: none!important
+		}
+	}
+	
 	if remove_playlist_gradient {
 		.XVz4BMGP5zAEE5p90mYK {
 			display: none
@@ -513,6 +521,16 @@
         .Rpvqb, *[aria-label="Connect to a device"]::after, .hYdsxw::after {
             color: custom_theme_color!important;
         }
+		
+		.oCa5Np4laJc3s5P2uUqw * {
+			color: custom_theme_color!important;
+			top:1px;
+			font-size:24px
+		}
+		
+		.FpmhhFL8lCsiyh3X0fjK {
+			display:none
+		}
         
         .KAZD28usA1vPz5GVpm63.EHxL6K_6WWDlTCZP6x5w::after {
             background: custom_theme_color!important
