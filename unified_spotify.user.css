@@ -2,7 +2,7 @@
 @name           Unified Spotify
 @namespace      github.com/openstyles/stylus
 @license        GNU GPLv3
-@version        1.14
+@version        1.16
 @description    Brings a new, unified UI to Spotify
 @author         Axo
 @preprocessor   stylus
@@ -12,23 +12,20 @@
 @var checkbox hide_spCon_bottom "HIDE 'PLAYING ON'" 0
 @var checkbox simple_sidebar "SIMPLIFIED SIDEBAR" 0
 @var checkbox hide_footer "HIDE FOOTER" 1
+@var checkbox hide_install_nags "HIDE INSTALL NAGS" 0
+@var checkbox minimal_floating_header "MINIMAL FLOATING HEADER" 1
+@var checkbox remove_playlist_gradient "NO PLAYLIST GRADIENT" 0
 @var select hide_sb "SCROLLBAR MODE" {"use_theme:THEMED": "styled", "spotify:DEFAULT": "spotify", "hidden:HIDDEN": "hidden"}
 @var checkbox use_custom_theme_color "USE CUSTOM COLORS" 1
-@var color custom_theme_color "CT: ACCENT COLOUR" #9b6ef4
-@var color ct_active_song "CT: ACTIVE TRACK COLOUR" #1c1e26
+@var checkbox use_custom_foreground_color "USE CUSTOM FG" 1
+@var color custom_theme_color "ACCENT COLOUR" #9b6ef4
+@var color custom_foreground_color "FOREGROUND COLOUR" #1d003c
+@var color ct_active_song "ACTIVE TRACK COLOUR" #1c1e26
+@var color background_colour "UI BACKGROUND" hsl(227, 15%, 6%)
+@var color chip_colour "UI CHIPS" hsl(227, 19%, 11%)
 
 ==/UserStyle== */
 @-moz-document domain("open.spotify.com") {
-
-    @keyframes gay {
-        0% {
-            filter: hue-rotate(0deg)
-        }
-        100% {
-            filter: hue-rotate(360deg)
-        }
-    }
-
     /*   Spotify Web Player   */
     /* Hide premium promotions */
     .html,
@@ -49,6 +46,9 @@
     .b2KVTiBUcXV1kT0OjL2p:hover .ATUzFKub89lzvkmvhpyE:hover {
         transition: all 1s;
     }
+	a[href="https://www.spotify.com/premium/?ref=web_loggedin_upgrade_menu"] {
+		display: none!important
+	}
 
     if hide_sb==hidden {
         .os-scrollbar-vertical {
@@ -74,10 +74,15 @@
             }
         }
     }
+	
+	/* Expand user PFP */
+	figure[data-testid="user-widget-avatar"] {
+		scale: 1.5
+	}
     
     /* Lyrics */
     .e7eFLioNSG5PAi1qVFT4, .gqaWFmQeKNYnYD5gRv3x, ._Wna90no0o0dta47Heiw, .nw6rbs8R08fpPn7RWW2w, .SruqsAzX8rUtY2isUZDF, .EhKgYshvOwpSrTv399Mw .BXlQFspJp_jq9SKhUSP3 {
-        background: hsl(227, 15%, 6%)!important
+        background: background_colour!important
     }
     
     ._Wna90no0o0dta47Heiw::after, .cLkUmr {
@@ -105,6 +110,15 @@
     .eFyQzR {
         display:none
     }
+	
+	/* Top of the UI */
+	.R69APjfNV0o9tAbfrWZf, .obd_bH64Snp1npdw29XM {
+		background: chip_colour!important
+	}
+	
+	button[aria-label="Friend Activity"] {
+		display: none!important
+	}
     
     /* Top bar */
     .S4OmZ_IZexmZ5dasPqW5 {
@@ -112,7 +126,7 @@
     }
     
     .coBkWVskipFo8KxLKief {
-        background: hsl(227, 15%, 6%)!important
+        background: background_colour!important
     }
     
     /* Icons */
@@ -138,17 +152,36 @@
     .E4q8ogfdWtye7YgotBlN.contentSpacing, .QuHe04rU4bj0Z5U9E2Tk, .UvXqRORKQr_N3jlgGTcS, .ifVI2CEdOZGgMWIUN2Cw, .jtqtOeRP46XAlHWx4C0D,
     .ylBRlfNqGnzVa4kjUQGP, .ZbDMGdU4aBOnrNLowNRq, .IkRGajTjItEFQkRMeH6v,
     .udArIAqnfUQPQew2VAns, ._W_0W9Uld1vxrRfsgdQR , .paiZmlAHHhmZonuGJRAr, .HjPqU_UW2egr14mRSom9, .fFvRIGtMIgsOLVSq_JNS, .scnRZypJsyXH1tjPg6uM > div,
-    .XiVwj5uoqqSFpS4cYOC6, .facDIsOQo9q7kiWc4jSg, .main-view-container__mh-footer-container,
+    .XiVwj5uoqqSFpS4cYOC6, .main-view-container__mh-footer-container,
     ._2ajKWDiy6YvJu5wo8I1g,
     .paiZmlAHHhmZonuGJRAr, .lHJd4oSttKLxkxuoZ0Lr, .wM72343CksOCaL3bZvKK,
-    .EmeHQXR87mUskYK6xEde, .yvZooOj0rpfRS__cAUCo, .R69APjfNV0o9tAbfrWZf, .obd_bH64Snp1npdw29XM
+    .EmeHQXR87mUskYK6xEde, .yvZooOj0rpfRS__cAUCo, .R69APjfNV0o9tAbfrWZf, .obd_bH64Snp1npdw29XM,
+	.YourLibraryX > div, .rezqw3Q4OEPB1m4rmwfw
     {
-        background: hsl(227, 15%, 6%)!important
+        background: background_colour
     }
+	
+	/* Fix weird UI issues from the above block */
+	.contentSpacing.O0AN8Ty_Cxd4iLwyKATB {
+		background: transparent!important
+	}
+	
+	/* Floating column header */
+	._2ajKWDiy6YvJu5wo8I1g, .facDIsOQo9q7kiWc4jSg, .T1xI1RTSFU7Wu94UuvE6 {
+		background: background_colour!important;
+		
+		if minimal_floating_header {
+			top:0px!important
+		}
+	}
+	
+	.facDIsOQo9q7kiWc4jSg {
+		if minimal_floating_header{display:none}
+	}
     
     /* CONNECT TO DEVICE PANE */
     .W3E0IT3_STcazjTeyOJa, .h0XG5HZ9x0lYV7JNwhoA, .ffFwfKcPDbmAPLXzxzKq, .W3E0IT3_STcazjTeyOJa, .fNXmHtlrj4UVWmhQrJ_5, div[aria-labelledby="device-picker-header"], .icNf66tgG3uxDMbCCIaN, .AAdBM1nhG73supMfnYX7 {
-        background: hsl(227, 15%, 6%)!important
+        background: background_colour!important
     }
     
     .tippy-arrow, .mkQEqlUoJ9kghcMfT49m .os-scrollbar,
@@ -176,7 +209,7 @@
     .oNjdJbGQ9ypf7KR0nYJW,
     .ibrRlYShsgThsh8VNS8Q,
     *[data-overlayscrollbars-viewport="scrollbarHidden overflowXHidden overflowYScroll"]{
-        background: hsl(227, 15%, 6%)!important
+        background: background_colour!important
     }
     
     /* Foreground elements on the right sidebar */
@@ -192,6 +225,10 @@
     .tUwyjggD2n5KvEtP5z1B, .Ozitxbqs1vcOukDz3GDw {
         background: hsl(227, 15%, 5%)!important
     }
+	
+	div[role="gridcell"] .RowButton-sc-xxkq4e-0:hover {
+		background: chip_colour!important
+	}
 
     .McwcCfBLSuXa5UDU1IMw {
         display: none
@@ -224,7 +261,7 @@
 
     /* HEADERS ON PLAYLISTS */
     .E4q8ogfdWtye7YgotBlN {
-        background: hsl(227, 15%, 6%)!important;
+        background: background_colour!important;
     }
     
     .CoLO4pdSl8LGWyVZA00t {
@@ -236,21 +273,66 @@
     #context-menu,
     .ErSD7TARZzk270zuVjoi,
     .HVCCFeUiHVwZVv74p34a .os-viewport-native-scrollbars-invisible,
-    .hwP4Oum2PB76var(--gayTiming)b8jigI {
-        background: hsl(227, 15%, 6%)!important;
+    .hwP4Oum2PB76b8jigI {
+        background: background_colour!important;
     }
-    
+	
+	/* Chips */
+	div > *[class*="LegacyChipInner"]  {
+		background: chip_colour!important;
+	}
+	
+	/* Equalizer */
+	.FulR95cAh4QPdw6wUeRw {
+		background: chip_colour!important
+	}
+	
+	/* Setting chips */
+	.zrvvPyoxE6wQNqnu0yWA {
+		background: chip_colour!important
+	}
+	
+	/* Containers */
+	.L1qvKGTZ3gTJuTMowxPQ {
+		background: chip_colour!important
+	}
+	
+	/* Playerbar tweaks */
+	.vW9NFcNIj8useE43Vx9G:before, .E1ikFpkPVaoLplbQdrTP:after {
+		display: none
+	}
+	
+	button[aria-label="Looks like we don't have the lyrics for this song."] {
+		display: none
+	}
+	
+	if remove_playlist_gradient {
+		.XVz4BMGP5zAEE5p90mYK {
+			display: none
+		}
+
+		.Bdcf5g__Rug3TGqSdbiy {
+			display:none
+		}
+	}
+		
     if hide_footer {
-        *[class*="Footer__StyledFooter-sc"] {
+        *[class*="Footer__StyledFooter-sc"], .esBjsh {
             display:none
         }
     } 
     
     if not hide_footer {
-        *[class*="Footer__StyledFooter-sc"] {
-            background: hsl(227, 15%, 6%)!important;
+        *[class*="Footer__StyledFooter-sc"], .esBjsh {
+            background: background_colour!important;
         }
     }
+	
+	if hide_install_nags {
+		.e-91000-button--leading, a[href="https://spotify.com/download"] {
+			display: none!important
+		}
+	}
 
     if hide_uname {
         .pudHk.MfVrtIzQJ7iZXfRWg6eM, .xQfpa, .Za_uNH8nTZ0qCuIqbPLZ span, .NO_VO3MRVl9z3z56d8Lg {
@@ -275,6 +357,19 @@
             filter: opacity(0)
         }
     }
+    
+    if use_custom_foreground_color {
+        /* Toggle thumb */
+        .es9mguuOfkp6pBe1Bjlw  {
+            background: custom_foreground_color!important
+        }
+		
+		/* Most buttons */
+		.encore-bright-accent-set, .e-91000-button-icon-only--small path {
+			fill: custom_foreground_color;
+			color: custom_foreground_color
+		}
+    }
 
     if use_custom_theme_color {
         .kWONUS,
@@ -285,7 +380,8 @@
         .iSbqnFdjb1SuyJ3uWydl .btn,
         .h4HgbO_Uu1JYg5UGANeQ .btn,
         .eSg4ntPU2KQLfpLGXAww .btn,
-        .lro6AjUrZFH6zxjmOGg0 .encore-bright-accent-set, .encore-bright-accent-set, .SPC4uzYXJmknkCGKpxHw path {
+        .lro6AjUrZFH6zxjmOGg0 .encore-bright-accent-set, .encore-bright-accent-set, .SPC4uzYXJmknkCGKpxHw path,
+ 		button[data-testid="control-button-playpause"] span {
             background-color: custom_theme_color!important;
         }
         .Ar1CZ7qjPHuIJY0cI56W .btn {
@@ -324,7 +420,18 @@
         .Svg-sc-ytk21e-0, .kLkTcI, .cSWBDsMjkH62GXIXo6mQ,
         .hYdsxw .cAMMLk, .i_FRcsaqNCEJmoyObIP0,
         .active .encore-text-body-medium-bold, .hNvCMxbfz7HwgzLjt3IZ .encore-text-body-medium-bold,
-        .w0nWe_59HwsG7nQLoibF {
+        .w0nWe_59HwsG7nQLoibF,
+ 		.vW9NFcNIj8useE43Vx9G path,
+		.bLLOzN.E1ikFpkPVaoLplbQdrTP path,
+ 		.KAZD28usA1vPz5GVpm63 path,
+		.control-button .e-91000-baseline path,
+		.ZbFkATBbLkWh2SHMXDt6 path,
+		.z0zJ798TVq97lZgdRT2_ path,
+ 		.encore-internal-color-text-bright-accent,
+ 		.IZq_xBKdh88HLD4QY90X path,
+ 		.nozebc1PGSbzmePU25qY path,
+ 		.NKUrT1GciYXAEEUtagN1 .fprjoI path,
+		.Qt226Z4rBQs53aedRQBQ .fprjoI path {
             fill: custom_theme_color!important;
             color: custom_theme_color!important;
         }
@@ -409,6 +516,11 @@
         .KYkSwfV1FCtD15TMChbH {
             display:none
         }
+        
+        /* Toggles */
+        .Js64TOfWtHksI6TQ6knT {
+            background: custom_theme_color!important
+        }
     }
 
     if simple_sidebar {
@@ -447,7 +559,7 @@
     .fLcSoX,
     body,
     .tJeH2W2to1A7d9tWBRoi {
-        background: hsl(227, 15%, 6%)!important
+        background: var(--background-colour)!important
     }
 
     if hide_sb==hidden {
