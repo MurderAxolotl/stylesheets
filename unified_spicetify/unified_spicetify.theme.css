@@ -231,6 +231,10 @@ div[aria-label="Current device"] {
 	--essential-positive: var(--unified_accent) !important;
 }
 
+canvas[aria-label="Equalizer"] {
+	filter: hue-rotate(121deg);
+}
+
 .qltNPvInlw2koZA_iXAw svg[data-selected="true"] {
 	fill: var(--unified_accent)
 }
@@ -720,7 +724,7 @@ aria-labelledby="device-picker-section-heading ":hover,
 	background: transparent!important
 }
 
-.main-topBar-container {
+.main-topBar-container:not(:has(.marketplace-tabBar-nav)) {
 	display: none
 }
 
@@ -740,4 +744,15 @@ aria-labelledby="device-picker-section-heading ":hover,
 
 .lyrics-lyricsContainer-LyricsLine {
 	color: var(--chip_colour)
+}
+
+/* Marketplace fixes */
+.marketplace-header {
+	background: var(--background_colour);
+	/*top: 8px!important*/
+}
+
+div[class*="marketplace-card"] {
+	background: var(--chip_colour);
+	border: none!important
 }
