@@ -2,7 +2,7 @@
 @name           Unified Spotify
 @namespace      github.com/openstyles/stylus
 @license        GNU GPLv3
-@version        1.16.8
+@version        1.16.9
 @description    Brings a new, unified UI to Spotify
 @author         Axo
 @preprocessor   stylus
@@ -246,7 +246,7 @@
 	}
 
 	/* Floating column header */
-	._2ajKWDiy6YvJu5wo8I1g, .facDIsOQo9q7kiWc4jSg, .T1xI1RTSFU7Wu94UuvE6 {
+	._2ajKWDiy6YvJu5wo8I1g, .facDIsOQo9q7kiWc4jSg, .T1xI1RTSFU7Wu94UuvE6, .BHHXR8xc6m009ohY6aKU {
 		background: background_colour!important;
 
 		if minimal_floating_header {
@@ -491,11 +491,6 @@
     }
 
     if True {
-        /* Toggle thumb */
-        .es9mguuOfkp6pBe1Bjlw  {
-            background: #1d003c;
-			cursor: pointer
-        }
 
 		/* Most buttons */
 		.encore-bright-accent-set, .e-91000-button-icon-only--small path {
@@ -678,8 +673,8 @@
         }
 
         /* Toggles */
-        .Js64TOfWtHksI6TQ6knT {
-            background: custom_theme_color!important
+        input:checked ~ .Js64TOfWtHksI6TQ6knT {
+        	background: custom_theme_color;
         }
     }
 
