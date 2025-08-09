@@ -6,6 +6,7 @@
 	--custom_inactive_colour: rgb(133,133,133);
 	--custom_foreground_colour: white;
 	--modal_popup_colour: hsl(227, 15%, 15%);
+	--modal_popup_colour_hover: hsl(227, 15%, 20%);
 
 	/* Override main colours */
 	--background-base: hsl(227, 15%, 6%) !important;
@@ -33,6 +34,12 @@
 	--essential-announcement: #4cb3ff;
 	--decorative-base: #fff;
 	--decorative-subdued: #292929;
+}
+
+/* Explore Premium */
+.main-topBar-UpgradeButton,
+a[href="https://xpui.app.spotify.com/premium?ref=desktop_loggedin_upgrade_menu"] {
+	display: none!important
 }
 
 /* Expand user PFP */
@@ -154,7 +161,7 @@ button[data-testid="playlist-edit-details-save-button"] * {
 }
 
 .U_nX_1rJoqQSWPJRE6zb {
-	background: lighten(modal_popup_colour, 5) !important;
+	background: var(--modal_popup_colour_hover) !important;
 }
 
 .encore-light-theme h2 {
@@ -219,7 +226,9 @@ button.main-globalNav-navLink,
 button[aria-label="Create"],
 .tLjX9htIKD_OCmEX01UN,
 .main-dropDown-dropDown,
-div[aria-label="Current device"] {
+div[aria-label="Current device"],
+.main-nowPlayingView-section,
+.CvxzmyND_aGd2RR8ZoSr {
 	background: var(--chip_colour)!important;
 }
 
@@ -403,7 +412,7 @@ button.wC9sIed7pfp47wZbmU6m,
 .encore-dark-theme,
 .NbcaczStd8vD2rHWwaKv,
 .wlb3dYO07PZuYfmNfmkS {
-	background: modal_popup_colour !important;
+	background: var(--modal_popup_colour) !important;
 }
 
 button.wC9sIed7pfp47wZbmU6m:hover {
@@ -594,13 +603,23 @@ path[d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m11.748-1.97a.75.75 0 0 0-1.06-1.06l-4.
 path[d="M15 15H1v-1.5h14V15zm0-4.5H1V9h14v1.5zm-14-7A2.5 2.5 0 0 1 3.5 1h9a2.5 2.5 0 0 1 0 5h-9A2.5 2.5 0 0 1 1 3.5zm2.5-1a1 1 0 0 0 0 2h9a1 1 0 1 0 0-2h-9z"],
 button[data-restore-focus-key="device_picker"] path,
 path[d="M3.3 1a.7.7 0 0 1 .7.7v5.15l9.95-5.744a.7.7 0 0 1 1.05.606v12.575a.7.7 0 0 1-1.05.607L4 9.149V14.3a.7.7 0 0 1-.7.7H1.7a.7.7 0 0 1-.7-.7V1.7a.7.7 0 0 1 .7-.7h1.6z"],
-path[d="M12.7 1a.7.7 0 0 0-.7.7v5.15L2.05 1.107A.7.7 0 0 0 1 1.712v12.575a.7.7 0 0 0 1.05.607L12 9.149V14.3a.7.7 0 0 0 .7.7h1.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7h-1.6z"] {
+path[d="M12.7 1a.7.7 0 0 0-.7.7v5.15L2.05 1.107A.7.7 0 0 0 1 1.712v12.575a.7.7 0 0 0 1.05.607L12 9.149V14.3a.7.7 0 0 0 .7.7h1.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7h-1.6z"],
+path[d="M15 15H1v-1.5h14zm0-4.5H1V9h14zm-14-7A2.5 2.5 0 0 1 3.5 1h9a2.5 2.5 0 0 1 0 5h-9A2.5 2.5 0 0 1 1 3.5m2.5-1a1 1 0 0 0 0 2h9a1 1 0 1 0 0-2z"],
+path[d="M13.426 2.574a2.831 2.831 0 0 0-4.797 1.55l3.247 3.247a2.831 2.831 0 0 0 1.55-4.797M10.5 8.118l-2.619-2.62L4.74 9.075 2.065 12.12a1.287 1.287 0 0 0 1.816 1.816l3.06-2.688 3.56-3.129zM7.12 4.094a4.331 4.331 0 1 1 4.786 4.786l-3.974 3.493-3.06 2.689a2.787 2.787 0 0 1-3.933-3.933l2.676-3.045z"],
+path[d="M16 2.45c0-.8-.65-1.45-1.45-1.45H1.45C.65 1 0 1.65 0 2.45v11.1C0 14.35.65 15 1.45 15h5.557v-1.5H1.5v-11h13V7H16z"],
+path[d="M15.25 9.007a.75.75 0 0 1 .75.75v4.493a.75.75 0 0 1-.75.75H9.325a.75.75 0 0 1-.75-.75V9.757a.75.75 0 0 1 .75-.75z"],
+path[d="M0.25 3C0.25 2.0335 1.0335 1.25 2 1.25H5.375V2.75H2C1.86193 2.75 1.75 2.86193 1.75 3V5.42857H0.25V3ZM14 2.75H10.625V1.25H14C14.9665 1.25 15.75 2.0335 15.75 3V5.42857H14.25V3C14.25 2.86193 14.1381 2.75 14 2.75ZM1.75 10.5714V13C1.75 13.1381 1.86193 13.25 2 13.25H5.375V14.75H2C1.0335 14.75 0.25 13.9665 0.25 13V10.5714H1.75ZM14.25 13V10.5714H15.75V13C15.75 13.9665 14.9665 14.75 14 14.75H10.625V13.25H14C14.1381 13.25 14.25 13.1381 14.25 13Z"],
+path[d="M3.3 1a.7.7 0 0 1 .7.7v5.15l9.95-5.744a.7.7 0 0 1 1.05.606v12.575a.7.7 0 0 1-1.05.607L4 9.149V14.3a.7.7 0 0 1-.7.7H1.7a.7.7 0 0 1-.7-.7V1.7a.7.7 0 0 1 .7-.7z"],
+path[d="M12.7 1a.7.7 0 0 0-.7.7v5.15L2.05 1.107A.7.7 0 0 0 1 1.712v12.575a.7.7 0 0 0 1.05.607L12 9.149V14.3a.7.7 0 0 0 .7.7h1.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7z"] {
 	fill: var(--unified_accent) !important;
 	color: var(--unified_accent) !important;
 }
 
 path[d="M5.7 3a.7.7 0 0 0-.7.7v16.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V3.7a.7.7 0 0 0-.7-.7H5.7zm10 0a.7.7 0 0 0-.7.7v16.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V3.7a.7.7 0 0 0-.7-.7h-2.6z"],
-e-9890-button-primary > path[d="m7.05 3.606 13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606z"] {
+e-9890-button-primary > path[d="m7.05 3.606 13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606z"],
+.e-91000-button-icon-only--large path[d="M5.7 3a.7.7 0 0 0-.7.7v16.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V3.7a.7.7 0 0 0-.7-.7zm10 0a.7.7 0 0 0-.7.7v16.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V3.7a.7.7 0 0 0-.7-.7z"],
+button[data-testid="control-button-playpause"] path,
+.e-91000-button-icon-only--large [d="m7.05 3.606 13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606"] {
 	fill: black!important
 }
 
@@ -755,4 +774,17 @@ aria-labelledby="device-picker-section-heading ":hover,
 div[class*="marketplace-card"] {
 	background: var(--chip_colour);
 	border: none!important
+}
+
+/* Hide UI elements */
+.main-connectBar-connectBar, .main-connectBar-connected {
+	display: none!important
+}
+
+button[data-restore-focus-key="now_playing_view"] {
+	display: none!important
+}
+
+._Cq69xKZBtHaaeMZXIdk {
+	display: none!important
 }
