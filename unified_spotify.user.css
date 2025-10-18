@@ -2,12 +2,12 @@
 @name           Unified Spotify
 @namespace      github.com/openstyles/stylus
 @license        GNU GPLv3
-@version        1.16.9
+@version        1.17.0
 @description    Brings a new, unified UI to Spotify
 @author         Axo
 @preprocessor   stylus
 
-@var checkbox mask_spotify_variables "[LAGGY] MASK VARIABLES" 0
+@var checkbox my_pc_is_shit "I'M LAGGING! HELP!" 0
 @var checkbox hide_uname "HIDE USERNAME" 0
 @var checkbox hide_recs "HIDE RECOMMENDATIONS" 0
 @var checkbox hide_spCon_bottom "HIDE SPOTIFY CONNECT BAR" 0
@@ -15,7 +15,8 @@
 @var checkbox hide_install_nags "HIDE INSTALL NAGS" 0
 @var checkbox not_an_idiot "HIDE HELP LINKS" 0
 @var checkbox minimal_floating_header "MINIMAL FLOATING HEADER" 1
-@var checkbox remove_playlist_gradient "HIDE PLAYLIST GRADIENT" 0
+@var checkbox hide_notification_button "HIDE NOTIF BELL" 1
+@var checkbox hide_playlist_preview "HIDE PLAYLIST PREVIEW" 1
 @var checkbox webshell "WS MODE" 0
 @var select hide_sb "SCROLLBAR MODE" {"use_theme:THEMED": "styled", "spotify:DEFAULT": "spotify", "hidden:HIDDEN": "hidden"}
 @var checkbox use_custom_theme_color "USE CUSTOM COLORS" 1
@@ -29,7 +30,7 @@
 
 ==/UserStyle== */
 @-moz-document domain("open.spotify.com") {
-	if mask_spotify_variables {
+	if not my_pc_is_shit {
 		/* THIS CAN BE INCREDIBLY LAGGY */
 		.encore-dark-theme, .encore-dark-theme .encore-base-set {
 			--background-base: background_colour!important;
@@ -57,6 +58,17 @@
 			--essential-announcement: #4cb3ff;
 			--decorative-base: #fff;
 			--decorative-subdued: #292929;
+		}
+	}
+
+	if my_pc_is_shit {
+		/* Shotgun blast disable all transitions x3 */
+		* {
+			transition: none!important;
+			animation-duration: 0s!important
+		}
+		div[data-testid="playback-progressbar"] div[data-testid="progress-bar"] div[data-testid="progress-bar-background"] div div {
+			transition: none!important
 		}
 	}
 
@@ -115,10 +127,28 @@
 		scale: 1.5
 	}
 
+	/* Placeholder pfps in comments */
+	div[data-testid="placeholder-wrapper"] svg {
+		color: white
+	}
+
+	div[data-testid="placeholder-wrapper"] {
+		border: 1px solid #666
+	}
+
     /* Lyrics */
-    .e7eFLioNSG5PAi1qVFT4, .gqaWFmQeKNYnYD5gRv3x, ._Wna90no0o0dta47Heiw, .nw6rbs8R08fpPn7RWW2w, .SruqsAzX8rUtY2isUZDF, .EhKgYshvOwpSrTv399Mw .BXlQFspJp_jq9SKhUSP3, .o4GE4jG5_QICak2JK_bn {
+    ._EzvsrEJ47TI8hxzRoKx, .RFThkjLuWfPUO9shrMOZ {
         background: background_colour!important
     }
+
+	/* Lyrics - separate div which has the variables. For some GOD DAMN REASON. ***AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA*** */
+	if use_custom_theme_color {
+		.lofIAg8Ixko3mfBrbfej {
+			--lyrics-color-active: custom_theme_color!important;
+			--lyrics-color-messaging: custom_theme_color!important;
+			--lyrics-color-inactive: hsl(custom_theme_color) - hsl(0,45,35)!important;
+		}
+	}
 
 	.aeO5D7ulxy19q4qNBrkk {
 		filter: brightness(0.25)
@@ -177,11 +207,24 @@
         display: none!important
     }
 
-	/* FullUI popups */
-	.uUYNnjSt8m3EqVjsnHgh, .dbKIqeJaR5jYCnOeeDJt, .encore-light-theme {
+	/* Modal popups */
+	.uUYNnjSt8m3EqVjsnHgh, .dbKIqeJaR5jYCnOeeDJt, .encore-light-theme,
+ 	div[aria-label="Edit details"] div[data-testid="playlist-edit-details-modal"]
+	{
 		background: modal_popup_colour
 	}
 
+	/* Modal disclaimers */
+	div[aria-label="Edit details"] div[data-testid="playlist-edit-details-modal"] p[data-encore-id="text"] {
+		display: none
+	}
+
+	/* Reposition modal buttons */
+	div[aria-label="Edit details"] div[data-testid="playlist-edit-details-modal"] button[data-encore-id="buttonPrimary"] {
+		padding-top:45px
+	}
+
+	/* It's only a matter of time berfore this breaks, but for now... it works. somehow. */
 	.U_nX_1rJoqQSWPJRE6zb  {
 		background: lighten(modal_popup_colour, 5)!important
 	}
@@ -213,7 +256,7 @@
     .paiZmlAHHhmZonuGJRAr, .lHJd4oSttKLxkxuoZ0Lr, .wM72343CksOCaL3bZvKK,
     .EmeHQXR87mUskYK6xEde, .yvZooOj0rpfRS__cAUCo, .R69APjfNV0o9tAbfrWZf, .obd_bH64Snp1npdw29XM,
 	.YourLibraryX > div, .rezqw3Q4OEPB1m4rmwfw, .gKtc3TdowDTXBaVESi1D, .Rz6JI4bCxJVeSWe6LtEX, .fEvxx8vl3zTNWsuC8lpx, .qG4q41T8PJl0SkVgUeJc,
-	.R2w_sH83CJU9Yhnu0xyt, .CU0wnmWejIvyEsRRtSac, .PiyAiXdQULEnWAHP0tu1
+	.R2w_sH83CJU9Yhnu0xyt, .CU0wnmWejIvyEsRRtSac, .PiyAiXdQULEnWAHP0tu1, .NIEO4GCY9P49NrtTWlhP
     {
         background: background_colour
     }
@@ -245,21 +288,13 @@
 		background: background_colour
 	}
 
-	/* Floating column header */
-	._2ajKWDiy6YvJu5wo8I1g, .facDIsOQo9q7kiWc4jSg, .T1xI1RTSFU7Wu94UuvE6, .BHHXR8xc6m009ohY6aKU {
-		background: background_colour!important;
-
-		if minimal_floating_header {
-			top:0px!important
-		}
-	}
-
-	.facDIsOQo9q7kiWc4jSg {
-		if minimal_floating_header{display:none}
-	}
-
 	/* Verified artist */
-	.CmR9tHJ5ta6oWJlKBm3k {
+	.CmR9tHJ5ta6oWJlKBm3k, .uRaGTNlhRgP6shlQgYLz {
+		display: none
+	}
+
+	/* Hides the gradient on genre pages */
+	.us5p2PlqI8IJvxWYakKj {
 		display: none
 	}
 
@@ -340,21 +375,21 @@
         background: transparent!important
     }
 
+	/* Removes the gray from placeholder icons (mostly folders) */
+	div:has(div[class="RowButton-sc-xxkq4e-0 cRPTAY"]) div[class*="Areas__HeaderSideArea"] div div,
+ 	li div[data-encore-id="card"] div div:has(svg[data-testid="card-image-fallback"]) {
+		background: none!important
+	}
+
     /* CONTEXT MENUS */
     #context-menu,
-    button.wC9sIed7pfp47wZbmU6m,
-    .SboKmDrCTZng7t4EgNoM, .encore-dark-theme, .NbcaczStd8vD2rHWwaKv,
-  	.wlb3dYO07PZuYfmNfmkS {
+    ul[role="menu"],
+ 	#context-menu:has(div[data-testid="hover-or-focus-tooltip"]) * {
         background: modal_popup_colour!important
     }
 
     button.wC9sIed7pfp47wZbmU6m:hover {
         background: lighten(modal_popup_colour, 5)!important
-    }
-
-    /* Hover Cards */
-    div[class*="CardButton-sc"]:hover {
-        background: hsl(227, 15%, 17%)!important;
     }
 
     /* PLAYER UI */
@@ -363,7 +398,7 @@
     }
 
     /* HEADERS ON PLAYLISTS */
-    .E4q8ogfdWtye7YgotBlN {
+    .E4q8ogfdWtye7YgotBlN, .CeSZLCa3sD6XCrx_ld6S, .VCH3TJP5s27cQwnxWKnA {
         background: background_colour!important;
     }
 
@@ -405,13 +440,60 @@
 		display: none
 	}
 
-	button[aria-label="Looks like we don't have the lyrics for this song."] {
-		display: none
+	/* Floating column header */
+	header[aria-label="Top bar and user menu"] div {
+		background: chip_colour!important;
 	}
 
-	/* WS mode removes buttons Theo doesn't need. Likely not useful for other people */
+	section[data-testid="artist-page"] div:has(div[class*="encore-text-title-small"]) {
+		top: 0px;
+		box-shadow: none
+	}
+
+	/* Togglable features, most of them anyways. Some are scattered about, good luck! */
+
+	if minimal_floating_header {
+
+		header[aria-label="Top bar and user menu"] {
+			display: none;
+			background: none!important
+		}
+
+		div[data-testid="playlist-tracklist"] div[style="top: 64px;"],
+ 		section ul[class*="NavBarList__NavBarListElement-sc-"] {
+			top: 0px!important;
+			background: background_colour!important;
+		}
+
+		/* Same thing as above, but.. for artists... grahhhh */
+		section[data-testid="artist-page"] div[style="top: 64px;"][role="presentation"] {
+			top: 0px!important; /* Fun fact: this matches the default behavior. FOR SOME FUCKING REASON i'm going insane help */
+			/*top: 42px!important;*/
+			background: background_colour!important
+		}
+	}
+
+	if hide_notification_button {
+		button[data-testid="whats-new-feed-button"] {
+			display: none
+		}
+	}
+
+	/* Hides the "shortslike" playlist preview button */
+	if hide_playlist_preview {
+		button[data-testid="watch-feed-entity-button"] {
+			display: none
+		}
+	}
+
+	/* WS mode removes some buttons I don't need. Likely not useful for other people */
+	/* Explicity hides:
+ 		- Preferences button in dropdown
+		- Create playlist button on sidebar
+		- Now playing button on bottom bar
+	*/
 	if webshell {
-		a[href="/preferences"], button[aria-label="Create"], .KAZD28usA1vPz5GVpm63[aria-label="Now playing view"] {
+		a[href="/preferences"], button[aria-label="Create"], aside[data-testid="now-playing-bar"] button[data-testid="control-button-npv"] {
 			display: none!important
 		}
 
@@ -426,12 +508,6 @@
 		a[href="https://support.spotify.com/"],
 		.E912cqRfb05FrRPFKDZ_ {
 			display: none!important
-		}
-	}
-
-	if remove_playlist_gradient {
-		.XVz4BMGP5zAEE5p90mYK, .yhlH4Dsjqw56Z58EOwvQ, .Bdcf5g__Rug3TGqSdbiy, .PeLrpasyfBW8ql_bmoAi {
-			display: none
 		}
 	}
 
@@ -511,6 +587,12 @@
 			color: custom_inactive_colour!important
 		}
 
+		/* Progress bar and volume bar */
+		div[data-testid="playback-progressbar"] div[data-testid="progress-bar"] div[data-testid="progress-bar-background"] div div,
+ 		aside[data-testid="now-playing-bar"] div[data-testid="volume-bar"] div div div[data-testid="progress-bar"] div[data-testid="progress-bar-background"] div div{
+			background-color: custom_theme_color!important
+		}
+
         .kWONUS,
         .dpREpp,
         .QavgDs_52SpJ2rw0LNYz,
@@ -531,6 +613,11 @@
         .h4HgbO_Uu1JYg5UGANeQ .btn {
             scale: 60%!important
         }
+
+		/* For those funny little square bars indicating the active tab */
+		li a[aria-current="page"]::after {
+			background-color: custom_theme_color!important
+		}
 
         .K7fGF95OD9aI3zdYnFXg path,
         .ilmalU,
@@ -572,10 +659,33 @@
 		.Qt226Z4rBQs53aedRQBQ .fprjoI path,
  		path[d="M15.53 2.47a.75.75 0 0 1 0 1.06L4.907 14.153.47 9.716a.75.75 0 0 1 1.06-1.06l3.377 3.376L14.47 2.47a.75.75 0 0 1 1.06 0"],
   		button.niXChlbt7kxslMUdfwu9[aria-checked="true"][role="menuitemradio"],
- 		path[d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m11.748-1.97a.75.75 0 0 0-1.06-1.06l-4.47 4.47-1.405-1.406a.75.75 0 1 0-1.061 1.06l2.466 2.467 5.53-5.53z"] {
+ 		path[d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m11.748-1.97a.75.75 0 0 0-1.06-1.06l-4.47 4.47-1.405-1.406a.75.75 0 1 0-1.061 1.06l2.466 2.467 5.53-5.53z"],
+
+ 		div[aria-label="Player controls"] button[aria-label="Previous"] path,
+ 		div[aria-label="Player controls"] button[aria-label="Next"] path,
+
+		{
             fill: custom_theme_color!important;
             color: custom_theme_color!important;
         }
+
+		/* Player bar right-side buttons */
+		aside[data-testid="now-playing-bar"] button[data-testid="control-button-npv"] svg *,
+		aside[data-testid="now-playing-bar"] button[data-testid="lyrics-button"] svg *,
+		aside[data-testid="now-playing-bar"] button[data-testid="control-button-queue"] svg *,
+		aside[data-testid="now-playing-bar"] button[aria-label="Connect to a device"] svg *,
+		aside[data-testid="now-playing-bar"] button[data-testid="fullscreen-mode-button"] path,
+		aside[data-testid="now-playing-bar"] div[data-testid="volume-bar"] button path {
+			fill: custom_theme_color!important;
+			color: custom_theme_color!important
+		}
+
+		/* Player bar right-side button dots */
+		aside[data-testid="now-playing-bar"] button[data-testid="control-button-npv"]::after,
+		aside[data-testid="now-playing-bar"] button[data-testid="lyrics-button"]::after,
+		aside[data-testid="now-playing-bar"] button[data-testid="control-button-queue"]::after {
+			background: custom_theme_color!important
+		}
 
 		.NKUrT1GciYXAEEUtagN1 .fprjoI path {
 			fill: custom_theme_color
@@ -686,7 +796,7 @@
     }
 
     if hide_spCon_bottom {
-        .T3hkVxXuSbCYOD2GIeQd {
+        .T3hkVxXuSbCYOD2GIeQd, .DOemiVbX4CbcfgSDqiiJ {
             display: none
         }
     }
