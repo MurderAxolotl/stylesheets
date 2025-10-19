@@ -2,13 +2,12 @@
 @name           Unified Spotify
 @namespace      github.com/openstyles/stylus
 @license        GNU GPLv3
-@version        1.17.0
+@version        1.17.2
 @description    Brings a new, unified UI to Spotify
 @author         Axo
 @preprocessor   stylus
 
 @var checkbox my_pc_is_shit "I'M LAGGING! HELP!" 0
-@var checkbox hide_uname "HIDE USERNAME" 0
 @var checkbox hide_recs "HIDE RECOMMENDATIONS" 0
 @var checkbox hide_spCon_bottom "HIDE SPOTIFY CONNECT BAR" 0
 @var checkbox hide_footer "HIDE FOOTER" 1
@@ -18,9 +17,9 @@
 @var checkbox hide_notification_button "HIDE NOTIF BELL" 1
 @var checkbox hide_playlist_preview "HIDE PLAYLIST PREVIEW" 1
 @var checkbox webshell "WS MODE" 0
+@var checkbox enable_pointless_things "SHOW USELESS THINGS" 0
 @var select hide_sb "SCROLLBAR MODE" {"use_theme:THEMED": "styled", "spotify:DEFAULT": "spotify", "hidden:HIDDEN": "hidden"}
 @var checkbox use_custom_theme_color "USE CUSTOM COLORS" 1
-@var checkbox use_custom_foreground_color "USE CUSTOM FG" 1
 @var color custom_theme_color "ACCENT COLOUR" #9b6ef4
 @var color custom_inactive_colour "INACTIVE TOGGLE COLOUR" rgb(133,133,133)
 @var color ct_active_song "ACTIVE TRACK COLOUR" #1c1e26
@@ -30,7 +29,7 @@
 
 ==/UserStyle== */
 @-moz-document domain("open.spotify.com") {
-	if not my_pc_is_shit {
+	if not my_pc_is_shit{
 		/* THIS CAN BE INCREDIBLY LAGGY */
 		.encore-dark-theme, .encore-dark-theme .encore-base-set {
 			--background-base: background_colour!important;
@@ -44,20 +43,26 @@
 			--background-tinted-press: #ffffff36;
 			--text-base: #fff;
 			--text-subdued: #b3b3b3;
-			--text-bright-accent: custom_theme_color!important;
 			--text-negative: #f3727f;
 			--text-warning: #ffa42b;
-			--text-positive: custom_theme_color!important;
 			--text-announcement: #4cb3ff;
 			--essential-base: #fff;
 			--essential-subdued: #7c7c7c;
-			--essential-bright-accent: custom_theme_color!important;
 			--essential-negative: #ed2c3f;
 			--essential-warning: #ffa42b;
-			--essential-positive: custom_theme_color!important;
 			--essential-announcement: #4cb3ff;
 			--decorative-base: #fff;
 			--decorative-subdued: #292929;
+		}
+	}
+
+	/* If custom colours are enabled, override Spotify's stuff here */
+	if (not my_pc_is_shit) and use_custom_theme_color {
+		.encore-dark-theme, .encore-dark-theme .encore-base-set {
+			--text-bright-accent: custom_theme_color!important;
+			--text-positive: custom_theme_color!important;
+			--essential-bright-accent: custom_theme_color!important;
+			--essential-positive: custom_theme_color!important;
 		}
 	}
 
@@ -224,7 +229,13 @@
 		padding-top:45px
 	}
 
+	/* Artist info */
+	.mpdgC9UTkN5_fMm1pFiz:not(:has(div[data-testid="action-bar"])) {
+		background-color: modal_popup_colour
+	}
+
 	/* It's only a matter of time berfore this breaks, but for now... it works. somehow. */
+	/* I THINK this is the buttons */
 	.U_nX_1rJoqQSWPJRE6zb  {
 		background: lighten(modal_popup_colour, 5)!important
 	}
@@ -261,6 +272,11 @@
         background: background_colour
     }
 
+	/* Artist pages without an actual image */
+	section[data-testid="artist-page"] div div[style*="background-color: rgb("] {
+		background: transparent!important
+	}
+
 	.DuvrswZugGajIFNXObAr .epWhU7hHGktzlO_dop6z {
 		background: custom_theme_color!important
 	}
@@ -281,6 +297,10 @@
 
 	.JaGLdeBa2UaUMBT44vqI, .c0CddR8wF7kDxvU6uM8B, .dMhJaxli87_22jb_3d9x {
 		background: chip_colour
+	}
+
+	.iyhPyoc2dxd1Eno74TCO {
+		background-color: chip_colour
 	}
 
 	/* Profile details */
@@ -333,10 +353,11 @@
         color: hsl(227, 15%, 15%)!important
     }
 
-    /* Connected Device UI */
+    /* Connect to a device screen */
     .qSTDtICR1fiIGRni1cwy, .YIJxiTuPgMQav316cRqP,
-    .mjprSb2e1tKJpqwvgFSh, .XdJAEkP3WXzUL5URB0ZX {
-        background: hsl(227, 15%, 15%)!important
+    .mjprSb2e1tKJpqwvgFSh, .XdJAEkP3WXzUL5URB0ZX,
+ 	div[style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; top: 0px; right: auto; left: 0px; width: calc(100% + 0px); padding: 0px;"]:has(div[aria-labelledby="listrow-title-device-picker-header"]) {
+        background: background_colour
     }
 
     .T1xI1RTSFU7Wu94UuvE6, .hIFR8WDm_54EEIa1gwpC {
@@ -499,6 +520,7 @@
 
 		*[aria-labelledby="card-title-spotify:playlist:6mIujsSdtPlcHKwJOUsxmL-0 card-subtitle-spotify:playlist:6mIujsSdtPlcHKwJOUsxmL-0"],
  		*[aria-labelledby="card-title-spotify:playlist:6mIujsSdtPlcHKwJOUsxmL-0"],
+		aside[data-testid="now-playing-bar"] button[data-testid="fullscreen-mode-button"],
  		.WtC1lGbmQRplD6JBhNFU {
 			display: none!important
 		}
@@ -542,40 +564,22 @@
 		}
 	}
 
-    if hide_uname {
-        .pudHk.MfVrtIzQJ7iZXfRWg6eM, .xQfpa, .Za_uNH8nTZ0qCuIqbPLZ span, .NO_VO3MRVl9z3z56d8Lg {
-            display:none
-        }
-
-        .fEBgUb .MfVrtIzQJ7iZXfRWg6eM,
-        .RfdRTSGwulyQdDepLUTT {
-            filter: opacity(0)!important;
-            cursor: not-allowed;
-            pointer-events: none
-        }
-        .fhrvNw,
-        .CdHBSRh3RhPwBNIBQtkD,
-        .MF2rLXp4d_JPNs2t0bbj,
-        .kHu_FTRgoBLSLeAJtyKY,
-        .w3w0DS8atwcgOQJAKAV2,
-        .ta4ePOlmGXjBYPTd90lh {
-            filter: opacity(0)!important;
-        }
-        .G7zO58ORUHxcUw0sXktM {
-            filter: opacity(0)
-        }
-    }
-
-    if True {
-
-		/* Most buttons */
-		.encore-bright-accent-set, .e-91000-button-icon-only--small path {
-			fill: custom_foreground_color;
-			color: custom_foreground_color
+	if not enable_pointless_things {
+		a[href="/preferences"] {
+			display: none!important
 		}
-    }
+	}
 
     if use_custom_theme_color {
+		/* The (mostly useless) settings page */
+		div[data-testid="settings-page"] label:has(input:checked) span {
+			background-color: custom_theme_color!important
+		}
+
+		div[data-testid="settings-page"] label:has(input:checked) span span {
+			background-color: white!important
+		}
+
 		/* Playerbar - fix icons being themed when they shouldn't be */
 		button[data-testid="control-button-repeat"][aria-checked="false"] path {
 			fill: custom_inactive_colour!important
@@ -669,6 +673,17 @@
             color: custom_theme_color!important;
         }
 
+		/* Uber fancy lyrics button hiding animation x3 */
+		aside[data-testid="now-playing-bar"] button[data-testid="lyrics-button"] {
+			opacity: 1;
+			transition: all 1s ease-in-out;
+		}
+
+		aside[data-testid="now-playing-bar"] button[data-testid="lyrics-button"][aria-label="Looks like we don't have the lyrics for this song."] {
+			opacity: 0;
+			transition: all 1s ease-in-out;
+		}
+
 		/* Player bar right-side buttons */
 		aside[data-testid="now-playing-bar"] button[data-testid="control-button-npv"] svg *,
 		aside[data-testid="now-playing-bar"] button[data-testid="lyrics-button"] svg *,
@@ -683,7 +698,8 @@
 		/* Player bar right-side button dots */
 		aside[data-testid="now-playing-bar"] button[data-testid="control-button-npv"]::after,
 		aside[data-testid="now-playing-bar"] button[data-testid="lyrics-button"]::after,
-		aside[data-testid="now-playing-bar"] button[data-testid="control-button-queue"]::after {
+		aside[data-testid="now-playing-bar"] button[data-testid="control-button-queue"]::after,
+ 		aside[data-testid="now-playing-bar"] button[aria-label="Connect to a device"]::after {
 			background: custom_theme_color!important
 		}
 
