@@ -2,7 +2,7 @@
 @name           Unified Spotify
 @namespace      github.com/MurderAxolotl
 @license        GNU GPLv3
-@version        1.18.3
+@version        1.18.5
 @description    Brings a new, unified UI to Spotify
 @author         Axo
 @preprocessor   stylus
@@ -489,6 +489,37 @@
         background: background_colour!important;
     }
 
+	/* Playlist items and queue items */
+	div[id="queue-panel"] div[data-flip-id*="spotify:track:"] div[data-encore-id="listRow"] div[class*="RowButton"],
+	div[role="row"]:has(div[data-testid="tracklist-row"]),
+ 	div[role="row"]:has(div[data-testid="tracklist-row"]) div[data-testid="tracklist-row"]{
+		transition: 0.3s;
+		border-radius: 6px
+	}
+
+	div[id="queue-panel"] div[data-flip-id*="spotify:track:"]:not(:hover) div[data-encore-id="listRow"] div[class*="RowButton"] {
+		background: background_colour
+	}
+
+	div[id="queue-panel"] div[data-flip-id*="spotify:track:"]:hover div[data-encore-id="listRow"] div[class*="RowButton"],
+	div[role="row"]:has(div[data-testid="tracklist-row"]):hover,
+ 	div[role="row"]:has(div[data-testid="tracklist-row"]):hover div[data-testid="tracklist-row"] {
+		background: chip_colour!important;
+	}
+
+	div[role="row"][aria-selected="true"]:has(div[data-testid="tracklist-row"]),
+ 	div[role="row"][aria-selected="true"]:has(div[data-testid="tracklist-row"]) div[data-testid="tracklist-row"]{
+		background: lighten(chip_colour, 15%)!important
+	}
+
+	div[id="queue-panel"] div[data-flip-id*="spotify:track:"]:hover div[data-encore-id="listRow"] div[class*="RowButton"] {
+		background: lighten(chip_colour, 5%)!important
+	}
+
+	div[id="queue-panel"] div[data-flip-id*="spotify:track:"] div[data-encore-id="listRow"] div[class*="Areas__Header"] {
+		z-index: 2;
+	}
+
 	/* Chips */
 	/* Filter chip */
 	div[id="Desktop_LeftSidebar_Id"] div[aria-label="Filter options"] div[class="react-aria-ListBoxItem"] div[class*="ChipClear__ChipClearComponent"] {
@@ -636,7 +667,9 @@
 	}
 
 	if hide_dj_card {
-		div[data-carousel-gridlist-item="true"]:has(div[aria-labelledby="card-title-spotify:playlist:37i9dQZF1EYkqdzj48dyYq-6"]) {
+		div[data-carousel-gridlist-item="true"]:has(div[aria-labelledby="card-title-spotify:playlist:37i9dQZF1EYkqdzj48dyYq-6"]),
+ 		div[aria-labelledby*="card-title-spotify:playlist:37i9dQZF1EYkqdzj48dyYq-1"],
+ 		div[data-carousel-gridlist-item="true"]:has(div[aria-labelledby*="card-title-spotify:playlist:37i9dQZF1EYkqdzj48dyYq-1"]) {
 			display: none!important
 		}
 	}
@@ -658,6 +691,7 @@
 		section[data-testid="component-shelf"][aria-label="Your top mixes"],
 		section[data-testid="component-shelf"][aria-label="Jump back in"],
 		section[data-testid="component-shelf"][aria-label="Inspired by your recent activity Based on your recent listening"],
+		section[data-testid="component-shelf"]:has(a[href="/section/0JQ5DAnM3wGh0gz1MXnu3J"]),
 		section[data-testid="component-shelf"][aria-label="Non-stop music based on your favorite songs and artists. Recommended Stations"],
 		section[data-testid="component-shelf"][aria-label="Episodes you might like"],
 		section[data-testid="component-shelf"][aria-label="Brand new music from artists you love. New releases for you"],
@@ -712,6 +746,7 @@
 		section[data-testid="component-shelf"][aria-label="Jump back in"],
 		section[data-testid="component-shelf"][aria-label="Recently played"],
 		section[data-testid="component-shelf"][aria-label="Inspired by your recent activity Based on your recent listening"],
+		section[data-testid="component-shelf"]:has(a[href="/section/0JQ5DAnM3wGh0gz1MXnu3J"]),
 		section[data-testid="component-shelf"][aria-label="Non-stop music based on your favorite songs and artists. Recommended Stations"],
 		section[data-testid="component-shelf"][aria-label="Brand new music from artists you love. New releases for you"],
  		section[data-testid="component-shelf"]:has(div[data-testid="grid-container"]) {
@@ -816,8 +851,7 @@
 
  		div[aria-label="Player controls"] button[aria-label="Previous"] path,
  		div[aria-label="Player controls"] button[aria-label="Next"] path,
-
-		{
+		button[role="menuitemradio"][aria-checked="true"] {
             fill: custom_theme_color!important;
             color: custom_theme_color!important;
         }
@@ -954,8 +988,8 @@
     }
 
     if hide_recs {
-        .kwe0I8sSNMv3gYBjkRYP,
-        .STDuzt77yRCueC4Ohenl .jqNXli {
+        div[data-testid="recommended-track"]:has(div[data-testid="track-list"]),
+ 		button:has(div[aria-label="Find more songs or episodes for your playlist"]) {
             display: none
         }
     }
