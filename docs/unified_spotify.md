@@ -53,8 +53,8 @@ Please note, this feature only works if your display language is set to English!
 ## PREVIEW IMAGES
 | LOCATION  | IMAGE |
 | :-:       | :-:   |
-| Playlists | ![Playlists](previews/unified_spotify/playlists.png) |
-| Artists   | ![Artists](previews/unified_spotify/artist.png) |
-| Lyrics    | ![Lyrics](previews/unified_spotify/lyrics.png) |
-| Library   | ![FullLibrary](previews/unified_spotify/library_full.png) |
-| Genres    | ![Genres](previews/unified_spotify/genres.png)
+| Playlists | ![Playlists](../previews/unified_spotify/playlists.png) |
+| Artists   | ![Artists](../previews/unified_spotify/artist.png) |
+| Lyrics    | ![Lyrics](../previews/unified_spotify/lyrics.png) |
+| Library   | ![FullLibrary](../previews/unified_spotify/library_full.png) |
+| Genres    | ![Genres](../previews/unified_spotify/genres.png)
