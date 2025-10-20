@@ -1,31 +1,43 @@
 /* ==UserStyle==
 @name           Unified Spotify
-@namespace      github.com/openstyles/stylus
+@namespace      github.com/MurderAxolotl
 @license        GNU GPLv3
-@version        1.17.2
+@version        1.18.0
 @description    Brings a new, unified UI to Spotify
 @author         Axo
 @preprocessor   stylus
 
-@var checkbox my_pc_is_shit "I'M LAGGING! HELP!" 0
-@var checkbox hide_recs "HIDE RECOMMENDATIONS" 0
-@var checkbox hide_spCon_bottom "HIDE SPOTIFY CONNECT BAR" 0
-@var checkbox hide_footer "HIDE FOOTER" 1
-@var checkbox hide_install_nags "HIDE INSTALL NAGS" 0
-@var checkbox not_an_idiot "HIDE HELP LINKS" 0
-@var checkbox minimal_floating_header "MINIMAL FLOATING HEADER" 1
-@var checkbox hide_notification_button "HIDE NOTIF BELL" 1
-@var checkbox hide_playlist_preview "HIDE PLAYLIST PREVIEW" 1
-@var checkbox webshell "WS MODE" 0
-@var checkbox enable_pointless_things "SHOW USELESS THINGS" 0
-@var select hide_sb "SCROLLBAR MODE" {"use_theme:THEMED": "styled", "spotify:DEFAULT": "spotify", "hidden:HIDDEN": "hidden"}
-@var checkbox use_custom_theme_color "USE CUSTOM COLORS" 1
-@var color custom_theme_color "ACCENT COLOUR" #9b6ef4
-@var color custom_inactive_colour "INACTIVE TOGGLE COLOUR" rgb(133,133,133)
-@var color ct_active_song "ACTIVE TRACK COLOUR" #1c1e26
-@var color background_colour "[BETA] UI BACKGROUND" hsl(227, 15%, 6%)
-@var color modal_popup_colour "[BETA] POPUP UI COLOUR" hsl(227, 15%, 15%)
-@var color chip_colour "[BETA] UI CHIPS" hsl(227, 19%, 11%)
+@var checkbox my_pc_is_shit            "I'M LAGGING! HELP!"       0
+@var checkbox hide_recs                "HIDE RECOMMENDATIONS"     0
+@var checkbox hide_spCon_bottom        "HIDE SPOTIFY CONNECT BAR" 0
+@var checkbox hide_footer              "HIDE FOOTER"              1
+@var checkbox hide_install_nags        "HIDE INSTALL NAGS"        0
+@var checkbox not_an_idiot             "HIDE HELP LINKS"          0
+@var checkbox minimal_floating_header  "MINIMAL FLOATING HEADER"  1
+@var checkbox hide_notification_button "HIDE NOTIF BELL"          1
+@var checkbox hide_playlist_preview    "HIDE PLAYLIST PREVIEW"    1
+@var checkbox webshell                 "WS MODE"                  0
+@var checkbox enable_pointless_things  "SHOW USELESS THINGS"      0
+@var checkbox grayscale_player_gif     "GRAYSCALE PLAYING GIF"    1
+@var checkbox hide_dj_card             "[BETA] HIDE DJ CARD"      0
+@var select   home_mode                "HOME ITEMS"               {
+																	"default:EVERYTHING": "default",
+																	"preset_1:MF/SOUNDTRACK/RECENT": "preset_1",
+																	"preset_2:MF/RECENT/PLAYLISTS": "preset_2",
+																	"preset_3:RECENT/PLAYLISTS": "preset_3",
+																	"preset_4:PLAYLISTS": "preset_4",
+																	"musiconl:MUSIC ONLY": "music_only",
+																	"monr:MUSIC, NO RADIO": "music_only_no_radios",
+																	"tpr:THEO'S PRESET": "theos_preset"
+																  }
+@var select   hide_sb                  "SCROLLBAR MODE"           {"use_theme:THEMED": "styled", "spotify:DEFAULT": "spotify", "hidden:HIDDEN": "hidden"}
+@var checkbox use_custom_theme_color   "USE CUSTOM COLORS"        1
+@var color    custom_theme_color       "ACCENT COLOUR"            #9b6ef4
+@var color    custom_inactive_colour   "INACTIVE TOGGLE COLOUR"   rgb(133,133,133)
+@var color    ct_active_song           "ACTIVE TRACK COLOUR"      #1c1e26
+@var color    background_colour        "[BETA] UI BACKGROUND"     hsl(227, 15%, 6%)
+@var color    modal_popup_colour       "[BETA] POPUP UI COLOUR"   hsl(227, 15%, 15%)
+@var color    chip_colour              "[BETA] CHIP COLOUR"          hsl(227, 19%, 11%)
 
 ==/UserStyle== */
 @-moz-document domain("open.spotify.com") {
@@ -53,6 +65,10 @@
 			--essential-announcement: #4cb3ff;
 			--decorative-base: #fff;
 			--decorative-subdued: #292929;
+		}
+
+		.encore-internal-color-text-base {
+			--text-base: #fff
 		}
 	}
 
@@ -240,10 +256,6 @@
 		background: lighten(modal_popup_colour, 5)!important
 	}
 
-	.encore-light-theme h2 {
-		filter: invert()
-	}
-
 	.encore-light-theme button {
 		color: white
 	}
@@ -340,6 +352,31 @@
 		background: chip_colour!important
 	}
 
+	/* Home screen carousels */
+	div[role="presentation"]:has(div[data-carousel-gridlist-item="true"]) {
+		background: background_colour!important;
+	}
+
+	div[style="--scrollAnimationRangeStart: 10px; --scrollAnimationRangeEnd: 60px;"] {
+		--carousel-start-chevron-gradient: transparent!important
+	}
+
+	/* Home screen playlist buttons */
+	section[aria-label="Good afternoon"] div div:has(div[draggable]) {
+		background: chip_colour
+	}
+
+	/* Home screen floaty chip container thingymabob */
+	.MViMHJvcIZ6RxUXEeLSf, .CEB3nzyniIFOx1yM1eYy, .aBTcK0jHBextE7fGnKiw {
+		background-color: modal_popup_colour;
+		filter: opacity(1)!important
+	}
+
+	/* Home screen top gradient */
+	main[aria-label*="Spotify"] div[style*="background-color: rgb("] {
+		background-color: transparent!important;
+	}
+
     /* CONNECT TO DEVICE PANE */
     .W3E0IT3_STcazjTeyOJa, .h0XG5HZ9x0lYV7JNwhoA, .ffFwfKcPDbmAPLXzxzKq, .W3E0IT3_STcazjTeyOJa, .fNXmHtlrj4UVWmhQrJ_5, div[aria-labelledby="device-picker-header"], .icNf66tgG3uxDMbCCIaN, .AAdBM1nhG73supMfnYX7 {
         background: background_colour!important
@@ -359,6 +396,11 @@
  	div[style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; top: 0px; right: auto; left: 0px; width: calc(100% + 0px); padding: 0px;"]:has(div[aria-labelledby="listrow-title-device-picker-header"]) {
         background: background_colour
     }
+
+	/* Other sidebars */
+	aside[id="Desktop_PanelContainer_Id"] div[style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; top: 0px; right: auto; left: 0px; width: calc(100% + 0px); padding: 0px;"] {
+		background: background_colour
+	}
 
     .T1xI1RTSFU7Wu94UuvE6, .hIFR8WDm_54EEIa1gwpC {
         filter: opacity(1)!important;
@@ -494,6 +536,13 @@
 		}
 	}
 
+	if grayscale_player_gif {
+		img[src*="https://open.spotifycdn.com/cdn/images/equaliser-green"],
+		img[src*="https://open.spotifycdn.com/cdn/images/equaliser-animated"] {
+			filter: saturate(0)!important
+		}
+	}
+
 	if hide_notification_button {
 		button[data-testid="whats-new-feed-button"] {
 			display: none
@@ -564,9 +613,87 @@
 		}
 	}
 
+	if hide_dj_card {
+		div[data-carousel-gridlist-item="true"]:has(div[aria-labelledby="card-title-spotify:playlist:37i9dQZF1EYkqdzj48dyYq-6"]) {
+			display: none!important
+		}
+	}
+
 	if not enable_pointless_things {
 		a[href="/preferences"] {
 			display: none!important
+		}
+	}
+
+	/* Home declutter yee fucking haw */
+	if home_mode == default {
+		/* No actions need to be taken */
+	}
+
+	if home_mode == preset_1 or home_mode == preset_2 or home_mode == preset_3 or home_mode == preset_4 {
+		/* Only shows Made for you, Soundtrack your day, Recently Played, Playlists */
+
+		section[data-testid="component-shelf"][aria-label="Your top mixes"],
+		section[data-testid="component-shelf"][aria-label="Jump back in"],
+		section[data-testid="component-shelf"][aria-label="Inspired by your recent activity Based on your recent listening"],
+		section[data-testid="component-shelf"][aria-label="Non-stop music based on your favorite songs and artists. Recommended Stations"],
+		section[data-testid="component-shelf"][aria-label="Episodes you might like"],
+		section[data-testid="component-shelf"][aria-label="Brand new music from artists you love. New releases for you"],
+ 		section[data-testid="component-shelf"]:has(div[data-testid="grid-container"]) {
+			display: none
+		}
+	}
+
+	if home_mode == preset_2 or home_mode == preset_3 or home_mode == preset_4 {
+		/* Only shows Made for you, Recently Played, Playlists */
+
+		section[data-testid="component-shelf"][aria-label*="Soundtrack your "] {
+			display: none
+		}
+	}
+
+	if home_mode == preset_3 or home_mode == preset_4 {
+		/* Only shows: Recently Played, Playlists */
+
+		section[data-testid="component-shelf"][aria-label*="Made For "] {
+			display: none
+		}
+	}
+
+	if home_mode == preset_4 {
+		/* Only shows playlists */
+
+		section[data-testid="component-shelf"][aria-label="Recently played"] {
+			display: none
+		}
+	}
+
+	if home_mode == music_only or home_mode == music_only_no_radios {
+		/* Hides podcasts */
+
+		section[data-testid="component-shelf"][aria-label="Episodes you might like"],
+		section[data-testid="component-shelf"]:has(div[data-testid="grid-container"]) {
+			display: none
+		}
+	}
+
+	if home_mode == music_only_no_radios {
+		/* Hides podcasts and radios */
+
+		section[data-testid="component-shelf"][aria-label="Non-stop music based on your favorite songs and artists. Recommended Stations"] {
+			display: none
+		}
+	}
+
+	if home_mode == theos_preset {
+		section[data-testid="component-shelf"][aria-label="Episodes you might like"],
+		section[data-testid="component-shelf"][aria-label="Jump back in"],
+		section[data-testid="component-shelf"][aria-label="Recently played"],
+		section[data-testid="component-shelf"][aria-label="Inspired by your recent activity Based on your recent listening"],
+		section[data-testid="component-shelf"][aria-label="Non-stop music based on your favorite songs and artists. Recommended Stations"],
+		section[data-testid="component-shelf"][aria-label="Brand new music from artists you love. New releases for you"],
+ 		section[data-testid="component-shelf"]:has(div[data-testid="grid-container"]) {
+			display: none
 		}
 	}
 
