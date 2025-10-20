@@ -2,7 +2,7 @@
 @name           Unified Spotify
 @namespace      github.com/MurderAxolotl
 @license        GNU GPLv3
-@version        1.18.5
+@version        1.19.0
 @description    Brings a new, unified UI to Spotify
 @author         Axo
 @preprocessor   stylus
@@ -18,6 +18,7 @@
 @var checkbox hide_playlist_preview    "HIDE PLAYLIST PREVIEW"    1
 @var checkbox webshell                 "WS MODE"                  0
 @var checkbox enable_pointless_things  "SHOW USELESS THINGS"      0
+@var checkbox enable_genrecard_hover   "GENRE CARD HOVER VFX"     1
 @var checkbox grayscale_player_gif     "GRAYSCALE PLAYING GIF"    1
 @var checkbox hide_dj_card             "[BETA] HIDE DJ CARD"      0
 @var select   home_mode                "HOME ITEMS"               {
@@ -37,7 +38,7 @@
 @var color    ct_active_song           "ACTIVE TRACK COLOUR"      #1c1e26
 @var color    background_colour        "[BETA] UI BACKGROUND"     hsl(227, 15%, 6%)
 @var color    modal_popup_colour       "[BETA] POPUP UI COLOUR"   hsl(227, 15%, 15%)
-@var color    chip_colour              "[BETA] CHIP COLOUR"          hsl(227, 19%, 11%)
+@var color    chip_colour              "[BETA] CHIP COLOUR"       hsl(227, 19%, 11%)
 
 ==/UserStyle== */
 @-moz-document domain("open.spotify.com") {
@@ -489,6 +490,44 @@
         background: background_colour!important;
     }
 
+	/* Genres */
+	div[role="listitem"]:has(a[href*="/genre/"]) div,
+	div[role="listitem"]:has(a[href="/concerts"]) div {
+		background: chip_colour!important
+	}
+
+	div[role="listitem"]:has(a[href*="/genre/"]) div img,
+	div[role="listitem"]:has(a[href="/concerts"]) div img {
+		background: chip_colour!important;
+		transform: rotate(0deg);
+		filter: opacity(0.55) brightness(0.65) blur(3px);
+		width:100%
+	}
+
+	div[role="listitem"]:has(a[href*="/genre/"]) div,
+	div[role="listitem"]:has(a[href="/concerts"]) div {
+		transition: scale 0.35s;
+		z-index: 0;
+	}
+
+	if enable_genrecard_hover {
+		div[role="listitem"]:has(a[href*="/genre/"]) div img,
+		div[role="listitem"]:has(a[href="/concerts"]) div img {
+			transition: scale 0.35s
+		}
+
+		div[role="listitem"]:has(a[href*="/genre/"]):hover div,
+		div[role="listitem"]:has(a[href="/concerts"]):hover div {
+			scale: 1.1;
+			z-index: 2;
+		}
+
+		div[role="listitem"]:has(a[href*="/genre/"]):hover div img,
+		div[role="listitem"]:has(a[href="/concerts"]):hover div img {
+			scale: 1.1
+		}
+	}
+
 	/* Playlist items and queue items */
 	div[id="queue-panel"] div[data-flip-id*="spotify:track:"] div[data-encore-id="listRow"] div[class*="RowButton"],
 	div[role="row"]:has(div[data-testid="tracklist-row"]),
@@ -694,8 +733,7 @@
 		section[data-testid="component-shelf"]:has(a[href="/section/0JQ5DAnM3wGh0gz1MXnu3J"]),
 		section[data-testid="component-shelf"][aria-label="Non-stop music based on your favorite songs and artists. Recommended Stations"],
 		section[data-testid="component-shelf"][aria-label="Episodes you might like"],
-		section[data-testid="component-shelf"][aria-label="Brand new music from artists you love. New releases for you"],
- 		section[data-testid="component-shelf"]:has(div[data-testid="grid-container"]) {
+		section[data-testid="component-shelf"][aria-label="Brand new music from artists you love. New releases for you"] {
 			display: none
 		}
 	}
@@ -727,8 +765,7 @@
 	if home_mode == music_only or home_mode == music_only_no_radios {
 		/* Hides podcasts */
 
-		section[data-testid="component-shelf"][aria-label="Episodes you might like"],
-		section[data-testid="component-shelf"]:has(div[data-testid="grid-container"]) {
+		section[data-testid="component-shelf"][aria-label="Episodes you might like"], {
 			display: none
 		}
 	}
@@ -748,8 +785,7 @@
 		section[data-testid="component-shelf"][aria-label="Inspired by your recent activity Based on your recent listening"],
 		section[data-testid="component-shelf"]:has(a[href="/section/0JQ5DAnM3wGh0gz1MXnu3J"]),
 		section[data-testid="component-shelf"][aria-label="Non-stop music based on your favorite songs and artists. Recommended Stations"],
-		section[data-testid="component-shelf"][aria-label="Brand new music from artists you love. New releases for you"],
- 		section[data-testid="component-shelf"]:has(div[data-testid="grid-container"]) {
+		section[data-testid="component-shelf"][aria-label="Brand new music from artists you love. New releases for you"] {
 			display: none
 		}
 	}

@@ -49,3 +49,12 @@ If you have experience with CSS and know how to use devtools, feel free to poke 
 | THEO'S PRESET | Made For<br>Soundtrack your day<br>Your top mixes<br>Your playlists |
 
 Please note, this feature only works if your display language is set to English! Leave it set to "Everything" if your display language is NOT English
+
+## PREVIEW IMAGES
+| LOCATION  | IMAGE |
+| :-:       | :-:   |
+| Playlists | ![Playlists](previews/unified_spotify/playlists.png) |
+| Artists   | ![Artists](previews/unified_spotify/artist.png) |
+| Lyrics    | ![Lyrics](previews/unified_spotify/lyrics.png) |
+| Library   | ![FullLibrary](previews/unified_spotify/library_full.png) |
+| Genres    | ![Genres](previews/unified_spotify/genres.png)
