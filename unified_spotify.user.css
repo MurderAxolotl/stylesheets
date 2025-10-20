@@ -2,7 +2,7 @@
 @name           Unified Spotify
 @namespace      github.com/MurderAxolotl
 @license        GNU GPLv3
-@version        1.18.2
+@version        1.18.3
 @description    Brings a new, unified UI to Spotify
 @author         Axo
 @preprocessor   stylus
@@ -408,7 +408,8 @@
     }
 
 	/* Other sidebars */
-	aside[id="Desktop_PanelContainer_Id"] div[style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; top: 0px; right: auto; left: 0px; width: calc(100% + 0px); padding: 0px;"] {
+	aside[id="Desktop_PanelContainer_Id"] div[style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; top: 0px; right: auto; left: 0px; width: calc(100% + 0px); padding: 0px;"],
+ 	div[id="Desktop_LeftSidebar_Id"] div[data-overlayscrollbars-viewport="scrollbarHidden overflowXHidden overflowYHidden"] {
 		background: background_colour
 	}
 
@@ -489,6 +490,17 @@
     }
 
 	/* Chips */
+	/* Filter chip */
+	div[id="Desktop_LeftSidebar_Id"] div[aria-label="Filter options"] div[class="react-aria-ListBoxItem"] div[class*="ChipClear__ChipClearComponent"] {
+		background: chip_colour
+	}
+	div[id="Desktop_LeftSidebar_Id"] div[aria-label="Filter options"] div[data-carousel-item="true"] div[aria-checked="true"] span {
+		background: lighten(chip_colour, 15%)!important;
+	}
+	div[id="Desktop_LeftSidebar_Id"] div[aria-label="Filter options"] div[data-carousel-item="true"] div[aria-checked="true"] * {
+		color: white!important;
+	}
+
 	div > *[class*="LegacyChipInner"]  {
 		background: chip_colour!important;
 	}
