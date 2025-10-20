@@ -2,7 +2,7 @@
 @name           Unified Spotify
 @namespace      github.com/MurderAxolotl
 @license        GNU GPLv3
-@version        1.18.0
+@version        1.18.1
 @description    Brings a new, unified UI to Spotify
 @author         Axo
 @preprocessor   stylus
@@ -370,6 +370,16 @@
 	.MViMHJvcIZ6RxUXEeLSf, .CEB3nzyniIFOx1yM1eYy, .aBTcK0jHBextE7fGnKiw {
 		background-color: background_colour;
 		filter: opacity(1)!important
+	}
+
+	/* ^ that thing's chips */
+	button[class*="LegacyChip__LegacyChipComponent"][aria-checked="false"] {
+		background: darken(chip_colour, 50%)
+	}
+
+	button[class*="LegacyChip__LegacyChipComponent"][aria-checked="true"] span[class*="LegacyChipInner__ChipInnerComponent"] {
+		background: lighten(chip_colour, 25%);
+		color: white
 	}
 
 	/* Home screen top gradient */
