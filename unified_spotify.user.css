@@ -2,7 +2,7 @@
 @name           Unified Spotify
 @namespace      github.com/MurderAxolotl
 @license        GNU GPLv3
-@version        1.19.0
+@version        1.19.2
 @description    Brings a new, unified UI to Spotify
 @author         Axo
 @preprocessor   stylus
@@ -20,6 +20,7 @@
 @var checkbox enable_pointless_things  "SHOW USELESS THINGS"      0
 @var checkbox enable_genrecard_hover   "GENRE CARD HOVER VFX"     1
 @var checkbox grayscale_player_gif     "GRAYSCALE PLAYING GIF"    1
+@var checkbox replace_favs_icon        "USE MATERIAL SIDEBAR"     0
 @var checkbox hide_dj_card             "[BETA] HIDE DJ CARD"      0
 @var select   home_mode                "HOME ITEMS"               {
 																	"default:EVERYTHING": "default",
@@ -787,6 +788,28 @@
 		section[data-testid="component-shelf"][aria-label="Non-stop music based on your favorite songs and artists. Recommended Stations"],
 		section[data-testid="component-shelf"][aria-label="Brand new music from artists you love. New releases for you"] {
 			display: none
+		}
+	}
+
+	if replace_favs_icon {
+		div[id="Desktop_LeftSidebar_Id"] img[src="https://misc.scdn.co/liked-songs/liked-songs-64.png"] {
+		  display: block;
+		  box-sizing: border-box;
+		  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='40px' viewBox='0 0 24 24' width='40px' fill='%23FFFFFF'%3E%3Cpath d='M0 0h24v24H0V0z' fill='none'/%3E%3Cpath d='M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3zm-4.4 15.55l-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z'/%3E%3C/svg%3E") center no-repeat;
+		  background-position: 8px;
+		  background-size: 32px 32px;
+		  padding-left:342px;
+		  filter: saturate(0) brightness(0.8);
+		}
+
+		div[id="Desktop_LeftSidebar_Id"] svg:has(path[d="M1 4a2 2 0 0 1 2-2h5.155a3 3 0 0 1 2.598 1.5l.866 1.5H21a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2zm7.155 0H3v16h18V7H10.464L9.021 4.5a1 1 0 0 0-.866-.5"]) {
+			display: block;
+			box-sizing: border-box;
+			background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='40px' viewBox='0 -960 960 960' width='40px' fill='%23FFFFFF'%3E%3Cpath d='M146.67-160q-27 0-46.84-20.17Q80-200.33 80-226.67v-506.66q0-26.34 19.83-46.5Q119.67-800 146.67-800H414l66.67 66.67h332.66q26.34 0 46.5 20.16Q880-693 880-666.67v440q0 26.34-20.17 46.5Q839.67-160 813.33-160H146.67Zm0-66.67h666.66v-440H453l-66.67-66.66H146.67v506.66Zm0 0v-506.66V-226.67Z'/%3E%3C/svg%3E") center no-repeat;
+			background-position: 0px;
+			background-size: 32px 32px;
+			padding-left:32px;
+			filter: saturate(0) brightness(0.8);
 		}
 	}
 

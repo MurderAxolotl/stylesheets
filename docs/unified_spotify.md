@@ -51,6 +51,9 @@ If you have experience with CSS and know how to use devtools, feel free to poke 
 Please note, this feature only works if your display language is set to English! Leave it set to "Everything" if your display language is NOT English
 
 ## PREVIEW IMAGES
+
+These previews use the default theme colour. For examples of different accent colours, see the next section
+
 | LOCATION  | IMAGE |
 | :-:       | :-:   |
 | Playlists | ![Playlists](../previews/unified_spotify/playlists.png) |
@@ -58,3 +61,14 @@ Please note, this feature only works if your display language is set to English!
 | Lyrics    | ![Lyrics](../previews/unified_spotify/lyrics.png) |
 | Library   | ![FullLibrary](../previews/unified_spotify/library_full.png) |
 | Genres    | ![Genres](../previews/unified_spotify/genres.png)
+
+## PREVIEW IMAGES - COLOUR EXAMPLES
+| HEX CODE | IMAGE |
+| :-:      | :-:   |
+| #6e79f4  | ![exim](../previews/unified_spotify/colours/6e79f4.png) |
+| #6ee2f4  | ![exim](../previews/unified_spotify/colours/6ee2f4.png) |
+| #10ff9c  | ![exim](../previews/unified_spotify/colours/10ff9c.png) |
+| #f46e6e  | ![exim](../previews/unified_spotify/colours/f46e6e.png) |
+| #ff3030  | ![exim](../previews/unified_spotify/colours/ff3030.png) |
+
+Of course, any colour in the RGB gamut is supported, but these make for neat little demos :3

@@ -15,5 +15,5 @@ These themes are no longer maintained:\
 
 | THEMES |
 | :----: |
-| ![Unified Spotify](previews/unified_spotify.png) |
+| ![Unified Spotify](previews/unified_spotify.png)<br>[Unified Spotify](https://userstyles.world/style/8785/unified-spotify) - more previews [here](docs/unified_spotify/unified_spotify.md) |
 | ![Dark Google Account](previews/gac.png) |
