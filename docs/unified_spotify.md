@@ -14,27 +14,32 @@ If you have experience with CSS and know how to use devtools, feel free to poke 
 
 | OPTION NAME | DESCRIPTION |
 | :----:      | :----:      |
-| I'M LAGGING            | Attempts to reduce lag, but also reduces theme quality |
-| HIDE RECOMMENDATIONS   | Hides the recommended tracks section under playlists |
-| HIDE SPCONNECT BAR     | Hides the green `Playing On` bar under the UI |
-| HIDE FOOTER            | Hides the footer at the bottom of the page |
-| HIDE INSTALL NAGS      | Hides almost all `INSTALL APP` nags |
-| HIDE HELP LINKS        | Hides the `SUPPORT` button in the profile menu |
-| MIN. FLOATING HEADER   | Reduce the floating header to just column info |
-| HIDE NOTIF BELL        | Hides the bell near the profile menu |
-| HIDE PLAYLIST PREVIEW  | Hides the glowing rectangle near play buttons |
-| WS MODE                | Removes buttons to declutter the UI. Leave disabled |
-| SHOW USELESS THINGS    | Shows the `SETTINGS` button in the profile menu |
-| GRAYSCALE PLAYING GIF  | Makes the animated visualizer thing grayscale |
-| HOME ITEMS             | Removes various items from the home UI. See below |
-| SCROLLBAR MODE         | Change the visual style of scrollbars. Limited support! |
-| USE CUSTOM COLOURS     | Enables the use the custom accent colour |
-| ACCENT COLOUR          | What colour to replace "Spotify Green" with |
-| INACTIVE TOGGLE COLOUR | What colour inactive toggles (Shuffle / Repeat) should be |
-| ACTIVE TRACK COLOUR    | Depricated, pending removal |
-| UI BACKGROUND          | Base colour of the UI |
-| POPUP UI COLOUR        | Base colour of popup UIs ("modals") |
-| CHIP COLOUR            | Colour of chip elements |
+| I'M LAGGING             | Attempts to reduce lag, but also reduces theme quality |
+| HIDE RECOMMENDATIONS    | Hides the recommended tracks section under playlists |
+| HIDE SPCONNECT BAR      | Hides the green `Playing On` bar under the UI |
+| HIDE FOOTER             | Hides the footer at the bottom of the page |
+| HIDE INSTALL NAGS       | Hides almost all `INSTALL APP` nags |
+| HIDE HELP LINKS         | Hides the `SUPPORT` button in the profile menu |
+| HIDE DJ CARD            | Attempts to remove DJ cards, where possible |
+| HOVERABLE GLOBAL HEADER | Hides the global header until you mouse it |
+| HOVERABLE MINIM. SIDEBAR| Hides the MINIMIZED sidebar until you mouse it |
+| MIN. FLOATING HEADER    | Reduce the floating header to just column info |
+| HIDE NOTIF BELL         | Hides the bell near the profile menu |
+| HIDE PLAYLIST PREVIEW   | Hides the glowing rectangle near play buttons |
+| WS MODE                 | Removes buttons to declutter the UI. Leave disabled |
+| SHOW USELESS THINGS     | Shows the `SETTINGS` button in the profile menu |
+| GENRE CARD HOVER VFX    | Adds a fancy hover effect to genre cards |
+| GRAYSCALE PLAYING GIF   | Makes the animated visualizer thing grayscale |
+| USE MATERIAL SIDEBAR    | Replaces sidebar icons. Scuffed experiment |
+| HOME ITEMS              | Removes various items from the home UI. See below |
+| SCROLLBAR MODE          | Change the visual style of scrollbars. Limited support! |
+| USE CUSTOM COLOURS      | Enables the use the custom accent colour |
+| ACCENT COLOUR           | What colour to replace "Spotify Green" with |
+| INACTIVE TOGGLE COLOUR  | What colour inactive toggles (Shuffle / Repeat) should be |
+| ACTIVE TRACK COLOUR     | Depricated, pending removal |
+| UI BACKGROUND           | Base colour of the UI |
+| POPUP UI COLOUR         | Base colour of popup UIs ("modals") |
+| CHIP COLOUR             | Colour of chip elements |
 
 ## HOME ITEMS
 | PRESET NAME | ITEMS VISIBLE |

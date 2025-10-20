@@ -2,7 +2,7 @@
 @name           Unified Spotify
 @namespace      github.com/MurderAxolotl
 @license        GNU GPLv3
-@version        1.20.0
+@version        1.20.1
 @description    Brings a new, unified UI to Spotify
 @author         Axo
 @preprocessor   stylus
@@ -13,6 +13,7 @@
 @var checkbox hide_footer              "HIDE FOOTER"              1
 @var checkbox hide_install_nags        "HIDE INSTALL NAGS"        0
 @var checkbox not_an_idiot             "HIDE HELP LINKS"          0
+@var checkbox hide_dj_card             "[BETA] HIDE DJ CARD"      0
 @var checkbox minimize_header          "HOVERABLE GLOBAL HEADER"  0
 @var checkbox minimize_sidebar         "HOVERABLE MINIMIZED SIDE" 0
 @var checkbox minimal_floating_header  "MINIMAL FLOATING HEADER"  1
@@ -23,7 +24,6 @@
 @var checkbox enable_genrecard_hover   "GENRE CARD HOVER VFX"     1
 @var checkbox grayscale_player_gif     "GRAYSCALE PLAYING GIF"    1
 @var checkbox replace_favs_icon        "USE MATERIAL SIDEBAR"     0
-@var checkbox hide_dj_card             "[BETA] HIDE DJ CARD"      0
 @var select   home_mode                "HOME ITEMS"               {
 																	"default:EVERYTHING": "default",
 																	"preset_1:MF/SOUNDTRACK/RECENT": "preset_1",
@@ -38,7 +38,7 @@
 @var checkbox use_custom_theme_color   "USE CUSTOM COLORS"        1
 @var color    custom_theme_color       "ACCENT COLOUR"            #9b6ef4
 @var color    custom_inactive_colour   "INACTIVE TOGGLE COLOUR"   rgb(133,133,133)
-@var color    ct_active_song           "ACTIVE TRACK COLOUR"      #1c1e26
+@var color    ct_active_song           "[DISC] ACTIVE TRACK COLOUR"      #1c1e26
 @var color    background_colour        "[BETA] UI BACKGROUND"     hsl(227, 15%, 6%)
 @var color    modal_popup_colour       "[BETA] POPUP UI COLOUR"   hsl(227, 15%, 15%)
 @var color    chip_colour              "[BETA] CHIP COLOUR"       hsl(227, 19%, 11%)
