@@ -368,7 +368,7 @@
 
 	/* Home screen floaty chip container thingymabob */
 	.MViMHJvcIZ6RxUXEeLSf, .CEB3nzyniIFOx1yM1eYy, .aBTcK0jHBextE7fGnKiw {
-		background-color: modal_popup_colour;
+		background-color: background_colour;
 		filter: opacity(1)!important
 	}
 
