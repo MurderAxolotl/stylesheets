@@ -2,7 +2,7 @@
 @name           Unified Spotify
 @namespace      github.com/MurderAxolotl
 @license        GNU GPLv3
-@version        1.19.2
+@version        1.20.0
 @description    Brings a new, unified UI to Spotify
 @author         Axo
 @preprocessor   stylus
@@ -13,6 +13,8 @@
 @var checkbox hide_footer              "HIDE FOOTER"              1
 @var checkbox hide_install_nags        "HIDE INSTALL NAGS"        0
 @var checkbox not_an_idiot             "HIDE HELP LINKS"          0
+@var checkbox minimize_header          "HOVERABLE GLOBAL HEADER"  0
+@var checkbox minimize_sidebar         "HOVERABLE MINIMIZED SIDE" 0
 @var checkbox minimal_floating_header  "MINIMAL FLOATING HEADER"  1
 @var checkbox hide_notification_button "HIDE NOTIF BELL"          1
 @var checkbox hide_playlist_preview    "HIDE PLAYLIST PREVIEW"    1
@@ -720,6 +722,32 @@
 		}
 	}
 
+	if minimize_header {
+		div[id="global-nav-bar"] {
+			height: 0px;
+			opacity: 0;
+			transition: all 0.3s
+		}
+
+		div[id="global-nav-bar"]:hover {
+			height: calc(48px + var(--panel-gap)*2);;
+			opacity: 1;
+			transition: all 0.3s
+		}
+	}
+
+	if minimize_sidebar {
+		div[id="Desktop_LeftSidebar_Id"][style="--left-sidebar-width: 72;"] {
+			--left-sidebar-width: 0!important;
+			transition: all 0.3s!important;
+		}
+
+		div[id="Desktop_LeftSidebar_Id"][style="--left-sidebar-width: 72;"]:hover {
+			--left-sidebar-width: 72!important;
+			transition: all 0.3s!important;
+		}
+	}
+
 	/* Home declutter yee fucking haw */
 	if home_mode == default {
 		/* No actions need to be taken */
@@ -734,7 +762,8 @@
 		section[data-testid="component-shelf"]:has(a[href="/section/0JQ5DAnM3wGh0gz1MXnu3J"]),
 		section[data-testid="component-shelf"][aria-label="Non-stop music based on your favorite songs and artists. Recommended Stations"],
 		section[data-testid="component-shelf"][aria-label="Episodes you might like"],
-		section[data-testid="component-shelf"][aria-label="Brand new music from artists you love. New releases for you"] {
+		section[data-testid="component-shelf"][aria-label="Brand new music from artists you love. New releases for you"],
+ 		section[data-testid="component-shelf"][aria-label*="More like"] {
 			display: none
 		}
 	}
@@ -786,7 +815,8 @@
 		section[data-testid="component-shelf"][aria-label="Inspired by your recent activity Based on your recent listening"],
 		section[data-testid="component-shelf"]:has(a[href="/section/0JQ5DAnM3wGh0gz1MXnu3J"]),
 		section[data-testid="component-shelf"][aria-label="Non-stop music based on your favorite songs and artists. Recommended Stations"],
-		section[data-testid="component-shelf"][aria-label="Brand new music from artists you love. New releases for you"] {
+		section[data-testid="component-shelf"][aria-label="Brand new music from artists you love. New releases for you"],
+ 		section[data-testid="component-shelf"][aria-label*="More like"] {
 			display: none
 		}
 	}
@@ -1090,3 +1120,30 @@
         }
     }
 }
+
+/*
+Experiments :3
+
+Immersive player image experiment
+```
+div[data-testid="now-playing-widget"],
+div[data-testid="CoverSlotCollapsed__container"],
+button[data-testid="cover-art-button"],
+button[data-testid="cover-art-button"] * {
+    overflow: visible!important
+}
+
+button[data-testid="cover-art-button"] img[data-testid="cover-art-image"] {
+    top: calc(calc(-128px - 18px)/2);
+    left: -18px;
+    width: 128px;
+    height: 128px;
+    filter: brightness(0.75) blur(3px);
+}
+
+.f9pLH3HRZQxdDLzNqKjE {
+    overflow: hidden
+}
+```
+
+*/
