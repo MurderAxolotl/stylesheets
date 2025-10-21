@@ -711,7 +711,7 @@
 
 	if hide_dj_card {
 		div[data-carousel-gridlist-item="true"]:has(div[aria-labelledby="card-title-spotify:playlist:37i9dQZF1EYkqdzj48dyYq-6"]),
- 		div[aria-labelledby*="card-title-spotify:playlist:37i9dQZF1EYkqdzj48dyYq-1"],
+ 		div[aria-labelledby*="card-title-spotify:playlist:37i9dQZF1EYkqdzj48dyYq-"],
  		div[data-carousel-gridlist-item="true"]:has(div[aria-labelledby*="card-title-spotify:playlist:37i9dQZF1EYkqdzj48dyYq-1"]) {
 			display: none!important
 		}

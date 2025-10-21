@@ -10,6 +10,13 @@ assignees: MurderAxolotl
 **Describe the issue**
 Please describe the issue (e.g. UI is unthemed, hard to read text, etc)
 
+**Settings**
+Please provide either a written list or a screenshot of your settings. For example:\
+HIDE RECOMMENDATIONS     - ON\
+HIDE SPOTIFY CONNECT BAR - FALSE
+
+...etc
+
 **Screenshots**
 PLEASE ATTACH SCREENSHOTS! Your issue might get ignored if you don't!
 
