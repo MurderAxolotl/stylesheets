@@ -13,9 +13,6 @@ Please use these links to install the styles, GitHub will not provide automatic 
 [Unified Spotify](https://userstyles.world/style/8785/unified-spotify)\
 [Dark Google Account](https://userstyles.world/style/15156/dark-google-accounts)
 
-These themes are no longer maintained:\
-[Simply Dark Drive](https://userstyles.world/style/15155/simply-dark-drive)
-
 | THEMES |
 | :----: |
 | ![Unified Spotify](previews/unified_spotify.png)<br>[Unified Spotify](https://userstyles.world/style/8785/unified-spotify) - more previews [here](docs/unified_spotify.md) |
