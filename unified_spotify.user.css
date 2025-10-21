@@ -2,7 +2,7 @@
 @name           Unified Spotify
 @namespace      github.com/MurderAxolotl
 @license        GNU GPLv3
-@version        1.20.1
+@version        1.20.2
 @description    Brings a new, unified UI to Spotify
 @author         Axo
 @preprocessor   stylus
@@ -13,6 +13,7 @@
 @var checkbox hide_footer              "HIDE FOOTER"              1
 @var checkbox hide_install_nags        "HIDE INSTALL NAGS"        0
 @var checkbox not_an_idiot             "HIDE HELP LINKS"          0
+@var checkbox home_hide_release        "HIDE NEW RELEASE CARD"    0
 @var checkbox hide_dj_card             "[BETA] HIDE DJ CARD"      0
 @var checkbox minimize_header          "HOVERABLE GLOBAL HEADER"  0
 @var checkbox minimize_sidebar         "HOVERABLE MINIMIZED SIDE" 0
@@ -745,6 +746,12 @@
 		div[id="Desktop_LeftSidebar_Id"][style="--left-sidebar-width: 72;"]:hover {
 			--left-sidebar-width: 72!important;
 			transition: all 0.3s!important;
+		}
+	}
+
+	if home_hide_release {
+		section[data-shelf-collapsable="true"]:has(div[class*="PromotionDefaultNativeImage"]) {
+			display: none
 		}
 	}
 

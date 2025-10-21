@@ -4,7 +4,9 @@ First thing's first: this theme will have a LOT of issues if your display langua
 
 ### *I found an issue! What do I do?*
 
-You can either [open an issue](https://github.com/MurderAxolotl/stylesheets/issues/new/choose) or fix it yourself and open a pull request
+First, check if there are any updates available. If there are, install them!
+
+If there are no updates, or the issue isn't fixed, you can either [open an issue](https://github.com/MurderAxolotl/stylesheets/issues/new/choose) or fix it yourself and open a pull request
 
 ### *How do I fix this issue I found?*
 
