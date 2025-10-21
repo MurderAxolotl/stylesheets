@@ -1,6 +1,9 @@
 A repository of our custom stylesheets for various websites
 
-We strongly recommend using these with the Userstyle manager [Stylus](https://github.com/openstyles/stylus), available for Firefox, Chrome, and Edge. We suggest this because we use Stylus' inline JavaScript implementation for some themes.
+You MUST have [Stylus](https://github.com/openstyles/stylus) installed to use these themes. They ***will not function*** without it\
+Alternatives like "Stylish" do not work either, as some features we rely heavily on are only available on Stylus
+
+Stylus is available for Firefox, Chrome, Edge, and many more. Check out their work!
 
 ## INSTALL LINKS
 
