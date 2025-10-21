@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           NoAnnoyance
 @namespace      https://discord.com/app
-@version        4.0
+@version        4.2
 @description    Hides annoying features and Nitro upsells
 @author         MurderAxo
 ==/UserStyle== */
@@ -9,7 +9,7 @@
 
 /**
  * @name NoAnnoyance
- * @version 4.0
+ * @version 4.2
  * @description Hides annoying features and Nitro upsells
  * @author MurderAxo
 **/
@@ -19,7 +19,53 @@
 /* IF YOU INTEND ON USING THIS WITH STYLUS OR ANOTHER USER-STYLE MANAGER, YOU DO NOT NEED TO MODIFY THIS AT ALL */
 /* IF YOU INTEND ON USING THIS WITH VENCORD OR BETTERDISCORD'S BUILT-IN CSS FEATURES, REMOVE THE @-moz-document LINE AND THE LAST "}" */
 
-@-moz-document domain("discord.com") {    
+@-moz-document domain("discord.com") {
+	/* Please note, I barely maintain this theme at all */
+	/* Most of what I wanted to patch out is removable with Vencord lmfao */
+	/* Also, most of my tweaks are in other hyperspecific ucss files :( */
+
+	div[id="popout_12614"] {
+		display: none!important
+	}
+
+	/* Nameplate display for sidebar acc section */
+	div[class*="videoContainer__"] video[src*="https://cdn.discordapp.com/assets/collectibles/nameplates/"] {
+		opacity: 0
+	}
+
+	.container__37e49 {
+		background: none!important;
+		border: none!important;
+		box-shadow: none!important
+	}
+
+	.fitInAccount__4bbc6 {
+		background: none!important
+	}
+
+	/* Commands button */
+	.channelBottomBarArea_f75fb0 .buttonChildrenWrapper_a22cb0 {
+		height: 56px;
+		background: #131416;
+		border: none!important;
+	}
+	.channelBottomBarArea_f75fb0 .fullWidth_a22cb0.hasText_a22cb0 {
+		background: #222
+	}
+
+	/* Orbs payment popup */
+	video[class*="orbCheckoutHeaderVideo"], .root_e5f3a9 div[class*="headerContainer"], .finePrint__553e7 {
+		display: none!important
+	}
+
+	.editor__1b31f, .buttons__74017  {
+		margin-top: 7px!important
+	}
+
+	.wrapper__6e9f8.selected__6e9f8 .childWrapper__6e9f8 {
+		background: none
+	}
+
     /* Hides soundboard button in mini VC panel */
     .actionButtons_e131a9 div .button_e131a9 {
         display: none!important
@@ -27,93 +73,93 @@
     .actionButtons_e131a9 > div {
         display: none
     }
-    
+
     /* No gradient in unjoined VC */
     .gradientBackground__11664 {
         display:none
     }
-	
+
 	/* "Create a thread" suggestion bar */
 	*[class*="threadSuggestionBar_"] {
 	  display:none!important
 	}
-	
+
 	/* Hides the "send a gift" button */
 	*[aria-label="Send a gift"] {
 	  display:none!important
 	}
-	
+
 	/* "Nitro" settings menu */
 	.premiumTab__57bdc, *[aria-label="Nitro"], .premiumTab_ad0913, *[class*="premiumTab_"] {
 		display: none!important
 	}
-	
+
 	/* Social links */
 	.socialLinks_c1fc99 {
 		display: none!important
 	}
-	
+
 	/* "Give your profile a fresh look" */
 	.shopForAllBackgroundImage__009d9 {
 		display: none!important
 	}
-	
+
 	/* Try out Nitro! in profiles */
 	.tryItOutSection__0f9fb {
 		display: none!important
 	}
-	
+
 	/* Get Nitro button */
 	.ctaButton_abf121 {
 	  display: none
 	}
-	
+
 	/* "SHOP" / "NITRO" button in DM list */
 	*[href="/shop"], *[href="/store"] {
 	  display: none!important
 	}
-	
+
 	/* "Make unique profiles for each server" */
 	/* Weird thing about this one. It hides the overlay and border box. If you don't have Nitro, the various input forms will stay greyed out, though */
 	.upsellOverlay__688e8, *[class*="upsellOverlay__"] {
 	  display: none!important
 	}
-	
+
 	/* Emoji upsell */
 	.emojiPickerListWrapper_e15ac7 .premiumUpsell_e1bfd9 {
 	  display: none!important
 	}
-	
+
 	/* Emoji upsell */
 	.categorySectionNitroLocked_cf3b81, .categorySectionNitroLocked__5b287 {
 	  background: none!important
 	}
-	
+
 	/* Emoji upsell */
 	.nitroTopDividerContainer__4c8fd, .upsellContainer__3c02a, .upsellContainer__15a05, .nitroTopDividerContainer_b829ac, .emojiLockIconContainer_ed2f80, .categoryItemLockIcon__64b4b, .categoryItemLockIconContainer__61fa5 {
 		 display: none!important
 	}
-	
+
 	/* VC Experiments Warning */
 	#vc-experiments-warning-card {
 		display: none!important
 	}
-	
+
 	/* Must be Valorent */
 	.container__686c4 {
 		display:none!important
 	}
-  
+
 	/* Should we mark this channel as unread...? */
 	div[class*="notice__"] {
 		display: none!important
 	}
-  
+
 	/* "Play Again" above friends list */
 	.headerContainer_e5a9ed, .container_e5a9ed {
 		display: none!important
 	}
-	
+
 	.itemContainer__675e5, .container__675e5 {
 	  display: none!important
 	  }
@@ -122,5 +168,5 @@
 	button[id*="soundboard-picker-tab"] {
 		display: none!important
 	}
-} 
+}
 /* Using Vencord or BetterDiscord's CSS features? Comment out the line above */
