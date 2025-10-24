@@ -16,7 +16,7 @@ If you have experience with CSS and know how to use devtools, feel free to poke 
 
 | OPTION NAME | DESCRIPTION |
 | :----:      | :----:      |
-| I'M LAGGING             | Attempts to reduce lag, but also reduces theme quality |
+| I'M LAGGING             | Sacrifices visual quality for performance |
 | HIDE RECOMMENDATIONS    | Hides the recommended tracks section under playlists |
 | HIDE SPCONNECT BAR      | Hides the green `Playing On` bar under the UI |
 | HIDE FOOTER             | Hides the footer at the bottom of the page |
@@ -25,6 +25,7 @@ If you have experience with CSS and know how to use devtools, feel free to poke 
 | HIDE DJ CARD            | Attempts to remove DJ cards, where possible |
 | HOVERABLE GLOBAL HEADER | Hides the global header until you mouse it |
 | HOVERABLE MINIM. SIDEBAR| Hides the MINIMIZED sidebar until you mouse it |
+| SMOOTH SIDEBAR RESIZE   | Smoothly resizes the sidebar when you toggle it |
 | MIN. FLOATING HEADER    | Reduce the floating header to just column info |
 | HIDE NOTIF BELL         | Hides the bell near the profile menu |
 | HIDE PLAYLIST PREVIEW   | Hides the glowing rectangle near play buttons |
@@ -32,7 +33,7 @@ If you have experience with CSS and know how to use devtools, feel free to poke 
 | SHOW USELESS THINGS     | Shows the `SETTINGS` button in the profile menu |
 | GENRE CARD HOVER VFX    | Adds a fancy hover effect to genre cards |
 | GRAYSCALE PLAYING GIF   | Makes the animated visualizer thing grayscale |
-| USE MATERIAL SIDEBAR    | Replaces sidebar icons. Scuffed experiment |
+| USE MATERIAL SIDEBAR    | Replaces sidebar icons. See note #1 below |
 | HOME ITEMS              | Removes various items from the home UI. See below |
 | SCROLLBAR MODE          | Change the visual style of scrollbars. Limited support! |
 | USE CUSTOM COLOURS      | Enables the use the custom accent colour |
@@ -56,6 +57,10 @@ If you have experience with CSS and know how to use devtools, feel free to poke 
 | THEO'S PRESET | Made For<br>Soundtrack your day<br>Your top mixes<br>Your playlists |
 
 Please note, this feature only works if your display language is set to English! Leave it set to "Everything" if your display language is NOT English
+
+## IMPORTANT NOTES
+
+[1] - Option only applies when sidebar is in docked / "minimized" form (where you can only see icons)
 
 ## PREVIEW IMAGES
 
