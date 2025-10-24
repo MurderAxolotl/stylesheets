@@ -23,6 +23,7 @@ If you have experience with CSS and know how to use devtools, feel free to poke 
 | HIDE INSTALL NAGS       | Hides almost all `INSTALL APP` nags |
 | HIDE HELP LINKS         | Hides the `SUPPORT` button in the profile menu |
 | HIDE DJ CARD            | Attempts to remove DJ cards, where possible |
+| IMMERSIVE COVER         | Experiment, makes the now playing cover 'pretty' |
 | HOVERABLE GLOBAL HEADER | Hides the global header until you mouse it |
 | HOVERABLE MINIM. SIDEBAR| Hides the MINIMIZED sidebar until you mouse it |
 | SMOOTH SIDEBAR RESIZE   | Smoothly resizes the sidebar when you toggle it |

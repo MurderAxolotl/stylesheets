@@ -2,7 +2,7 @@
 @name           Unified Spotify
 @namespace      github.com/MurderAxolotl
 @license        GNU GPLv3
-@version        1.20.4
+@version        1.20.5
 @description    Brings a new, unified UI to Spotify
 @author         Axo
 @preprocessor   stylus
@@ -15,6 +15,7 @@
 @var checkbox not_an_idiot             "HIDE HELP LINKS"          0
 @var checkbox home_hide_release        "HIDE NEW RELEASE CARD"    0
 @var checkbox hide_dj_card             "[BETA] HIDE DJ CARD"      0
+@var checkbox immersive_song_cover     "[BETA] IMMERSIVE COVER"   0
 @var checkbox minimize_header          "HOVERABLE GLOBAL HEADER"  0
 @var checkbox minimize_sidebar         "HOVERABLE MINIMIZED SIDE" 0
 @var checkbox smooth_sidebar_resize    "SMOOTH SIDEBAR RESIZE"    1
@@ -1122,6 +1123,39 @@
             display: none
         }
     }
+
+	/* Scuff */
+
+	if immersive_song_cover {
+		div[data-testid="now-playing-widget"],
+		div[data-testid="CoverSlotCollapsed__container"],
+		button[data-testid="cover-art-button"],
+		button[data-testid="cover-art-button"] * {
+			overflow: visible!important
+		}
+
+		button[data-testid="cover-art-button"] img[data-testid="cover-art-image"] {
+			top: calc(calc(-128px - 18px)/4);
+			left: -18px;
+			width: 128px;
+			height: 128px;
+			filter: brightness(0.75) blur(3px);
+		}
+
+		.f9pLH3HRZQxdDLzNqKjE {
+			overflow: hidden
+		}
+
+		div[aria-label*="Now playing:"] .V98keH9h9rnepsa_qe_r , div[aria-label*="Now playing:"] button[aria-label="Add to Liked Songs"] {
+			position: relative;
+			left: -68px!important;
+			z-index: 5!important
+		}
+
+		div[aria-label*="Now playing:"] a {
+			text-shadow: 3px 3px 4px black;
+		}
+	}
 }
 
 @-moz-document domain("about-recommendations.spotify.com") {
