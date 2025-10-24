@@ -2,7 +2,7 @@
 @name           Unified Spotify
 @namespace      github.com/MurderAxolotl
 @license        GNU GPLv3
-@version        1.20.5
+@version        1.20.6
 @description    Brings a new, unified UI to Spotify
 @author         Axo
 @preprocessor   stylus
@@ -27,6 +27,7 @@
 @var checkbox enable_genrecard_hover   "GENRE CARD HOVER VFX"     1
 @var checkbox grayscale_player_gif     "GRAYSCALE PLAYING GIF"    1
 @var checkbox replace_favs_icon        "USE MATERIAL SIDEBAR"     0
+@var checkbox i_am_not_a_party_pooper  "ENABLE EASTER EGGS"       1
 @var select   home_mode                "HOME ITEMS"               {
 																	"default:EVERYTHING": "default",
 																	"preset_1:MF/SOUNDTRACK/RECENT": "preset_1",
@@ -1123,6 +1124,21 @@
             display: none
         }
     }
+
+	if i_am_not_a_party_pooper {
+		div[aria-label="Now playing: It's Been So Long by The Living Tombstone"] img {
+			display: block;
+			box-sizing: border-box;
+			background-image: url("https://media1.tenor.com/m/D98SrcyH-fYAAAAd/fnaf-purple-guy-peepaw.gif");
+			background-position: 8px;
+			background-size: 35px 35px;
+			padding-left:342px;
+		}
+
+		div[aria-label="Now playing: It's Been So Long by The Living Tombstone"] * {
+			color: #842593!important
+		}
+	}
 
 	/* Scuff */
 

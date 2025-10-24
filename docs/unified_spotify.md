@@ -35,6 +35,7 @@ If you have experience with CSS and know how to use devtools, feel free to poke 
 | GENRE CARD HOVER VFX    | Adds a fancy hover effect to genre cards |
 | GRAYSCALE PLAYING GIF   | Makes the animated visualizer thing grayscale |
 | USE MATERIAL SIDEBAR    | Replaces sidebar icons. See note #1 below |
+| ENABLE EASTER EGGS      | Enable or disable easter eggs... lame :( |
 | HOME ITEMS              | Removes various items from the home UI. See below |
 | SCROLLBAR MODE          | Change the visual style of scrollbars. Limited support! |
 | USE CUSTOM COLOURS      | Enables the use the custom accent colour |
