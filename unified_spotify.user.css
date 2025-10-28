@@ -2,7 +2,7 @@
 @name           Unified Spotify
 @namespace      github.com/MurderAxolotl
 @license        GNU GPLv3
-@version        1.20.6
+@version        1.20.8
 @description    Brings a new, unified UI to Spotify
 @author         Axo
 @preprocessor   stylus
@@ -373,6 +373,11 @@
 
 	.UnwG2v9ISmcUhnjKj22Y .jVBuxI  {
 		background: chip_colour!important
+	}
+
+	/* Search card top result */
+	div[data-testid="top-result-card"]:hover > div {
+		background: chip_colour
 	}
 
 	/* Home screen carousels */
@@ -1137,6 +1142,33 @@
 
 		div[aria-label="Now playing: It's Been So Long by The Living Tombstone"] * {
 			color: #842593!important
+		}
+
+		div[aria-label*="Toby Fox"] img {
+			display: block;
+			box-sizing: border-box;
+			background-image: url("https://static.wikia.nocookie.net/deltarune/images/b/b7/Annoying_Dog_overworld.gif");
+			background-position: 10px;
+			background-size: 35px 35px;
+			padding-left:65px;
+		}
+
+
+		div[aria-label*="bbno$"] img {
+			display: block;
+			box-sizing: border-box;
+			background-image: url("https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRn9cXBHzaSlPq0qK1BbdH7_MK1LOaCGEu1Ib09zauu7HvBnANMcXJQ-yMWUpCUj73yC_Qkinv9sUhW29VwKAwdelmoXhnQJ0UP6g4lpA");
+			background-position: -3px;
+			background-size: 65px 65px;
+			padding-left:65px;
+			animation: bbno_bouncy 0.45s infinite
+		}
+
+		@keyframes bbno_bouncy {
+			0% {scale:1;}
+			60% {scale:1}
+			80% {scale:1.2}
+			100% {scale: 1}
 		}
 	}
 
