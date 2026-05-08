@@ -2,7 +2,7 @@
 @name           Unified Spotify
 @namespace      github.com/MurderAxolotl
 @license        GNU GPLv3
-@version        1.20.8
+@version        1.20.13
 @description    Brings a new, unified UI to Spotify
 @author         Axo
 @preprocessor   stylus
@@ -14,14 +14,16 @@
 @var checkbox hide_install_nags        "HIDE INSTALL NAGS"        0
 @var checkbox not_an_idiot             "HIDE HELP LINKS"          0
 @var checkbox home_hide_release        "HIDE NEW RELEASE CARD"    0
+@var checkbox hide_notification_button "HIDE NOTIF BELL"          1
+@var checkbox hide_playlist_preview    "HIDE PLAYLIST PREVIEW"    1
+@var checkbox hide_your_updates        "HIDE 'YOUR UPDATES'"      0
+@var checkbox hide_hoverable_infopane  "HIDE RIGHT HOVER PANE"    0
 @var checkbox hide_dj_card             "[BETA] HIDE DJ CARD"      0
 @var checkbox immersive_song_cover     "[BETA] IMMERSIVE COVER"   0
 @var checkbox minimize_header          "HOVERABLE GLOBAL HEADER"  0
 @var checkbox minimize_sidebar         "HOVERABLE MINIMIZED SIDE" 0
 @var checkbox smooth_sidebar_resize    "SMOOTH SIDEBAR RESIZE"    1
 @var checkbox minimal_floating_header  "MINIMAL FLOATING HEADER"  1
-@var checkbox hide_notification_button "HIDE NOTIF BELL"          1
-@var checkbox hide_playlist_preview    "HIDE PLAYLIST PREVIEW"    1
 @var checkbox webshell                 "WS MODE"                  0
 @var checkbox enable_pointless_things  "SHOW USELESS THINGS"      0
 @var checkbox enable_genrecard_hover   "GENRE CARD HOVER VFX"     1
@@ -101,6 +103,39 @@
 		}
 	}
 
+	/* Fixes for the Get Premium page */
+	div[data-testid="premium-page"] div[style*="--background-image-url: url(https://wwwmarketing.scdn.co/static/images/premium/desktop-hero-ltr.png);"] {
+		background: none
+	}
+
+	.k8TsOu0__EkscvNe {
+		border-top: none!important;
+		border-bottom: none!important
+	}
+
+	div[data-testid="comparison-table"] table tr div {
+		background: background_colour;
+	}
+
+	.k8TsOu0__EkscvNe:hover, /* Specifically catches the hover state */
+	div[data-testid="comparison-table"] table tr:hover div {
+		background: background_colour;
+	}
+
+	/*
+	.k8TsOu0__EkscvNe:hover {
+		border-bottom: rgb(217, 218, 220) solid 1.11667px !important;
+		border-top: rgb(217, 218, 220) solid 1.11667px !important;
+	}*/
+
+	div[data-testid="plan-card"] {
+		background: chip_colour
+	}
+
+	/* Get Premium - the hover thing */
+	.heUxs_Jblack1IjL { background: none!important }
+	.heUxs_Jblack1IjL * { background: modal_popup_colour!important ; color: white}
+
     /*   Spotify Web Player   */
     /* Hide premium promotions */
     .html,
@@ -122,8 +157,19 @@
     .b2KVTiBUcXV1kT0OjL2p:hover .ATUzFKub89lzvkmvhpyE:hover {
         transition: all 1s;
     }
+
 	a[href="https://www.spotify.com/premium/?ref=web_loggedin_upgrade_menu"] {
 		display: none!important
+	}
+
+	/* Explore Premium */
+	.global-nav button[title="Upgrade to Premium"] * {
+		background: none!important;
+		color: rgb(215,215,215)
+	}
+	.global-nav button[title="Upgrade to Premium"]:hover * {
+		background: none!important;
+		color: rgb(255,255,255)
 	}
 
     if hide_sb==hidden {
@@ -333,8 +379,8 @@
 		display: none
 	}
 
-	/* Hides the gradient on genre pages */
-	.us5p2PlqI8IJvxWYakKj {
+	/* Hides the gradient on genre pages, artist pages, and playlists */
+	.us5p2PlqI8IJvxWYakKj, .WqX0xAKGPd8kxMke, .Emh6sVCoQHM3KQ4_ {
 		display: none
 	}
 
@@ -586,6 +632,12 @@
 		z-index: 2;
 	}
 
+	/* Queue panel - "About the impact of..." */
+	/* Literally nobody cares Spotify stfu */
+	#queue-panel button:has(span.encore-text-body-small) {
+		display: none!important
+	}
+
 	/* Chips */
 	/* Filter chip */
 	div[id="Desktop_LeftSidebar_Id"] div[aria-label="Filter options"] div[class="react-aria-ListBoxItem"] div[class*="ChipClear__ChipClearComponent"] {
@@ -633,6 +685,18 @@
 	}
 
 	/* Togglable features, most of them anyways. Some are scattered about, good luck! */
+
+	if hide_hoverable_infopane {
+		.LtqMCWXd5Nkemkym {
+			display: none
+		}
+	}
+
+	if hide_your_updates {
+		.wwh7lpPwfhcu8qTg {
+			display: none
+		}
+	}
 
 	if minimal_floating_header {
 
