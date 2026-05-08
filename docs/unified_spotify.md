@@ -23,13 +23,15 @@ If you have experience with CSS and know how to use devtools, feel free to poke 
 | HIDE INSTALL NAGS       | Hides almost all `INSTALL APP` nags |
 | HIDE HELP LINKS         | Hides the `SUPPORT` button in the profile menu |
 | HIDE DJ CARD            | Attempts to remove DJ cards, where possible |
+| HIDE NOTIF BELL         | Hides the bell near the profile menu |
+| HIDE PLAYLIST PREVIEW   | Hides the glowing rectangle near play buttons |
+| HIDE YOUR UPDATES       | Hides Your Updates section in profile dropdown |
+| HIDE RIGHT HOVER PANE   | Hides the hover area on the right side of the UI | 
 | IMMERSIVE COVER         | Experiment, makes the now playing cover 'pretty' |
 | HOVERABLE GLOBAL HEADER | Hides the global header until you mouse it |
 | HOVERABLE MINIM. SIDEBAR| Hides the MINIMIZED sidebar until you mouse it |
 | SMOOTH SIDEBAR RESIZE   | Smoothly resizes the sidebar when you toggle it |
 | MIN. FLOATING HEADER    | Reduce the floating header to just column info |
-| HIDE NOTIF BELL         | Hides the bell near the profile menu |
-| HIDE PLAYLIST PREVIEW   | Hides the glowing rectangle near play buttons |
 | WS MODE                 | Removes buttons to declutter the UI. Leave disabled |
 | SHOW USELESS THINGS     | Shows the `SETTINGS` button in the profile menu |
 | GENRE CARD HOVER VFX    | Adds a fancy hover effect to genre cards |
