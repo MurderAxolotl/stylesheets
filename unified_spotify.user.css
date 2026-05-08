@@ -2,7 +2,7 @@
 @name           Unified Spotify
 @namespace      github.com/MurderAxolotl
 @license        GNU GPLv3
-@version        1.20.13
+@version        1.20.14
 @description    Brings a new, unified UI to Spotify
 @author         Axo
 @preprocessor   stylus
@@ -212,13 +212,13 @@
 	}
 
     /* Lyrics */
-    ._EzvsrEJ47TI8hxzRoKx, .RFThkjLuWfPUO9shrMOZ {
+    ._EzvsrEJ47TI8hxzRoKx, .RFThkjLuWfPUO9shrMOZ, .nIWoY9ePLgi1am10 {
         background: background_colour!important
     }
 
 	/* Lyrics - separate div which has the variables. For some GOD DAMN REASON. ***AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA*** */
 	if use_custom_theme_color {
-		.lofIAg8Ixko3mfBrbfej {
+		.lofIAg8Ixko3mfBrbfej, .WnslfFBWTgOIUgNH {
 			--lyrics-color-active: custom_theme_color!important;
 			--lyrics-color-messaging: custom_theme_color!important;
 			--lyrics-color-inactive: hsl(custom_theme_color) - hsl(0,45,35)!important;
